@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './Root';
-import configureStore from './redux/store/configure-store';
+import store from './redux/store';
 import { INITIAL_STATE } from './common/app-const';
 
 // Require globals
-import 'babel-polyfill';
+import 'babel-polyfill';/*dont use, use in webpack*/
 import './scss/style.scss';
 import 'lodash';
 
-const store = configureStore(INITIAL_STATE);
+//const store = configureStore(INITIAL_STATE);
 
 ReactDOM.render(
     <AppContainer>

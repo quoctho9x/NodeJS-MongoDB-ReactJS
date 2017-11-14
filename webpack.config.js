@@ -76,12 +76,15 @@ const config = {
 };
 
 if (NodeUtils.isProduction()) {
-    config.entry = './src/Bootstrap';
+    config.entry =  [
+        'babel-polyfill',
+        './src/Bootstrap'
+    ];
     config.plugins.push(new UglifyJSPlugin());
-
 } else {
     config.devtool = 'eval';
     config.entry = [
+        'babel-polyfill',
         'react-hot-loader/patch',
         `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
         'webpack/hot/only-dev-server',

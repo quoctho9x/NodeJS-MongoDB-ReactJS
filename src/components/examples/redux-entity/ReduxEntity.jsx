@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Entity from './Entity';
-import { Flexbox } from '../../common';
+import { Flexbox, Bullet } from '../../common';
 import { ENTITY_KEY } from '../../../common/app-const';
 import { fetchFoo, fetchBar, fetchBaz } from '../../../redux/actions/thunks';
 import { connect } from 'react-redux';
@@ -23,6 +23,7 @@ function ReduxEntity ({
     return (
         <Flexbox column={true}>
             <div>
+                <Bullet />
                 <i className="fa fa-angle-right" style={{ fontWeight: 700 }}/>&nbsp;
                 Utilizes&nbsp;<a href="https://github.com/mikechabot/redux-entity">redux-entity</a>&nbsp;for domain entity management
             </div>

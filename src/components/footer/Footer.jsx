@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Flexbox } from './common';
+import { Flexbox } from '../common/index';
 
 export default function Footer () {
     return (

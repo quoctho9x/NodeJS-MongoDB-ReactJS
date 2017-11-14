@@ -1,11 +1,17 @@
-import NodeService from '../../services/common/node-service';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import rootReducer from '../reducers/root-reducer';
 
 /**
- * Determine which Redux store to provide based on the
- * Environment Type of Node.js
- * @return {object}    Redux store
+ * Development Redux store
+ * @param  {object} initialState    Initial state of the Redux store
+ * @return {object}                 Redux store
  */
-
-export default NodeService.isProduction()
-    ? require('./configure-store.prod').default
-    : require('./configure-store.dev').default;
+export default function configureStore (initialState) {
+    return createStore(
+        rootReducer,
+        initialState,
+        applyMiddleware(thunk, logger)
+    );
+}

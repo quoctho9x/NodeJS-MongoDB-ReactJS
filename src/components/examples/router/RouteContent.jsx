@@ -45,7 +45,7 @@ RouteContent.propTypes = {
     counter: PropTypes.number.isRequired,
     path   : PropTypes.string
 };
-
+/*day la de map state to props*/
 export default connect(
     (state, ownProps) => {
         return {

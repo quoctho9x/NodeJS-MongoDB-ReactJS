@@ -19,10 +19,10 @@ class Entity extends React.Component {
         if (_isEmpty(entity)) {
             return this._renderEntityDoesNotExist(name);
         }
-
         const { isFetching, data, error } = entity;
 
         if (error) {
+            /*truong hop bi loi*/
             return (
                 <div>
                     <div>Failed to fetch <code>{name}</code> due to <code>{ error.toString() }</code></div>
@@ -32,10 +32,11 @@ class Entity extends React.Component {
         }
 
         return (
+            /*truong hop binh thuong*/
             <div style={style.container}>
-                { this._renderContent(name, entity)}
-                { this._renderLoadingIndicator(isFetching) }
-                { this._renderButtons(isFetching, data) }
+                { this._renderContent(name, entity)}{/* du lieu tren cac button*/}
+                { this._renderLoadingIndicator(isFetching) }{/* icon loading khi fetch data*/}
+                { this._renderButtons(isFetching, data) }{/* 3 cai nut*/}
             </div>
         );
     }

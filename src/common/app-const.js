@@ -15,7 +15,7 @@ export const INITIAL_STATE = {
     },
     counter: 0
 };
-
+//day la de cho cac tabs lau du lieu
 export const ROUTES = [
     {
         path  : null,
@@ -31,5 +31,10 @@ export const ROUTES = [
         path  : '/reset',
         label : 'Reset',
         action: reset
+    },
+    {
+        path  : '/moitao',
+        label : 'moitao',
+        action: increment
     }
 ];

@@ -1,6 +1,6 @@
 {
   "example": {
-    "port": 3060,
-    "baseUrl": "http://localhost:3020/"
+    "port": 8888,
+    "baseUrl": "http://localhost:8888/"
   }
 }
