@@ -30,7 +30,7 @@ if (NodeService.isProduction()) {
     });
 
     // Open socket
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT || PORT, () => {
         console.log(`Started Express server on port ${PORT}`);
     });
 } else {
