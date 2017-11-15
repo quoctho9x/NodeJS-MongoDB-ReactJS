@@ -1,11 +1,14 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {requestApiData} from '../../redux/actions/actions';
-
+import {requestApiData,requestCounter} from '../../redux/actions/actions';
+import { Button } from 'react-bootstrap';
 class Home extends React.Component {
     componentDidMount () {
         this.props.requestApiData();
+    }
+    handleCounter(){
+        this.props.requestCounter(10);
     }
     person = (x, i) =>
         <div key={x.id.value}>
@@ -23,10 +26,16 @@ class Home extends React.Component {
 
     render () {
         const { results = [] } = this.props.data;
-        return results.length ? <h1>{results.map(this.person)}</h1> : <h1>loading...</h1>;
+        return(
+            <div className="center">
+                {results.length ? <h1>{results.map(this.person)}</h1> : <h1>loading...</h1>}
+                <Button onClick={this.handleCounter.bind(this)}>Default button</Button>
+                <h1>{this.props.counter}</h1>
+            </div>
+        ) ;
     }
 }
-const mapStateToProps = state => ({data: state.data});
-const mapDispatchToProps = dispatch => bindActionCreators({requestApiData}, dispatch);
+const mapStateToProps = state => ({data: state.data,counter:state.counter});
+const mapDispatchToProps = dispatch => bindActionCreators({requestApiData,requestCounter}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,9 +1,11 @@
 import { RECEIVE_API_DATA } from '../actions/actions';
-
-export default (state = {}, { type, data = '' }) => {
-    switch (type) {
+export const INITIAL_STATE = {
+    data: {}
+};
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
         case RECEIVE_API_DATA:
-            return data;
+            return action.data;
         default:
             return state;
     }
