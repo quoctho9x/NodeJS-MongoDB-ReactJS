@@ -41,7 +41,7 @@ if (NodeService.isProduction()) {
     new WebpackDevServer(webpack(config), {
         hot               : true,
         historyApiFallback: true
-    }).listen(PORT, 'localhost', error => {
+    }).listen(process.env.PORT || PORT, 'localhost', error => {
         console.log(error || `Started WebpackDevServer on port ${PORT}`);
     });
 }
