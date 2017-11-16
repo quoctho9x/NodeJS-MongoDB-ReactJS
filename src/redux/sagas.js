@@ -19,13 +19,8 @@ function* counter (action) {
         console.log(e);
     }
 }
-/*
-  Alternatively you may use takeLatest.
 
-  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
-  dispatched while a fetch is already pending, that pending fetch is cancelled
-  and only the latest one will be run.
-*/
+// the 'watcher' - on every 'API_BUTTON_CLICK' action, run our side effect
 export default function* mySaga () {
     yield takeLatest(REQUEST_API_DATA, getApiData);
     yield takeLatest(REQUEST_COUNTER, counter);

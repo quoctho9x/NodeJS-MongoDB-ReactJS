@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './Root';
-import store from './redux/store';
+import store from './redux/store/configure-store';
 
 // Require globals
 import 'babel-polyfill';/*dont use, use in webpack*/
