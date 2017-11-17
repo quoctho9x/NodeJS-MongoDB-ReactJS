@@ -14,7 +14,7 @@ function * getApiData (action) {
         console.log(e);
     }
 }
-function* counter (action) {
+function * counter (action) {
     try {
         // const data = yield call(fetchData);
         yield put(receiveCounter(action.value));
@@ -24,15 +24,15 @@ function* counter (action) {
 }
 
 // the 'watcher' - on every 'API_BUTTON_CLICK' action, run our side effect
-export default function* mySaga () {
+export default function * mySaga () {
     yield takeLatest(REQUEST_API_DATA, getApiData);
     yield takeLatest(REQUEST_COUNTER, counter);
     /* The saga is waiting for a action called LOAD_DASHBOARD to be activated */
     yield [
         fork(loadUser),
-        takeLatest('LOAD_DASHBOARD', loadDashboardSequenced),
-        takeLatest('LOAD_DASHBOARD_NON_SEQUENCED', loadDashboardNonSequenced),
-        takeLatest('LOAD_DASHBOARD_NON_SEQUENCED_NON_BLOCKING', loadDashboardNonSequencedNonBlocking),
+        takeEvery('LOAD_DASHBOARD', loadDashboardSequenced),
+        takeEvery('LOAD_DASHBOARD_NON_SEQUENCED', loadDashboardNonSequenced),
+        takeEvery('LOAD_DASHBOARD_NON_SEQUENCED_NON_BLOCKING', loadDashboardNonSequencedNonBlocking),
         fork(isolatedForecast),
         fork(isolatedFlight)
     ];

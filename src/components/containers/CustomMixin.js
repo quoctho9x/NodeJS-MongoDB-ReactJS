@@ -14,6 +14,7 @@ let Mixin = InnerComponent => class extends React.Component {
         /* start the loading */
         this.props.loadDashboard();
     }
+
     render () {
         return (<InnerComponent
             {...this.state}

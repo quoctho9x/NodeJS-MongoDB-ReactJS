@@ -1,5 +1,5 @@
-import { call, put, select, take} from 'redux-saga/effects';
-import {loadDeparture, loadFlight, loadForecast } from './apiCalls';
+import { call, put, select, take } from 'redux-saga/effects';
+import { loadDeparture, loadFlight, loadForecast } from './apiCalls';
 
 export const getUserFromState = (state) => state.user;
 

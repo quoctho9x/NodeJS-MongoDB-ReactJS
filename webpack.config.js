@@ -76,11 +76,13 @@ const config = {
 };
 
 if (NodeUtils.isProduction()) {
-    config.entry =  [
+    config.entry = [
         'babel-polyfill',
         './src/Bootstrap'
     ];
-    config.plugins.push(new UglifyJSPlugin());
+    config.plugins.push(
+        new UglifyJSPlugin()
+    );
 } else {
     config.devtool = 'eval';
     config.entry = [

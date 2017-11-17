@@ -3,14 +3,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Dashboard from '../Dashboard';
 import Mixin from './CustomMixin';
-
-const Panel = (props) => {
-    return (
-        <div className="col-md-4">
-            <Dashboard title="Panel Sequenced" user={props.user} data={props.dashboard} />
-        </div>
-    );
-};
+import {bindActionCreators} from 'redux';
+class Panel extends React.Component {
+    componentDidMount () {
+        this.props.loadDashboard();
+    }
+    render () {
+        return (
+            <div className="col-md-4">
+                <Dashboard title="Panel Sequenced" user={this.props.user} data={this.props.dashboard}/>
+            </div>
+        );
+    }
+}
 
 let PanelMixed = Mixin(Panel);
 
@@ -19,12 +24,9 @@ const mapStateToProps = (state) => ({
     dashboard: state.dashboard
 });
 
-function mapDispatchToProps (dispatch) {
-    return {
-        loadDashboard: function () {
-            return dispatch({type: 'LOAD_DASHBOARD'});
-        }
-    };
-}
+const mapDispatchToProps = dispatch => bindActionCreators({
+    loadDashboard: function () {
+        return dispatch({type: 'LOAD_DASHBOARD'});
+    }}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(PanelMixed);

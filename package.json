@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
-  "version": "2.5.0",
-  "description": "A slightly opinionated yet dead simple boilerplate for ReactJS",
+  "name": "Nodejs-Mongodb-Reactjs",
+  "version": "1.0.0",
+  "description": "A simple Nodejs-Mongodb-Reactjs",
   "scripts": {
     "start": "npm run prod",
     "dev": "npm run build:dev && npm run start-dev-server",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikechabot/react-boilerplate.git"
+    "url": "git+https://github.com/quoctho9x/NodeJS-MongoDB-ReactJS.git"
   },
   "bugs": {
-    "url": "https://github.com/mikechabot/react-boilerplate/issues"
+    "url": "https://github.com/quoctho9x/NodeJS-MongoDB-ReactJS/issues"
   },
   "dependencies": {
     "axios": "^0.16.2",
