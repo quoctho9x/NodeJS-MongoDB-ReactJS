@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 export default function Topics ({match}) {
     return (
-        <div>
+        <main>
             <h2>Topics</h2>
             <ul>
                 <li>
@@ -30,7 +30,7 @@ export default function Topics ({match}) {
             <Route exact path={match.url} render={() => (
                 <h3>Please select a topic.</h3>
             )}/>
-        </div>
+        </main>
     );
 }
 

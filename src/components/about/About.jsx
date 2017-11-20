@@ -3,9 +3,9 @@ import App from '../containers/App';
 
 export default function About () {
     return (
-        <div>
+        <main>
             <h1>this is page about</h1>
             <App/>
-        </div>
+        </main>
     );
 }

@@ -12,6 +12,7 @@ class Home extends React.Component {
     }
     person = (x, i) =>
         <div key={x.id.value}>
+            <h1>{JSON.stringify(x.name)}</h1>
             <h1>
                 {x.gender}
             </h1>
@@ -27,11 +28,11 @@ class Home extends React.Component {
     render () {
         const { results = [] } = this.props.data;
         return(
-            <div className="center">
+            <main className="center">
                 {results.length ? <h1>{results.map(this.person)}</h1> : <h1>loading...</h1>}
                 <Button onClick={this.handleCounter.bind(this)}>Default button</Button>
                 <h1>{this.props.counter}</h1>
-            </div>
+            </main>
         ) ;
     }
 }

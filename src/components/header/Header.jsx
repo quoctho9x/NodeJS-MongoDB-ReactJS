@@ -10,7 +10,7 @@ export default function Header () {
     return (
         <div style={{textAlign: 'center'}}>
             <header>
-                <Navbar inverse collapseOnSelect>
+                <Navbar collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
                             <Link to="/">Home</Link>
@@ -32,10 +32,24 @@ export default function Header () {
                                 <MenuItem divider />
                                 <MenuItem eventKey={3.3}>Separated link</MenuItem>
                             </NavDropdown>
+                            <LinkContainer to="/news">
+                                <NavItem eventKey={4}>News</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to="/contacts">
+                                <NavItem eventKey={5}>Contacts</NavItem>
+                            </LinkContainer>
                         </Nav>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#">Link Right</NavItem>
-                            <NavItem eventKey={2} href="#">Link Right</NavItem>
+                            <LinkContainer to="/login">
+                                <NavItem eventKey={6}>
+                                    <span className="glyphicon glyphicon-user" aria-hidden="true"/>
+                                </NavItem>
+                            </LinkContainer>
+                            <LinkContainer to="/cart">
+                                <NavItem eventKey={6}>
+                                    <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"/>
+                                </NavItem>
+                            </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
