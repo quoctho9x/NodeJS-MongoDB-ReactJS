@@ -3,6 +3,9 @@
 @import 'contact_page';
 @import 'footer_page';
 
+/*import slick slider*/
+@import 'slides';
+
 .loading:nth-of-type(odd) {
   color: red;
 }

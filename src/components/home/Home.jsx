@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {requestApiData,requestCounter} from '../../redux/actions/actions';
 import { Button } from 'react-bootstrap';
+import SliderMain from '../sliders/slider_main';
 class Home extends React.Component {
     componentDidMount () {
         this.props.requestApiData();
@@ -12,7 +13,7 @@ class Home extends React.Component {
     }
     person = (x, i) =>
         <div key={x.id.value}>
-            <h1>{JSON.stringify(x.name)}</h1>
+            {/*<h1>{JSON.stringify(x.name)}</h1>*/}
             <h1>
                 {x.gender}
             </h1>
@@ -29,6 +30,9 @@ class Home extends React.Component {
         const { results = [] } = this.props.data;
         return(
             <main className="center">
+                <section className="slider-main container">
+                    <SliderMain/>
+                </section>
                 {results.length ? <h1>{results.map(this.person)}</h1> : <h1>loading...</h1>}
                 <Button onClick={this.handleCounter.bind(this)}>Default button</Button>
                 <h1>{this.props.counter}</h1>

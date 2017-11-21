@@ -1,0 +1,23 @@
+.slick-dots{
+  bottom: 10px;
+  width:auto;
+  display: inline-block !important;
+  margin: auto;
+  transform: translateX(-50%);
+}
+.item img{
+  width: 100%;
+  height: auto;
+  position: relative;
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
