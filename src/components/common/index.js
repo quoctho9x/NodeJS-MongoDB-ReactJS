@@ -4,4 +4,5 @@ export { default as Not404 } from './404';
 export { default as HeroHeading } from './display/HeroHeading';
 export { default as LoadingIndicator } from './LoadingIndicator';
 export { default as Flexbox } from './Flexbox';
-export { default as Panel } from './display/Panel';
+export { default as TitleBlock } from './display/TitleBlock';
+export { default as BtnViewMore } from './BtnViewMore';
