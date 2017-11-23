@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
-import ModalView from './modal';
+import ModalView from './template/modal';
 class Products extends React.Component {
     constructor (props) {
         super(props);

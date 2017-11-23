@@ -1,8 +1,9 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {requestApiData, requestCounter} from '../../redux/actions/actions';
+import {requestApiData, requestCounter} from '../../../redux/actions/actions';
 import {ButtonToolbar, Button, Modal} from 'react-bootstrap';
+import DetailItem from './detail_item';
 
 export default class ModalView extends React.Component {
     constructor (props) {
@@ -43,9 +44,8 @@ export default class ModalView extends React.Component {
                             <h4>Wrapped Text</h4>
                         </div>
                         <div className="col-md-7">
-                            <p>cumque dolorem.</p>
+                            <DetailItem/>
                         </div>
-
 
                     </Modal.Body>
                 </Modal>
@@ -53,7 +53,7 @@ export default class ModalView extends React.Component {
         );
     }
 }
-/*const mapStateToProps = state => ({data: state.data, counter: state.counter});
+/* const mapStateToProps = state => ({data: state.data, counter: state.counter});
 const mapDispatchToProps = dispatch => bindActionCreators({requestApiData, requestCounter}, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalView);*/
+export default connect(mapStateToProps, mapDispatchToProps)(ModalView); */
