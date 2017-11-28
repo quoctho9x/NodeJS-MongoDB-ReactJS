@@ -29,6 +29,11 @@ main{
     min-height: 80vh;
 }
 
+a:hover, a:focus {
+    color: #58b3f0;
+    text-decoration: none;
+}
+
 /*===========================
     panel-login-register
 ===========================*/

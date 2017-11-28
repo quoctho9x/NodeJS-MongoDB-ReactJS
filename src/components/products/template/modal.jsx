@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {requestApiData, requestCounter} from '../../../redux/actions/actions';
 import {ButtonToolbar, Button, Modal} from 'react-bootstrap';
 import DetailItem from './detail_item';
+import Parent from '../../sliders/slider_quickview';
 
 export default class ModalView extends React.Component {
     constructor (props) {
@@ -40,8 +41,8 @@ export default class ModalView extends React.Component {
                         <Modal.Title id="contained-modal-title-lg">Nike Free Train Versatility</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="col-ms-12 col-md-5 clearfix">
-                            <h4>Wrapped Text</h4>
+                        <div className="col-ms-12 col-md-5 clearfix pd-none">
+                            <Parent/>
                         </div>
                         <div className="col-md-7">
                             <DetailItem/>

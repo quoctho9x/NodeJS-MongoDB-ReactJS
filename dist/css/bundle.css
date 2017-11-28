@@ -2,6 +2,10 @@
 main {
   min-height: 80vh; }
 
+a:hover, a:focus {
+  color: #58b3f0;
+  text-decoration: none; }
+
 /*===========================
     panel-login-register
 ===========================*/
@@ -173,6 +177,9 @@ main {
   text-align: center;
   margin: auto; }
 
+.pd-none {
+  padding: 0px; }
+
 /*===========================
         Contact_page
 ===========================*/
@@ -297,6 +304,7 @@ main {
         Footer_page
 ===========================*/
 .myfooter {
+  margin-top: 50px;
   padding: 50px 0 20px 0;
   background-color: #35404f;
   color: #878c94; }
@@ -804,12 +812,12 @@ button.btn-style-add:hover {
   margin: auto;
   transform: translateX(-50%); }
 
-.item img {
+.item img, .slick-slide img {
   width: 100%;
   height: auto;
   position: relative;
   min-height: 1px;
-  float: left;
+  /* float: left;*/
   -webkit-backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -828,6 +836,142 @@ button.btn-style-add:hover {
   margin: 10px;
   padding: 2%;
   position: relative; }
+
+/*=======slider_quickview========*/
+.slick-slide {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  display: table !important; }
+
+.slick-slide h3 {
+  margin: 10px;
+  padding: 10px;
+  background: blue;
+  font-size: 15px; }
+
+.box-article-index {
+  margin: 10px; }
+  .box-article-index .article-image-index {
+    position: relative;
+    overflow: hidden;
+    min-height: 270px;
+    max-height: 270px;
+    display: flex;
+    align-items: center; }
+    .box-article-index .article-image-index:hover img {
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1); }
+    .box-article-index .article-image-index img {
+      -webkit-transition: all 1s ease 0s;
+      -moz-transition: all 1s ease 0s;
+      -o-transition: all 1s ease 0s;
+      -ms-transition: all 1s ease 0s;
+      transition: all 1s ease 0s; }
+  .box-article-index .article-description-index .article-title {
+    font-size: 15px;
+    margin: 5px 0;
+    font-weight: 600;
+    overflow: hidden;
+    height: 41px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    display: -moz-box;
+    -moz-line-clamp: 2;
+    -moz-box-orient: vertical;
+    background: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: left; }
+  .box-article-index .article-description-index .article-excerpt-index {
+    font-size: 14px;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    display: -moz-box;
+    -moz-line-clamp: 4;
+    -moz-box-orient: vertical;
+    color: #333;
+    text-align: left; }
+
+/*=======end slider_quickview========*/
+/*=======slider_trademark========*/
+.slider_trademark .slick-slide:hover img {
+  opacity: 1; }
+
+.slider_trademark .slick-slide img {
+  float: none;
+  width: auto;
+  margin: 0 auto;
+  opacity: 0.3; }
+
+/*=======end slider_trademark========*/
+.slick-center {
+  border: 1px solid red; }
+
+.slick-next:before, .slick-prev:before {
+  color: red;
+  opacity: 0.5 !important; }
+
+.slick-next:hover:before, .slick-prev:hover:before {
+  opacity: 0.8 !important; }
+
+.hide {
+  display: none; }
+
+/*.footer1 {
+  height: 100px;
+  color: white;
+  background: blue;
+}
+
+.footer2 {
+  height: 100px;
+  color: white;
+  background: green;
+}*/
+.footer-container {
+  width: 300px;
+  height: 300px;
+  margin: auto; }
+  .footer-container .item-header {
+    padding: 0px; }
+    .footer-container .item-header img {
+      width: 300px;
+      height: 300px; }
+
+.slider_quickview {
+  width: 250px;
+  margin: auto; }
+  .slider_quickview .slick-slide {
+    margin: 5px; }
+
+.example-enter {
+  position: absolute;
+  /* top: 0;
+  left: 0;
+  right: 0;*/
+  opacity: 0.01; }
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity .3s ease-in; }
+
+.example-leave {
+  position: absolute;
+  /*top: 0;
+  left: 0;
+  right: 0;*/
+  opacity: 1; }
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity .3s ease-in; }
 
 /*===========================
      end custom slick
