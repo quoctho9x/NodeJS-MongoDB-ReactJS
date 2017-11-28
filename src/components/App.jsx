@@ -10,33 +10,35 @@ import Cart from './cart/cart';
 import Login from './login/login';
 import Home from './home/Home';
 import Footer from './footer/Footer';
+import Burgermenu from './header/burger-menu';
 import { Bullet, Panel, Flexbox, Not404 } from './common';
 
 function App () {
     return (
         <div style={{height: '100%', width: '100%'}}>
-            <Header />
-            <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/topics" component={Topics}/>
-                <Route path="/news" component={News}/>
-                <Route path="/cart" component={Cart}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/contacts" component={Contacts}/>
+            <Burgermenu>
+                <Header />
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/about" component={About}/>
+                    <Route path="/topics" component={Topics}/>
+                    <Route path="/news" component={News}/>
+                    <Route path="/cart" component={Cart}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/contacts" component={Contacts}/>
+                    <Route component={Not404}/>
+                </Switch>
+                <Flexbox
+                    hAlignCenter={true}
+                    width="100%"
+                    style={{
+                        flexWrap: 'wrap',
+                        minWidth: 500
+                    }}>
 
-                <Route component={Not404}/>
-            </Switch>
-            <Flexbox
-                hAlignCenter={true}
-                width="100%"
-                style={{
-                    flexWrap: 'wrap',
-                    minWidth: 500
-                }}>
-
-            </Flexbox>
-            <Footer/>
+                </Flexbox>
+                <Footer/>
+            </Burgermenu>
         </div>
     );
 }
