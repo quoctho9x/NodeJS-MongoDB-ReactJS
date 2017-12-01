@@ -12,7 +12,7 @@ export default class Login extends React.Component {
     }
     render () {
         return (
-            <main>
+            <main className="main-contain">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 col-md-offset-3">

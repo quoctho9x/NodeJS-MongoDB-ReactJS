@@ -5,3 +5,9 @@
 .pd-none{
   padding: 0px;
 }
+@mixin transition($time :1s) {
+  transition: all $time;
+  -moz-transition: all $time;
+  -webkit-transition: all $time;
+  -o-transition: all $time;
+}

@@ -34,7 +34,7 @@ class Home extends React.Component {
     render () {
         const { results = [] } = this.props.data;
         return(
-            <main >
+            <main className="main-contain" >
                 <section className="slider-main container center">
                     <SliderMain/>
                 </section>

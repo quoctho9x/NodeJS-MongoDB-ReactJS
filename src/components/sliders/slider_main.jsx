@@ -9,6 +9,8 @@ class SliderMain extends React.Component {
     componentDidMount () {
     }
     render () {
+        let bg1 = {backgroundImage: `url(${image1})`};
+        let bg2 = {backgroundImage: `url(${image2})`};
         let settings = {
             dots          : true,
             arrows        : false,
@@ -19,8 +21,8 @@ class SliderMain extends React.Component {
         };
         return (
             <Slider {...settings}>
-                <div className="item"><a href="javascript:void(0);"><img src={image1} alt=""/></a></div>
-                <div className="item"><a href="javascript:void(0);"><img src={image2} alt=""/></a></div>
+                <div className="item"><a href="javascript:void(0);"><div className="image-slider-main" style={bg1}></div></a></div>
+                <div className="item"><a href="javascript:void(0);"><div className="image-slider-main" style={bg2}></div></a></div>
             </Slider>
         );
     }

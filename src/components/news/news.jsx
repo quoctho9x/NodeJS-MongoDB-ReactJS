@@ -4,7 +4,7 @@ import classNames from 'classnames';
 export default class News extends React.Component {
     render () {
         return (
-            <main>
+            <main className="main-contain">
                 <Demo menus={menus} />
             </main>
         );

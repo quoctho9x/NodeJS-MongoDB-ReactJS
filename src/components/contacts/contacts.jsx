@@ -7,7 +7,7 @@ export default class Contacts extends React.Component {
 
     render () {
         return (
-            <main>
+            <main className="main-contain">
                 <div className="container animated fadeIn">
 
                     <div className="row">

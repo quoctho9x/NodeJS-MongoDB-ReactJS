@@ -25,8 +25,9 @@ $font-stack: 'Raleway', 'Arial', sans-serif;
     border: 1px solid $color;
 }
 
-main{
+.main-contain{
     min-height: 80vh;
+    padding-top: 115px;
 }
 
 a:hover, a:focus {

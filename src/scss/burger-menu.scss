@@ -1,47 +1,109 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
-    position: fixed;
-    width: 36px;
-    height: 30px;
-    left: 36px;
-    top: 15px;
+  position: fixed;
+  width: 20px;
+  height: 15px;
+  left: 30px;
+  top: 20px;
+  display: none;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-    background: #373a47;
+  background: #373a47;
 }
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-    height: 24px;
-    width: 24px;
+  height: 24px;
+  width: 24px;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-    background: #bdc3c7;
+  background: #bdc3c7;
 }
 
 /* General sidebar styles */
 .bm-menu {
-    background: #373a47;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
+  background: #373a47;
+  font-size: 1.15em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-    fill: #373a47;
+  fill: #373a47;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-    color: #b8b7ad;
-    padding: 0.8em;
+  color: #b8b7ad;
 }
 
 /* Styling of overlay */
 .bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
+.icon-control-header{
+  li{
+    min-height: 50px;
+    display: inline-block;
+    a{
+      padding: 15px;
+      display: block;
+      color: #777;
+      &:hover{
+      color: #555;
+    }
+    }
+  }
+}
+
+/* menu mobile*/
+#menu-mobile {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  .account_mobile {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+  }
+  .account_text {
+    padding: 0px;
+    li{
+      display: inline-block;
+      color: #fff;
+    }
+  }
+  .menu-mobile{
+    padding:0px;
+    li{
+      float: left;
+      position: relative;
+      width: 100%;
+      a {
+        color: #fff;
+        padding: 10px;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: rgba(85, 85, 85, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .submenu-level1-children {
+    background: #212529;
+    width: 100%;
+    position: static;
+    border-radius: 0;
+    padding: 0 0 0 15px;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+/*end menu mobile*/
+/*==========end menu main========*/

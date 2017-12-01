@@ -5,6 +5,7 @@
 @import 'products';
 @import 'detail_item';
 @import 'burger-menu';
+@import 'responsive';
 
 /*import slick slider*/
 @import 'slides';
@@ -21,6 +22,10 @@
   animation: ellipsis steps(4,end) 900ms infinite;
   content: "\2026"; /* ascii code for the ellipsis character */
   width: 0px;
+}
+ol, ul{
+  margin: 0px;
+  list-style-type: none;
 }
 
 @keyframes ellipsis {

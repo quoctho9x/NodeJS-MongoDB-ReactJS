@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 export default function Topics ({match}) {
     return (
-        <main>
+        <main className="main-contain">
             <h2>Topics</h2>
             <ul>
                 <li>

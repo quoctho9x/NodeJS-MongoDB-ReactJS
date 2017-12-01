@@ -34,6 +34,14 @@
   padding: 2%;
   position: relative;
 }
+/*=======slider_main========*/
+.image-slider-main{
+  height: 350px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+
+}
 
 /*=======slider_quickview========*/
 .slick-slide {
@@ -171,9 +179,6 @@ border: 1px solid red;
 }
 .example-enter {
   position: absolute;
- /* top: 0;
-  left: 0;
-  right: 0;*/
   opacity: 0.01;
 }
 
@@ -183,9 +188,6 @@ border: 1px solid red;
 }
 .example-leave {
   position: absolute;
-  /*top: 0;
-  left: 0;
-  right: 0;*/
   opacity: 1;
 }
 

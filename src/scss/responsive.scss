@@ -1,0 +1,41 @@
+/*===========================
+         responsive
+===========================*/
+/*desktop*/
+@media all and (min-width: 1200px) {
+    .main-contain{
+      /*  margin-top: 115px;*/
+    }
+    /* .navbar-header{
+         display: none;
+     }*/
+}
+/*ipad*/
+@media all and (max-width: 1199px) {
+    .main-contain{
+       /* margin-top: 0px;*/
+    }
+    /* .navbar-header{
+         display: none;
+     }*/
+}
+/*mobile*/
+@media all and (max-width: 768px) {
+    .main-contain{
+        padding-top: 10px;
+    }
+    .bm-burger-button {
+        z-index: 1;
+    }
+    .navbar-header,.menu-head{
+        display: none;
+    }
+    .bm-burger-button{
+        display: block;
+    }
+
+}
+
+/*===========================
+       end  responsive
+===========================*/

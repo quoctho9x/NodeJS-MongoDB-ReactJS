@@ -1,5 +1,6 @@
 import React from 'react';
 import BurgerMenu from 'react-burger-menu';
+import { Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 export default class Burgermenu extends React.Component {
@@ -43,21 +44,8 @@ class Demo extends React.Component {
         };
     }
 
-    getItems () {
-        let items = [
-            <a key="0" href=""><i className="fa fa-fw fa-star-o"/><span>Favorites</span></a>,
-            <a key="1" href=""><i className="fa fa-fw fa-bell-o"/><span>Alerts</span></a>,
-            <a key="2" href=""><i className="fa fa-fw fa-envelope-o"/><span>Messages</span></a>,
-            <a key="3" href=""><i className="fa fa-fw fa-comment-o"/><span>Comments</span></a>,
-            <a key="4" href=""><i className="fa fa-fw fa-bar-chart-o"/><span>Analytics</span></a>,
-            <a key="5" href=""><i className="fa fa-fw fa-newspaper-o"/><span>Reading List</span></a>
-        ];
-        return items;
-    }
-
     getMenu () {
         const Menu = BurgerMenu[this.state.currentMenu];
-        const items = this.getItems();
         let jsx;
 
         if (this.state.side === 'right') {
@@ -65,7 +53,7 @@ class Demo extends React.Component {
                 <MenuWrap side={this.state.side}>
                     <Menu width={'250px'} id={this.state.currentMenu} pageWrapId={'page-wrap'}
                         outerContainerId={'outer-container'} right>
-                        {items}
+                        <Items/>
                     </Menu>
                 </MenuWrap>
             );
@@ -74,7 +62,7 @@ class Demo extends React.Component {
                 <MenuWrap>
                     <Menu width={'250px'} id={this.state.currentMenu} pageWrapId={'page-wrap'}
                         outerContainerId={'outer-container'}>
-                        {items}
+                        <Items/>
                     </Menu>
                 </MenuWrap>
             );
@@ -89,6 +77,112 @@ class Demo extends React.Component {
                 <main id="page-wrap">
                     {this.props.child}
                 </main>
+            </div>
+        );
+    }
+}
+
+class Items extends React.Component {
+    render () {
+        return (
+            <div id="menu-mobile">
+                <div className="clearfix">
+                    <div className="account_mobile" >
+                        <div className="text-center">
+                            aaaaa
+                        </div>
+                        <ul className="account_text text-center">
+
+                            <li>
+                                <Link to="/login">
+                                    <span className="glyphicon glyphicon-user" aria-hidden="true"/>Đăng
+                                    nhập
+                                </Link>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <Link to="/login">
+                                    <span className="glyphicon glyphicon-user" aria-hidden="true"/>Đăng
+                                    nhập
+                                </Link>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <ul className="menu-mobile">
+
+                        <li className="current">
+                            <Link to="/">
+                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Trang chủ
+                            </Link>
+                        </li>
+
+                        <li className="">
+                            <Link to="/about">
+                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Giới thiệu
+                            </Link>
+                        </li>
+
+                        <li className="active">
+                            <a href="javascript:void(0);" title="Giày nam">Giày nam <i
+                                className="fa fa-angle-right"/></a>
+                            <ul className="dropdown-menu submenu-level1-children" role="menu" >
+
+                                <li className="current">
+                                    <Link to="/topics">
+                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>topics
+                                    </Link>
+                                </li>
+
+                                <li className="current">
+                                    <Link to="/news">
+                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>Tin tức
+                                    </Link>
+                                </li>
+
+                                <li className="current">
+                                    <a href="/" className="current" title="Basketball">Basketball</a>
+                                </li>
+
+                                <li className="current">
+                                    <a href="/" className="current" title="Football">Football</a>
+                                </li>
+
+                                <li className="current">
+                                    <a href="/" className="current" title="Gym &amp; Training">Gym &amp; Training</a>
+                                </li>
+
+                                <li className="current">
+                                    <a href="/" className="current" title="Skateboarding">Skateboarding</a>
+                                </li>
+
+                                <li className="current">
+                                    <a href="/" className="current" title="Tennis">Tennis</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li className="current">
+                            <Link to="/topics">
+                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>topics
+                            </Link>
+                        </li>
+
+                        <li className="current">
+                            <Link to="/news">
+                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Tin tức
+                            </Link>
+                        </li>
+
+                        <li className="current">
+                            <Link to="/contacts">
+                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Liên hệ
+                            </Link>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
         );
     }

@@ -5,7 +5,7 @@ export default class Cart extends React.Component {
     }
     render () {
         return (
-            <main>
+            <main className="main-contain">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12 col-md-10 col-md-offset-1">
