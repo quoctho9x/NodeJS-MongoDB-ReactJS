@@ -838,6 +838,9 @@ button.btn-style-add:hover {
   color: #b8b7ad;
   height: 120vh !important; }
 
+.bm-menu-wrap {
+  height: 120vh !important; }
+
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3); }
