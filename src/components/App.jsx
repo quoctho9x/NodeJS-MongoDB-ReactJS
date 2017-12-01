@@ -28,7 +28,7 @@ function App () {
                     <Route path="/contacts" component={Contacts}/>
                     <Route component={Not404}/>
                 </Switch>
-                <Flexbox
+                {/*<Flexbox
                     hAlignCenter={true}
                     width="100%"
                     style={{
@@ -36,7 +36,7 @@ function App () {
                         minWidth: 500
                     }}>
 
-                </Flexbox>
+                </Flexbox>*/}
                 <Footer/>
             </Burgermenu>
         </div>

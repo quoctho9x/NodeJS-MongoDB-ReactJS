@@ -51,7 +51,7 @@ class Demo extends React.Component {
         if (this.state.side === 'right') {
             jsx = (
                 <MenuWrap side={this.state.side}>
-                    <Menu width={'250px'} id={this.state.currentMenu} pageWrapId={'page-wrap'}
+                    <Menu noOverlay width={'250px'} id={this.state.currentMenu} pageWrapId={'page-wrap'}
                         outerContainerId={'outer-container'} right>
                         <Items/>
                     </Menu>
@@ -60,7 +60,7 @@ class Demo extends React.Component {
         } else {
             jsx = (
                 <MenuWrap>
-                    <Menu width={'250px'} id={this.state.currentMenu} pageWrapId={'page-wrap'}
+                    <Menu noOverlay width={'250px'} id={this.state.currentMenu} pageWrapId={'page-wrap'}
                         outerContainerId={'outer-container'}>
                         <Items/>
                     </Menu>
