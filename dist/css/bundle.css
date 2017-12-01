@@ -835,7 +835,8 @@ button.btn-style-add:hover {
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad; }
+  color: #b8b7ad;
+  height: 120vh !important; }
 
 /* Styling of overlay */
 .bm-overlay {
