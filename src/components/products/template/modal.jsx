@@ -15,8 +15,11 @@ export default class ModalView extends React.Component {
     }
     componentDidMount () {
     }
-    showModal () {
+    showModal (e) {
+        console.log('e', e)
+        e.preventDefault();
         this.setState({ show: true });
+        return false;
     }
 
     hideModal () {
@@ -25,7 +28,7 @@ export default class ModalView extends React.Component {
     render () {
         return (
             <ButtonToolbar>
-                <Button bsStyle="primary" onClick={this.showModal}>
+                <Button bsStyle="primary" onClick={(e) => { this.showModal(e); }}>
                     Quick view
                 </Button>
 

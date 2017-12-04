@@ -32,6 +32,7 @@ class Home extends React.Component {
         </div>;
 
     render () {
+        var {match} = this.props;
         const { results = [] } = this.props.data;
         return(
             <main className="main-contain" >
@@ -40,25 +41,25 @@ class Home extends React.Component {
                 </section>
                 <div id="group-sale-index" className="container">
                     <TitleBlock title="Black Friday" subtitle="Chương trình sẽ kết thúc sau"/>
-                    <Products/>
+                    <Products match={match} />
                     <BtnViewMore link="/deobiet" title="Xem tất cả"/>
 
                 </div>
                 <div id="group-sale-index-new" className="container">
                     <TitleBlock title="SẢN PHẨM MỚI" subtitle="Hàng luôn được cập nhật thường xuyên"/>
-                    <Products/>
+                    <Products match={match} />
                     <BtnViewMore link="/deobiet" title="Xem tất cả"/>
 
                 </div>
                 <div id="group-sale-index-hot" className="container">
                     <TitleBlock title="SẢN PHẨM HOT" subtitle="Hàng luôn được cập nhật thường xuyên"/>
-                    <Products/>
+                    <Products match={match} />
                     <BtnViewMore link="/deobiet" title="Xem tất cả"/>
 
                 </div>
                 <div id="group-sale-index-bestsale" className="container">
                     <TitleBlock title="SẢN PHẨM BÁN CHẠY" subtitle="Hàng luôn được cập nhật thường xuyên"/>
-                    <Products/>
+                    <Products match={match} />
                     <BtnViewMore link="/deobiet" title="Xem tất cả"/>
 
                 </div>

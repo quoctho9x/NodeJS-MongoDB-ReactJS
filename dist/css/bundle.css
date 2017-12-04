@@ -583,6 +583,18 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
 
 .pi-img-wrapper {
   position: relative; }
+  .pi-img-wrapper:hover .btn-toolbar {
+    visibility: visible; }
+  .pi-img-wrapper:hover .show-detail {
+    display: block; }
+  .pi-img-wrapper .btn-toolbar {
+    visibility: hidden;
+    position: absolute;
+    z-index: 10;
+    text-align: center !important;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%); }
 
 .pi-img-wrapper .show-detail {
   background: rgba(0, 0, 0, 0.3);
@@ -594,9 +606,9 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
   height: 100%;
   text-align: center; }
 
-.product-item:hover > .pi-img-wrapper > .show-detail {
-  display: block; }
-
+/*.product-item:hover>.pi-img-wrapper>.show-detail {
+  display: block;
+}*/
 .pi-img-wrapper .show-detail .btn {
   padding: 3px 10px;
   color: #fff;
@@ -608,14 +620,6 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
   top: 50%;
   line-height: 1.4;
   font-size: 12px;
-  float: none; }
-
-.pi-img-wrapper .show-detail .btn-toolbar {
-  text-align: center !important;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  margin: auto;
   float: none; }
 
 .product-item .btn:hover {
@@ -662,7 +666,9 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
   .product-item-wrapper {
     padding: 0px; }
   .product-item {
-    margin: 15px; } }
+    margin: 15px; }
+  .btn-toolbar {
+    visibility: hidden !important; } }
 
 /*===========================
       end product list

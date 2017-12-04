@@ -10,6 +10,7 @@ import Cart from './cart/cart';
 import Login from './login/login';
 import Home from './home/Home';
 import Footer from './footer/Footer';
+import ProductDetail from './products/product_detail';
 import Burgermenu from './header/burger-menu';
 import { Bullet, Panel, Flexbox, Not404, ScrollButton } from './common';
 
@@ -26,9 +27,10 @@ function App () {
                     <Route path="/cart" component={Cart}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/contacts" component={Contacts}/>
+                    <Route path="/products/:name" component={ProductDetail} />
                     <Route component={Not404}/>
                 </Switch>
-                {/*<Flexbox
+                {/* <Flexbox
                     hAlignCenter={true}
                     width="100%"
                     style={{
@@ -36,7 +38,7 @@ function App () {
                         minWidth: 500
                     }}>
 
-                </Flexbox>*/}
+                </Flexbox> */}
                 <ScrollButton scrollStepInPx="150" delayInMs="16.66"/>
                 <Footer/>
             </Burgermenu>
