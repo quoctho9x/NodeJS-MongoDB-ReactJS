@@ -6,3 +6,4 @@ export { default as LoadingIndicator } from './LoadingIndicator';
 export { default as Flexbox } from './Flexbox';
 export { default as TitleBlock } from './display/TitleBlock';
 export { default as BtnViewMore } from './BtnViewMore';
+export { default as ScrollButton } from './ScrollButton';

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-export default function BtnViewMore ({link,title}) {
+export default function BtnViewMore ({link, title}) {
     return (
         <div className="col-xs-12">
             <div className="text-center">
@@ -10,6 +10,6 @@ export default function BtnViewMore ({link,title}) {
     );
 }
 BtnViewMore.propTypes = {
-    link: PropTypes.string,
+    link : PropTypes.string,
     title: PropTypes.string
 };

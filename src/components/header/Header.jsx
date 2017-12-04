@@ -40,7 +40,7 @@ export default class Header extends React.Component {
     render () {
         let style;
         if (this.state.hiden) {
-            style = {transform: 'translateY(-45px)'};
+            style = {transform: 'translateY(-55px)'};
         }
         return (
             <div>

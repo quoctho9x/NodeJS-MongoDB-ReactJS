@@ -209,3 +209,39 @@ a:hover, a:focus {
     transition: background-color 100ms ease-in-out, color 100ms ease-in-out, border-color 100ms ease-in-out;
     border-radius: 40px;
 }
+
+/*scroll button*/
+
+.scroll {
+    opacity: 0.5;
+    background-color: aqua;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: -50px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 0;
+    @include transition(0.5s);
+
+    &:hover {
+        opacity: 1;
+
+    }
+}
+.scroll-active{
+    right: 10px;
+}
+
+.arrow-up {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -6px;
+}
+
+/*end scroll button*/

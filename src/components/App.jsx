@@ -11,7 +11,7 @@ import Login from './login/login';
 import Home from './home/Home';
 import Footer from './footer/Footer';
 import Burgermenu from './header/burger-menu';
-import { Bullet, Panel, Flexbox, Not404 } from './common';
+import { Bullet, Panel, Flexbox, Not404, ScrollButton } from './common';
 
 function App () {
     return (
@@ -37,6 +37,7 @@ function App () {
                     }}>
 
                 </Flexbox>*/}
+                <ScrollButton scrollStepInPx="150" delayInMs="16.66"/>
                 <Footer/>
             </Burgermenu>
         </div>
