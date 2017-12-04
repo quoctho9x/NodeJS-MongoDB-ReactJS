@@ -29,7 +29,7 @@ class Products extends React.Component {
             if (item.sticker === 'new') {
                 sticker = <div className="sticker sticker-new"/>;
             } else if (item.sticker === 'discount') {
-                sticker = <div className="sticker sticker-discount">{item.sale}</div>;
+                sticker = <div> <div className="sticker sticker-discount">{item.sale}</div> <div className="pi-price-old">$29.00</div></div>;
             } else { sticker = ''; }
             return (
                 <div key={key} className="product-item-wrapper col-lg-3 col-md-4 col-sm-4 col-xs-6">
