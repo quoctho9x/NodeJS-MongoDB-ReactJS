@@ -185,8 +185,8 @@ a:hover, a:focus {
 .scroll {
   opacity: 0.5;
   background-color: aqua;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   position: fixed;
   bottom: 20px;
   right: -50px;
@@ -194,10 +194,10 @@ a:hover, a:focus {
   border: none;
   outline: none;
   padding: 0;
-  transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s; }
+  transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s; }
   .scroll:hover {
     opacity: 1; }
 
@@ -209,7 +209,7 @@ a:hover, a:focus {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -9px;
+  margin-top: -8px;
   margin-left: -6px; }
 
 /*end scroll button*/
@@ -623,8 +623,8 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
   float: none; }
 
 .product-item .btn:hover {
-  background: #e84d1c;
-  border-color: #c8c8c8; }
+  background: #00bfff;
+  border-color: #00bfff; }
 
 .product-item h3 {
   font-size: 14px;
@@ -648,7 +648,7 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
   text-decoration: line-through;
   font-size: 18px;
   float: left;
-  padding-left: 3px; }
+  padding-left: 5px; }
 
 .product-item .add2cart {
   float: right;
@@ -678,6 +678,66 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
   content: " ";
   clear: both; }
 
+/*========description=========*/
+#controlled-tab-example .nav-tabs {
+  background: #ddd; }
+  #controlled-tab-example .nav-tabs li a {
+    border-radius: 0px;
+    margin-right: 0px;
+    color: #333; }
+  #controlled-tab-example .nav-tabs li.active a {
+    color: #337ab7;
+    font-weight: bold; }
+
+#description {
+  min-height: .01%;
+  overflow-x: auto;
+  border: solid 1px #E5E5E5;
+  border-top: none; }
+  #description .product-description-wrapper {
+    padding: 20px; }
+  #description img {
+    max-width: 500px;
+    height: auto; }
+
+/*========end-description=========*/
+/*========product_relate=========*/
+.box-product-relate .title-group-related h2 {
+  margin: 0;
+  padding: 13px 15px;
+  font-size: 15px;
+  background: #e7e7e7;
+  text-transform: uppercase; }
+
+.box-product-relate .list-product-related {
+  border: 1px solid #e7e7e7;
+  border-top: 0;
+  padding: 10px; }
+  .box-product-relate .list-product-related li {
+    margin-bottom: 10px;
+    width: 100%; }
+    .box-product-relate .list-product-related li .image-product-relate {
+      max-width: 100px;
+      display: inline-block; }
+    .box-product-relate .list-product-related li .content-product-relate {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 10px; }
+      .box-product-relate .list-product-related li .content-product-relate .product-title {
+        font-size: 15px;
+        display: -moz-box;
+        -moz-line-clamp: 2;
+        -moz-box-orient: vertical;
+        height: 39px;
+        margin-bottom: 5px;
+        font-weight: normal; }
+      .box-product-relate .list-product-related li .content-product-relate .product-box-price-related .price-new-related {
+        color: #b2008d; }
+      .box-product-relate .list-product-related li .content-product-relate .product-box-price-related .price-old-related {
+        color: #7d7d7d;
+        text-decoration: line-through; }
+
+/*=======end product_relate========*/
 /*===========================
        detail item
 ===========================*/
@@ -852,9 +912,9 @@ button.btn-style-add:hover {
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 20px;
-  height: 15px;
-  left: 30px;
+  width: 25px;
+  height: 20px;
+  left: 20px;
   top: 20px;
   display: none; }
 
@@ -970,7 +1030,9 @@ button.btn-style-add:hover {
   .navbar-header, .menu-head {
     display: none; }
   .bm-burger-button {
-    display: block; } }
+    display: block; }
+  .footer-container .item-header img ~ div {
+    display: none !important; } }
 
 /*===========================
        end  responsive
@@ -1125,6 +1187,8 @@ button.btn-style-add:hover {
     .footer-container .item-header img {
       width: 300px;
       height: 300px; }
+      .footer-container .item-header img ~ div {
+        z-index: 100; }
 
 .slider_quickview {
   width: 250px;

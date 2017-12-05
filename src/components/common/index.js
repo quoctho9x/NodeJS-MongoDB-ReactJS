@@ -7,3 +7,4 @@ export { default as Flexbox } from './Flexbox';
 export { default as TitleBlock } from './display/TitleBlock';
 export { default as BtnViewMore } from './BtnViewMore';
 export { default as ScrollButton } from './ScrollButton';
+export { default as Tabs } from './Tabs';

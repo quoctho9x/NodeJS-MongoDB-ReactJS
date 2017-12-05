@@ -167,6 +167,9 @@ border: 1px solid red;
     img{
       width: 300px;
       height: 300px;
+      & ~ div{
+        z-index: 100;
+      }
     }
   }
 }

@@ -33,6 +33,11 @@
     .bm-burger-button{
         display: block;
     }
+    .footer-container {
+        .item-header img ~ div{
+            display: none !important;
+        }
+    }
 
 }
 

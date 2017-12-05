@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
 import Slider from 'react-slick';
 import { CSSTransitionGroup } from 'react-transition-group';
+import ReactImageZoom from 'react-image-zoom';
 let images = [{index: 0, link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'},
     {index: 1, link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/tranglunarglide7runningshoe1.jpg?v=1500949648220'},
     {index: 2, link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/camfreetr6spectrumtrainingshoe-3cef5c47-80d3-454d-82cd-a2701293fff0.jpg?v=1500949645817'},
@@ -36,7 +37,7 @@ export default class Parent extends React.Component {
     render () {
         return (
             <div>
-                <MainImg selectedFooter={this.state.selectedFooter} />
+                <MainImg selectedFooter={this.state.selectedFooter} Zoom={this.props.ImageZoom} />
                 <SimpleSlider settings={this.settings} defaultData={this.changeHandler} sendData={this.getDataImg.bind(this)}/>
             </div>
         );
@@ -77,6 +78,16 @@ class SimpleSlider extends React.Component {
 
 class MainImg extends React.Component {
     render () {
+        let imagedefault = 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/camfreetr6spectrumtrainingshoe-3cef5c47-80d3-454d-82cd-a2701293fff0.jpg?v=1500949645817';
+        let image = this.props.selectedFooter === 0 ? imagedefault : this.props.selectedFooter;
+        const value = {width: 300, height: 300, zoomWidth: 300, scale: 1, offset: {vertical: 0, horizontal: 0}, img: image};
+        let {Zoom} = this.props;
+        let img;
+        if (Zoom) {
+            img = <ReactImageZoom {...value} />;
+        } else {
+            img = <img src={image} alt=""/>;
+        }
         return (
             <div className="footer-container">
                 <CSSTransitionGroup
@@ -84,7 +95,7 @@ class MainImg extends React.Component {
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}>
                     <div className ="item-header" key={this.props.selectedFooter} >
-                        <img src={this.props.selectedFooter} alt=""/>
+                        {img}
                     </div>
                 </CSSTransitionGroup>
             </div>

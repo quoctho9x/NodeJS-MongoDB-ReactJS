@@ -215,8 +215,8 @@ a:hover, a:focus {
 .scroll {
     opacity: 0.5;
     background-color: aqua;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     position: fixed;
     bottom: 20px;
     right: -50px;
@@ -224,7 +224,7 @@ a:hover, a:focus {
     border: none;
     outline: none;
     padding: 0;
-    @include transition(0.5s);
+    @include transition(0.3s);
 
     &:hover {
         opacity: 1;
@@ -240,7 +240,7 @@ a:hover, a:focus {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -9px;
+    margin-top: -8px;
     margin-left: -6px;
 }
 

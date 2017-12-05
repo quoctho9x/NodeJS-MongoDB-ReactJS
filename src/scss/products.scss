@@ -90,8 +90,8 @@
 }
 
 .product-item .btn:hover {
-  background: #e84d1c;
-  border-color: #c8c8c8;
+  background: #00bfff;
+  border-color: #00bfff;
 }
 
 .product-item h3 {
@@ -117,7 +117,7 @@
   text-decoration: line-through;
   font-size: 18px;
   float: left;
-  padding-left: 3px;
+  padding-left: 5px;
 }
 .product-item .add2cart {
   float: right;
@@ -150,3 +150,81 @@
   content: " ";
   clear:both;
 }
+/*========description=========*/
+#controlled-tab-example{
+  .nav-tabs {
+    background: #ddd;
+    li a{
+      border-radius: 0px;
+      margin-right: 0px;
+      color: #333;
+    }
+    li.active a{
+      color: #337ab7;
+      font-weight: bold;
+
+    }
+  }
+}
+#description {
+  min-height: .01%;
+  overflow-x: auto;
+  border: solid 1px #E5E5E5;
+  border-top: none;
+  .product-description-wrapper {
+    padding: 20px;
+  }
+  img {
+    max-width: 500px;
+    height: auto;
+  }
+}
+/*========end-description=========*/
+
+/*========product_relate=========*/
+.box-product-relate{
+  .title-group-related h2{
+    margin: 0;
+    padding: 13px 15px;
+    font-size: 15px;
+    background: #e7e7e7;
+    text-transform: uppercase;
+  }
+  .list-product-related{
+    border: 1px solid #e7e7e7;
+    border-top: 0;
+    padding: 10px;
+    li{
+      margin-bottom: 10px;
+      width: 100%;
+      .image-product-relate{
+        max-width: 100px;
+        display: inline-block;
+      }
+      .content-product-relate{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+        .product-title{
+          font-size: 15px;
+          display: -moz-box;
+          -moz-line-clamp: 2;
+          -moz-box-orient: vertical;
+          height: 39px;
+          margin-bottom: 5px;
+          font-weight: normal;
+        }
+        .product-box-price-related{
+          .price-new-related{
+            color: #b2008d;
+          }
+          .price-old-related {
+            color: #7d7d7d;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}
+/*=======end product_relate========*/
