@@ -6,18 +6,13 @@
     .main-contain{
       /*  margin-top: 115px;*/
     }
-    /* .navbar-header{
-         display: none;
-     }*/
+
 }
 /*ipad*/
 @media all and (max-width: 1199px) {
     .main-contain{
        /* margin-top: 0px;*/
     }
-    /* .navbar-header{
-         display: none;
-     }*/
 }
 /*mobile*/
 @media all and (max-width: 768px) {
@@ -33,7 +28,14 @@
     .bm-burger-button{
         display: block;
     }
-    .footer-container {
+
+    .footer-container.image-larger {
+        width: 300px !important;
+        height: 300px !important;
+        img{
+            width: 300px !important;
+            height: 300px !important;
+        }
         .item-header img ~ div{
             display: none !important;
         }

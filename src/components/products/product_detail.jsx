@@ -21,7 +21,7 @@ export default class ProductDetail extends React.Component {
                 </div>
                 <div className="container">
                     <div className="col-sx-12 col-ms-12 col-md-5 clearfix pd-none">
-                        <Parent ImageZoom={true}/>
+                        <Parent ImageLager={true} ImageZoom={1.6}/>
                     </div>
                     <div className="col-sx-12 col-ms-12 col-md-5">
                         <DetailItem/>

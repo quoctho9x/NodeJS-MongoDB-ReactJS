@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
 import Slider from 'react-slick';
 import { CSSTransitionGroup } from 'react-transition-group';
-import ReactImageZoom from 'react-image-zoom';
 let images = [{index: 0, link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'},
     {index: 1, link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/tranglunarglide7runningshoe1.jpg?v=1500949648220'},
     {index: 2, link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/camfreetr6spectrumtrainingshoe-3cef5c47-80d3-454d-82cd-a2701293fff0.jpg?v=1500949645817'},
@@ -33,11 +32,10 @@ export default class Parent extends React.Component {
             selectedFooter: img
         });
     }
-
     render () {
         return (
             <div>
-                <MainImg selectedFooter={this.state.selectedFooter} Zoom={this.props.ImageZoom} />
+                <MainImg selectedFooter={this.state.selectedFooter} Zoom={this.props.ImageZoom} ImageLager={this.props.ImageLager} />
                 <SimpleSlider settings={this.settings} defaultData={this.changeHandler} sendData={this.getDataImg.bind(this)}/>
             </div>
         );
@@ -77,23 +75,62 @@ class SimpleSlider extends React.Component {
 }
 
 class MainImg extends React.Component {
+    constructor (props) {
+        super(props);
+    }
+    zoomIn (scale, e) {
+        let photo = document.getElementById('photo');
+        photo.style.transform = `scale(${scale})`;
+        let img = document.getElementById('imgZoom');
+        let event = e.nativeEvent;
+        let posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
+        let posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
+        photo.style.transformOrigin = (posX / img.clientWidth) * 100 + '%' + (posY / img.clientHeight) * 100 + '%';
+        /*  console.log('event.offsetX', event.offsetX);
+         console.log('event.offsetY', event.offsetY);
+
+         console.log('event.pageX', event.pageX);
+         console.log('event.pageY', event.pageY);
+
+         console.log('img.offsetLeft', img.offsetLeft);
+         console.log('img.offsetTop', img.offsetTop);
+
+      /* console.log('posX', posX);
+         console.log('posX', posY);
+
+         console.log('img.clientWidth', img.clientWidth);
+         console.log('img.clientHeight', img.clientHeight);
+
+        console.log('X mouse voi hinh', (posX / img.clientWidth) * 100);
+        console.log('Y mouse voi hinh', (posY / img.clientHeight) * 100); */
+    }
+    zoomOut () {
+        let photo = document.getElementById('photo');
+        photo.style.transform = 'scale(1)';
+    }
     render () {
         let imagedefault = 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/camfreetr6spectrumtrainingshoe-3cef5c47-80d3-454d-82cd-a2701293fff0.jpg?v=1500949645817';
         let image = this.props.selectedFooter === 0 ? imagedefault : this.props.selectedFooter;
-        const value = {width: 300, height: 300, zoomWidth: 300, scale: 1, offset: {vertical: 0, horizontal: 0}, img: image};
-        let {Zoom} = this.props;
+        let style = {
+            backgroundImage: `url(${image})`
+        };
+
+        let {Zoom, ImageLager} = this.props;
         let img;
-        if (Zoom) {
-            img = <ReactImageZoom {...value} />;
+        if (Zoom >= 1) {
+            img = <div id="imgZoom" className="tile" data-scale="1.6" onMouseMove={this.zoomIn.bind(this, Zoom)} onMouseOut={this.zoomOut.bind(this)}>
+                <div id="photo" style={style} className="photo"/>
+            </div>;
         } else {
             img = <img src={image} alt=""/>;
         }
+        let larger = ImageLager ? 'image-larger' : '';
         return (
-            <div className="footer-container">
+            <div className= {`footer-container ${larger}`}>
                 <CSSTransitionGroup
                     transitionName="example"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}>
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={300}>
                     <div className ="item-header" key={this.props.selectedFooter} >
                         {img}
                     </div>
