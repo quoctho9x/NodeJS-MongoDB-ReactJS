@@ -2,16 +2,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Provider } from 'react-redux';
 import App from './components/App';
-import { BrowserRouter as Router, HashRouter, hashHistory, browserHistory } from 'react-router-dom';
+import {ScrollToTop} from './components/common/index';
+import { BrowserRouter, HashRouter as Router } from 'react-router-dom';
 
-export default function Root ({
-    store
-}) {
+export default function Root ({store}) {
     return (
         <Provider store={store}>
-            <HashRouter >
-                <App />
-            </HashRouter>
+            <Router>
+                <ScrollToTop>
+                    <App />
+                </ScrollToTop>
+            </Router>
         </Provider>
     );
 }

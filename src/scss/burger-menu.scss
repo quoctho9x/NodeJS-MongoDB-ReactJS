@@ -1,8 +1,8 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 25px;
-  height: 20px;
+  width: 36px;
+  height: 30px;
   left: 20px;
   top: 20px;
   display: none;
@@ -17,6 +17,7 @@
 .bm-cross-button {
   height: 24px;
   width: 24px;
+  display: none;
 }
 
 /* Color/shape of close button cross */
@@ -74,8 +75,13 @@
   }
   .account_text {
     padding: 0px;
+    padding-top: 15px;
+    color: #fff;
     li{
       display: inline-block;
+      color: #fff;
+    }
+    a{
       color: #fff;
     }
   }
@@ -95,6 +101,9 @@
         white-space: nowrap;
         background-color: rgba(85, 85, 85, 0.3);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .glyphicon{
+          padding-right: 5px;
+        }
       }
     }
   }

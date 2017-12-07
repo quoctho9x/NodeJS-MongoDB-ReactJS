@@ -183,7 +183,7 @@ a:hover, a:focus {
 
 /*scroll button*/
 .scroll {
-  opacity: 0.5;
+  opacity: 0.7;
   background-color: aqua;
   width: 45px;
   height: 45px;
@@ -338,6 +338,13 @@ a:hover, a:focus {
 ===========================*/
 header .logo-menu {
   padding: 10px 0px 0px; }
+
+.icon-avatar {
+  /*border-radius: 50%;
+  background-color: white;*/ }
+  .icon-avatar img {
+    border-radius: 50%;
+    background-color: white; }
 
 /*===========================
       end header_page
@@ -912,8 +919,8 @@ button.btn-style-add:hover {
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 25px;
-  height: 20px;
+  width: 36px;
+  height: 30px;
   left: 20px;
   top: 20px;
   display: none; }
@@ -925,7 +932,8 @@ button.btn-style-add:hover {
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
   height: 24px;
-  width: 24px; }
+  width: 24px;
+  display: none; }
 
 /* Color/shape of close button cross */
 .bm-cross {
@@ -971,9 +979,13 @@ button.btn-style-add:hover {
     background: rgba(0, 0, 0, 0.2);
     padding: 15px; }
   #menu-mobile .account_text {
-    padding: 0px; }
+    padding: 0px;
+    padding-top: 15px;
+    color: #fff; }
     #menu-mobile .account_text li {
       display: inline-block;
+      color: #fff; }
+    #menu-mobile .account_text a {
       color: #fff; }
   #menu-mobile .menu-mobile {
     padding: 0px; }
@@ -991,6 +1003,8 @@ button.btn-style-add:hover {
         white-space: nowrap;
         background-color: rgba(85, 85, 85, 0.3);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        #menu-mobile .menu-mobile li a .glyphicon {
+          padding-right: 5px; }
   #menu-mobile .submenu-level1-children {
     background: #212529;
     width: 100%;
@@ -1028,11 +1042,11 @@ button.btn-style-add:hover {
   .footer-container.image-larger {
     width: 300px !important;
     height: 300px !important; }
-    .footer-container.image-larger img {
+    .footer-container.image-larger .tile {
       width: 300px !important;
       height: 300px !important; }
-    .footer-container.image-larger .item-header img ~ div {
-      display: none !important; } }
+    .footer-container.image-larger ~ .slider_quickview {
+      width: 300px !important; } }
 
 /*===========================
        end  responsive

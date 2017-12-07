@@ -5,7 +5,7 @@ import Root from './Root';
 import store from './redux/store/configure-store';
 
 // Require globals
-import 'babel-polyfill';/*dont use, use in webpack*/
+import 'babel-polyfill';/* dont use, use in webpack */
 import './scss/style.scss';
 import 'lodash';
 

@@ -6,6 +6,7 @@ import DetailItem from './template/detail_item';
 import Parent from '../sliders/slider_quickview';
 import {Tabs} from '../common/index';
 import ProductRelate from './product_relate';
+import {FormGroup, Checkbox, Radio} from 'react-bootstrap';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
 
 export default class ProductDetail extends React.Component {

@@ -32,12 +32,12 @@
     .footer-container.image-larger {
         width: 300px !important;
         height: 300px !important;
-        img{
+        .tile{
             width: 300px !important;
             height: 300px !important;
         }
-        .item-header img ~ div{
-            display: none !important;
+        & ~ .slider_quickview{
+            width: 300px !important;
         }
     }
 

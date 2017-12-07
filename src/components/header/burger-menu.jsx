@@ -2,6 +2,7 @@ import React from 'react';
 import BurgerMenu from 'react-burger-menu';
 import { Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
+import avatar_default from '../../images/avatar_default.png';
 
 export default class Burgermenu extends React.Component {
     render () {
@@ -47,7 +48,6 @@ class Demo extends React.Component {
     getMenu () {
         const Menu = BurgerMenu[this.state.currentMenu];
         let jsx;
-
         if (this.state.side === 'right') {
             jsx = (
                 <MenuWrap side={this.state.side}>
@@ -88,38 +88,36 @@ class Items extends React.Component {
             <div id="menu-mobile">
                 <div className="clearfix">
                     <div className="account_mobile" >
-                        <div className="text-center">
-                            aaaaa
+                        <div className="text-center icon-avatar">
+                            <img src={ avatar_default } alt="avatar_default"/>
                         </div>
                         <ul className="account_text text-center">
 
                             <li>
                                 <Link to="/login">
-                                    <span className="glyphicon glyphicon-user" aria-hidden="true"/>Đăng
-                                    nhập
+                                    Đăng nhập
                                 </Link>
                             </li>
-                            <li>|</li>
+                            {/* <li>|</li>
                             <li>
                                 <Link to="/login">
                                     <span className="glyphicon glyphicon-user" aria-hidden="true"/>Đăng
                                     nhập
                                 </Link>
-                            </li>
-
+                            </li> */}
                         </ul>
                     </div>
                     <ul className="menu-mobile">
 
                         <li className="current">
                             <Link to="/">
-                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Trang chủ
+                                <span className="glyphicon glyphicon-home" aria-hidden="true"/>Trang chủ
                             </Link>
                         </li>
 
                         <li className="">
                             <Link to="/about">
-                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Giới thiệu
+                                <span className="glyphicon glyphicon-list" aria-hidden="true"/>Giới thiệu
                             </Link>
                         </li>
 
@@ -130,7 +128,7 @@ class Items extends React.Component {
 
                                 <li className="current">
                                     <Link to="/topics">
-                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>topics
+                                        <span className="glyphicon glyphicon-comment" aria-hidden="true"/>topics
                                     </Link>
                                 </li>
 
@@ -165,19 +163,19 @@ class Items extends React.Component {
 
                         <li className="current">
                             <Link to="/topics">
-                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>topics
+                                <span className="glyphicon glyphicon-comment" aria-hidden="true"/>topics
                             </Link>
                         </li>
 
                         <li className="current">
                             <Link to="/news">
-                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Tin tức
+                                <span className="glyphicon glyphicon-info-sign" aria-hidden="true"/>Tin tức
                             </Link>
                         </li>
 
                         <li className="current">
                             <Link to="/contacts">
-                                <span className="glyphicon glyphicon-user" aria-hidden="true"/>Liên hệ
+                                <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>Liên hệ
                             </Link>
                         </li>
 
