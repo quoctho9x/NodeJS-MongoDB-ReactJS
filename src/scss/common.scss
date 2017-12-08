@@ -245,3 +245,14 @@ a:hover, a:focus {
 }
 
 /*end scroll button*/
+
+/*table-cart-list*/
+.table-cart-list{
+   /* &>tbody>tr>td{
+        padding: 0px;
+    }*/
+    .thumbnail{
+        float: left;
+    }
+}
+/*end table-cart-list*/

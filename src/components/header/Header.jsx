@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import IconControlHeader from './Iconcontroheader';
 import { Route, Link } from 'react-router-dom';
 import { Flexbox } from '../common/index';
 import { Tabs, Tab } from 'react-tabify';
@@ -99,30 +100,6 @@ class MenuHead extends React.Component {
                 <div className="col-xs-4 col-sm-4 col-md-4">
                 </div>
             </div>
-        );
-    }
-}
-
-class IconControlHeader extends React.Component {
-    render () {
-        return (
-            <ul className="icon-control-header text-right">
-                <li>
-                    <Link to="/login">
-                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/cart">
-                        <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"/>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/cart">
-                        <span>search</span>
-                    </Link>
-                </li>
-            </ul>
         );
     }
 }

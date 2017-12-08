@@ -11,7 +11,8 @@ import {requestApiData, requestCounter} from '../../redux/actions/actions';
 
 export default class ProductDetail extends React.Component {
     render () {
-        let {match} = this.props;
+        let {match, params} = this.props;
+        console.log('day la parames', this.props);
         return (
             <main className="main-contain">
 
@@ -25,7 +26,7 @@ export default class ProductDetail extends React.Component {
                         <Parent ImageLager={true} ImageZoom={1.6}/>
                     </div>
                     <div className="col-sx-12 col-ms-12 col-md-5">
-                        <DetailItem/>
+                       {/* <DetailItem/>*/}
                     </div>
                     <div className="col-sx-12 col-ms-12 col-md-2">
                         {match.params.name}

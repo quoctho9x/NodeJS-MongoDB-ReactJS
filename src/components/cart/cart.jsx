@@ -1,15 +1,73 @@
 import React from 'react';
-export default class Cart extends React.Component {
+import { Link } from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {requestAddtocart, requestUpdateitemcart, requestRemoveitemcart} from '../../redux/actions/action_addtocart';
+
+class Cart extends React.Component {
     constructor (props) {
         super(props);
+        this.state = {
+            total: 0
+        };
+    }
+    getvalueinput (item, e) {
+        let value = e.target.value;
+        this.props.requestUpdateitemcart({item, value});
+    }
+    removeItem (item) {
+        this.props.requestRemoveitemcart({item});
     }
     render () {
+        let {cart, match} = this.props;
+        let length = 0, total = 0;
+        /* if (typeof (Storage) !== 'undefined') {
+            localStorage.setItem('domain', JSON.stringify(cart));
+        } else {
+            document.write('Trình duyệt của bạn không hỗ trợ local storage');
+        }
+
+        if (typeof (Storage) !== 'undefined') {
+            let domain = localStorage.getItem('domain');
+            console.log(JSON.parse(domain)); // kết quả freetuts.net
+        } else {
+            document.write('Trình duyệt của bạn không hỗ trợ local storage');
+        } */
+        const ListItems = Object.values(cart).map((item, key) => {
+            length += item.quantity;
+            total += item.quantity * item.price;
+            return (
+                <tr key={key}>
+                    <td className="col-sm-8 col-md-6">
+                        <div className="media">
+                            <Link to={`products/${item.name}`} className="thumbnail" title={item.name}>
+                                <img src={item.link} className="media-object img-responsive" alt="xanhduonglunartempo"/>
+                            </Link>
+                            <div className="media-body">
+                                <h4 className="media-heading"><a href="#">{item.name}</a></h4>
+                                <h5 className="media-heading"> color: {item.color}</h5>
+                                <h5 className="media-heading"> size: {item.size}</h5>
+                                <span>Status: </span><span className="text-success"><strong>In Stock</strong></span>
+                            </div>
+                        </div></td>
+                    <td className="col-sm-1 col-md-1 center">
+                        <input type="number" className="form-control" min="1" onChange={this.getvalueinput.bind(this, item)} defaultValue={item.quantity} value={item.quantity}/>
+                    </td>
+                    <td className="col-sm-1 col-md-1 text-center"><strong>${item.price}</strong></td>
+                    <td className="col-sm-1 col-md-1 text-center"><strong>${item.quantity * item.price}</strong></td>
+                    <td className="col-sm-1 col-md-1">
+                        <button type="button" className="btn btn-danger" onClick={this.removeItem.bind(this, item)}>
+                            <span className="glyphicon glyphicon-remove"/> Remove
+                        </button></td>
+                </tr>
+            );
+        });
         return (
             <main className="main-contain">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12 col-md-10 col-md-offset-1">
-                            <table className="table table-hover">
+                            <table className="table table-hover table-cart-list">
                                 <thead>
                                     <tr>
                                         <th>Product</th>
@@ -20,7 +78,8 @@ export default class Cart extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    {ListItems}
+                                    {/* <tr>
                                         <td className="col-sm-8 col-md-6">
                                             <div className="media">
                                                 <a className="thumbnail pull-left" href="#"> <img className="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"/></a>
@@ -65,7 +124,7 @@ export default class Cart extends React.Component {
                                         <td>   </td>
                                         <td>   </td>
                                         <td><h5>Subtotal</h5></td>
-                                        <td className="text-right"><h5><strong>$24.59</strong></h5></td>
+                                        <td className="text-right"><h5><strong>{Subtotal}</strong></h5></td>
                                     </tr>
                                     <tr>
                                         <td>   </td>
@@ -73,13 +132,13 @@ export default class Cart extends React.Component {
                                         <td>   </td>
                                         <td><h5>Estimated shipping</h5></td>
                                         <td className="text-right"><h5><strong>$6.94</strong></h5></td>
-                                    </tr>
+                                    </tr> */}
                                     <tr>
                                         <td>   </td>
                                         <td>   </td>
                                         <td>   </td>
                                         <td><h3>Total</h3></td>
-                                        <td className="text-right"><h3><strong>$31.53</strong></h3></td>
+                                        <td className="text-right"><h3><strong>${total}</strong></h3></td>
                                     </tr>
                                     <tr>
                                         <td>   </td>
@@ -103,3 +162,8 @@ export default class Cart extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({cart: state.cart});
+const mapDispatchToProps = dispatch => bindActionCreators({requestAddtocart, requestUpdateitemcart, requestRemoveitemcart}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

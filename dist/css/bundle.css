@@ -213,6 +213,15 @@ a:hover, a:focus {
   margin-left: -6px; }
 
 /*end scroll button*/
+/*table-cart-list*/
+.table-cart-list {
+  /* &>tbody>tr>td{
+        padding: 0px;
+    }*/ }
+  .table-cart-list .thumbnail {
+    float: left; }
+
+/*end table-cart-list*/
 /*===========================
         Contact_page
 ===========================*/
@@ -345,6 +354,19 @@ header .logo-menu {
   .icon-avatar img {
     border-radius: 50%;
     background-color: white; }
+
+.badge-custom {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  position: relative;
+  top: -10px;
+  left: 0px;
+  border-radius: 50%;
+  background-color: #ff6517;
+  text-align: center;
+  line-height: 22px;
+  color: white; }
 
 /*===========================
       end header_page

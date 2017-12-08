@@ -79,11 +79,11 @@ class Home extends React.Component {
                 </div>*/}
 
 
-               {/* <div className="center container">
+                <div className="center container">
                     {results.length ? <h1>{results.map(this.person)}</h1> : <h1>loading...</h1>}
                     <Button onClick={this.handleCounter.bind(this)}>Default button</Button>
                     <h1>{this.props.counter}</h1>
-                </div>*/}
+                </div>
             </main>
         ) ;
     }

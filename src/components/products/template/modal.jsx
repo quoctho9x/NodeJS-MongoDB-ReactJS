@@ -16,7 +16,7 @@ export default class ModalView extends React.Component {
     componentDidMount () {
     }
     showModal (e) {
-        console.log('e', e)
+        /* console.log('e', e) */
         e.preventDefault();
         this.setState({ show: true });
         return false;
@@ -26,6 +26,7 @@ export default class ModalView extends React.Component {
         this.setState({ show: false });
     }
     render () {
+        let {item} = this.props;
         return (
             <ButtonToolbar>
                 <Button bsStyle="primary" onClick={(e) => { this.showModal(e); }}>
@@ -48,7 +49,7 @@ export default class ModalView extends React.Component {
                             <Parent/>
                         </div>
                         <div className="col-md-7">
-                            <DetailItem/>
+                            <DetailItem item={item}/>
                         </div>
 
                     </Modal.Body>
