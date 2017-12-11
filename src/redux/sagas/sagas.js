@@ -29,7 +29,7 @@ function * counter (action) {
 // the 'watcher' - on every 'API_BUTTON_CLICK' action, run our side effect
 export default function * mySaga () {
     yield fork(getApiData);
-    /*yield fork(getstorage);*/
+    yield fork(getstorage);
     yield takeLatest(REQUEST_COUNTER, counter);
     yield takeLatest('REQUEST_ADDTOCART', addToCart);
     yield takeLatest('REQUEST_UPDATEITEMCART', updateitemcart);
