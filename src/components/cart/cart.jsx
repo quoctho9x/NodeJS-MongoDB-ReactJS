@@ -21,18 +21,6 @@ class Cart extends React.Component {
     render () {
         let {cart, match} = this.props;
         let length = 0, total = 0;
-        /* if (typeof (Storage) !== 'undefined') {
-            localStorage.setItem('domain', JSON.stringify(cart));
-        } else {
-            document.write('Trình duyệt của bạn không hỗ trợ local storage');
-        }
-
-        if (typeof (Storage) !== 'undefined') {
-            let domain = localStorage.getItem('domain');
-            console.log(JSON.parse(domain)); // kết quả freetuts.net
-        } else {
-            document.write('Trình duyệt của bạn không hỗ trợ local storage');
-        } */
         const ListItems = Object.values(cart).map((item, key) => {
             length += item.quantity;
             total += item.quantity * item.price;

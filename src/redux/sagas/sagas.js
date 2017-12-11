@@ -1,16 +1,16 @@
 import { call, put, takeEvery, takeLatest, fork } from 'redux-saga/effects';
-import {REQUEST_API_DATA, receiveApiData, REQUEST_COUNTER, receiveCounter} from '../actions/actions';
+import { receiveApiData, REQUEST_COUNTER, receiveCounter } from '../actions/actions';
 // import { REQUEST_ADDTOCART, requestAddtocart, RECEIVE_ADDTOCART, receiveAddtocart } from '../actions/action_addtocart';
 import {fetchData} from '../fetch_api/api';
 import {loadUser} from './loadUser';
 import { loadDashboardSequenced } from './loadDashboardSequenced';
 import { loadDashboardNonSequenced } from './loadDashboardNonSequenced';
 import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight } from './loadDashboardNonSequencedNonBlocking';
-import { addToCart, updateitemcart, removeitemcart } from './addToCart';
+import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
-       // console.log('api data');
+        // console.log('api data');
         const data = yield call(fetchData);
         yield put(receiveApiData(data));
     } catch (e) {
@@ -29,6 +29,7 @@ function * counter (action) {
 // the 'watcher' - on every 'API_BUTTON_CLICK' action, run our side effect
 export default function * mySaga () {
     yield fork(getApiData);
+    yield fork(getstorage);
     yield takeLatest(REQUEST_COUNTER, counter);
     yield takeLatest('REQUEST_ADDTOCART', addToCart);
     yield takeLatest('REQUEST_UPDATEITEMCART', updateitemcart);
