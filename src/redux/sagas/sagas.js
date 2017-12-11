@@ -10,6 +10,7 @@ import { addToCart, updateitemcart, removeitemcart } from './addToCart';
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
+       // console.log('api data');
         const data = yield call(fetchData);
         yield put(receiveApiData(data));
     } catch (e) {
@@ -27,7 +28,7 @@ function * counter (action) {
 
 // the 'watcher' - on every 'API_BUTTON_CLICK' action, run our side effect
 export default function * mySaga () {
-    yield takeLatest(REQUEST_API_DATA, getApiData);
+    yield fork(getApiData);
     yield takeLatest(REQUEST_COUNTER, counter);
     yield takeLatest('REQUEST_ADDTOCART', addToCart);
     yield takeLatest('REQUEST_UPDATEITEMCART', updateitemcart);

@@ -9,37 +9,47 @@ import ProductRelate from './product_relate';
 import {FormGroup, Checkbox, Radio} from 'react-bootstrap';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
 
-export default class ProductDetail extends React.Component {
+class ProductDetail extends React.Component {
     render () {
-        let {match, params} = this.props;
-        console.log('day la parames', this.props);
-        return (
-            <main className="main-contain">
-
-                <div className="container">
-                    <Link to="/">
-                        ve page home
-                    </Link>
-                </div>
-                <div className="container">
-                    <div className="col-sx-12 col-ms-12 col-md-5 clearfix pd-none">
-                        <Parent ImageLager={true} ImageZoom={1.6}/>
+        let {match} = this.props;
+        let item_name = match.params.name;
+        let {products_list = []} = this.props.data;
+        const index_item = products_list.findIndex(x => x.name === item_name);
+        let item = products_list[index_item];
+        if (item === undefined || item === null) {
+            return (
+                <main className="main-contain">
+                    <h3>Loading...</h3>
+                </main>
+            );
+        } else {
+            return (
+                <main className="main-contain">
+                    <div className="container">
+                        <Link to="/">
+                            ve page home
+                        </Link>
                     </div>
-                    <div className="col-sx-12 col-ms-12 col-md-5">
-                       {/* <DetailItem/>*/}
+                    <div className="container">
+                        <div className="col-sx-12 col-ms-12 col-md-5 clearfix pd-none">
+                            <Parent ImageLager={true} ImageZoom={1.6}/>
+                        </div>
+                        <div className="col-sx-12 col-ms-12 col-md-5">
+                            <DetailItem item={item} />
+                        </div>
+                        <div className="col-sx-12 col-ms-12 col-md-2">
+                            {match.params.name}
+                        </div>
+                        <div className="col-sx-12 col-ms-12 col-md-8">
+                            <Tabs Detail={Detail}/>
+                        </div>
+                        <div className="col-sx-12 col-ms-12 col-md-4">
+                            <ProductRelate match={match} />
+                        </div>
                     </div>
-                    <div className="col-sx-12 col-ms-12 col-md-2">
-                        {match.params.name}
-                    </div>
-                    <div className="col-sx-12 col-ms-12 col-md-8">
-                        <Tabs Detail={Detail}/>
-                    </div>
-                    <div className="col-sx-12 col-ms-12 col-md-4">
-                        <ProductRelate match={match} />
-                    </div>
-                </div>
-            </main>
-        );
+                </main>
+            );
+        }
     }
 }
 
@@ -64,7 +74,7 @@ class Detail extends React.Component {
     }
 }
 
-/* const mapStateToProps = state => ({data: state.data, counter: state.counter});
+const mapStateToProps = state => ({data: state.data});
 const mapDispatchToProps = dispatch => bindActionCreators({requestApiData, requestCounter}, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalView); */
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {requestApiData,requestCounter} from '../../redux/actions/actions';
+import {requestCounter} from '../../redux/actions/actions';
 import { Button } from 'react-bootstrap';
 import SliderMain from '../sliders/slider_main';
 import SliderVertical from '../sliders/slider_vertical';
@@ -11,7 +11,6 @@ import SliderTrademark from '../sliders/slider_trademark';
 import { TitleBlock,BtnViewMore } from '../common';
 class Home extends React.Component {
     componentDidMount () {
-        this.props.requestApiData();
     }
     handleCounter(){
         this.props.requestCounter(10);
@@ -33,7 +32,7 @@ class Home extends React.Component {
 
     render () {
         var {match} = this.props;
-        const { results = [] } = this.props.data;
+        const { results = [] } = this.props.data.data;
         return(
             <main className="main-contain" >
                 <section className="slider-main container center">
@@ -89,6 +88,6 @@ class Home extends React.Component {
     }
 }
 const mapStateToProps = state => ({data: state.data,counter:state.counter});
-const mapDispatchToProps = dispatch => bindActionCreators({requestApiData,requestCounter}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({requestCounter}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

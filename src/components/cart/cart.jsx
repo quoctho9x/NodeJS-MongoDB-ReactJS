@@ -51,7 +51,7 @@ class Cart extends React.Component {
                             </div>
                         </div></td>
                     <td className="col-sm-1 col-md-1 center">
-                        <input type="number" className="form-control" min="1" onChange={this.getvalueinput.bind(this, item)} defaultValue={item.quantity} value={item.quantity}/>
+                        <input type="number" className="form-control" min="1" onChange={this.getvalueinput.bind(this, item)} value={item.quantity}/>
                     </td>
                     <td className="col-sm-1 col-md-1 text-center"><strong>${item.price}</strong></td>
                     <td className="col-sm-1 col-md-1 text-center"><strong>${item.quantity * item.price}</strong></td>

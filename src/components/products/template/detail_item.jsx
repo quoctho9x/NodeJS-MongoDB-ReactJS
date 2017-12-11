@@ -15,6 +15,10 @@ class DetailItem extends React.Component {
     }
     componentDidMount () {
     }
+    componentWillReceiveProps (nextProps) {
+        this.setState({selectedColor: nextProps.item.color});
+        this.setState({selectedSize: parseInt(nextProps.item.size)});
+    }
     handleAddToCart (item) {
         let {selectedColor, selectedSize} = this.state;
         item.color = selectedColor;
@@ -25,7 +29,7 @@ class DetailItem extends React.Component {
         this.setState({selectedColor: e.target.value});
     }
     handleOptionChangeSize (e) {
-        this.setState({selectedSize: e.target.value});
+        this.setState({selectedSize: parseInt(e.target.value)});
     }
     render () {
         let {item} = this.props;
@@ -50,13 +54,13 @@ class DetailItem extends React.Component {
                     <label>Màu sắc:</label>
                     <ul className="clearfix style-variant-template">
                         <li>
-                            <label><input type="radio" value="cam" defaultChecked={this.state.selectedColor === 'cam'} onClick={(e) => this.handleOptionChangeColor(e)} name="option1"/><span>Cam</span></label>
+                            <label><input type="radio" value="cam" checked={this.state.selectedColor === 'cam'} onChange={(e) => this.handleOptionChangeColor(e)} name="option1"/><span>Cam</span></label>
                         </li>
                         <li>
-                            <label><input type="radio" value="do" defaultChecked={this.state.selectedColor === 'do'} onClick={(e) => this.handleOptionChangeColor(e)} name="option1"/><span>do</span></label>
+                            <label><input type="radio" value="do" checked={this.state.selectedColor === 'do'} onChange={(e) => this.handleOptionChangeColor(e)} name="option1"/><span>do</span></label>
                         </li>
                         <li>
-                            <label><input type="radio" value="den" defaultChecked={this.state.selectedColor === 'den'} onClick={(e) => this.handleOptionChangeColor(e)} name="option1"/><span>den</span></label>
+                            <label><input type="radio" value="den" checked={this.state.selectedColor === 'den'} onChange={(e) => this.handleOptionChangeColor(e)} name="option1"/><span>den</span></label>
                         </li>
                     </ul>
                 </div>
@@ -64,16 +68,16 @@ class DetailItem extends React.Component {
                     <label>Kích thước:</label>
                     <ul className="clearfix style-variant-template">
                         <li>
-                            <label><input type="radio" value="38" defaultChecked={this.state.selectedSize === 38} onClick={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>38</span></label>
+                            <label><input type="radio" value="38" checked={this.state.selectedSize === 38} onChange={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>38</span></label>
                         </li>
                         <li>
-                            <label><input type="radio" value="39" defaultChecked={this.state.selectedSize === 39} onClick={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>39</span></label>
+                            <label><input type="radio" value="39" checked={this.state.selectedSize === 39} onChange={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>39</span></label>
                         </li>
                         <li>
-                            <label><input type="radio" value="40" defaultChecked={this.state.selectedSize === 40} onClick={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>40</span></label>
+                            <label><input type="radio" value="40" checked={this.state.selectedSize === 40} onChange={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>40</span></label>
                         </li>
                         <li>
-                            <label><input type="radio" value="41" defaultChecked={this.state.selectedSize === 41} onClick={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>41</span></label>
+                            <label><input type="radio" value="41" checked={this.state.selectedSize === 41} onChange={(e) => this.handleOptionChangeSize(e)} name="option2"/><span>41</span></label>
                         </li>
                     </ul>
                 </div>
