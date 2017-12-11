@@ -13,6 +13,10 @@ class Cart extends React.Component {
     }
     getvalueinput (item, e) {
         let value = e.target.value;
+        if (value <= 0) {
+            value = 1;
+            e.target.value = 1;
+        }
         this.props.requestUpdateitemcart({item, value});
     }
     removeItem (item) {
