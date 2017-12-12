@@ -7,6 +7,7 @@ import { loadDashboardSequenced } from './loadDashboardSequenced';
 import { loadDashboardNonSequenced } from './loadDashboardNonSequenced';
 import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight } from './loadDashboardNonSequencedNonBlocking';
 import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
+import { userlogin, userlogout, getuserstorage } from './handleUser';
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
@@ -26,7 +27,7 @@ function * counter (action) {
     }
 }
 
-// the 'watcher' - on every 'API_BUTTON_CLICK' action, run our side effect
+// the 'watcher' - every action, run our side effect
 export default function * mySaga () {
     yield fork(getApiData);
     yield fork(getstorage);
@@ -43,4 +44,8 @@ export default function * mySaga () {
         fork(isolatedForecast),
         fork(isolatedFlight)
     ];
+    /* user login */
+    yield fork(getuserstorage);
+    yield takeLatest('REQUEST_USERLOGIN', userlogin);
+    yield takeLatest('REQUEST_USERLOGOUT', userlogout);
 }

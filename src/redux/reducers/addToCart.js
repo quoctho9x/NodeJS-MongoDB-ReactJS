@@ -67,10 +67,10 @@ function save (cart) {
     } else {
         document.write('Trình duyệt của bạn không hỗ trợ local storage');
     }
-    /*if (typeof (Storage) !== 'undefined') {
+    /* if (typeof (Storage) !== 'undefined') {
         let domain = localStorage.getItem('domain');
         console.log(JSON.parse(domain)); // kết quả freetuts.net
     } else {
         document.write('Trình duyệt của bạn không hỗ trợ local storage');
-    }*/
+    } */
 }

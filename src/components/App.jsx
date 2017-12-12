@@ -7,7 +7,8 @@ import Contacts from './contacts/contacts';
 import News from './news/news';
 import Topics from './topics/Topics';
 import Cart from './cart/cart';
-import Login from './login/login';
+import Login from './users/login';
+import Account from './users/account';
 import Home from './home/Home';
 import Footer from './footer/Footer';
 import ProductDetail from './products/product_detail';
@@ -26,6 +27,7 @@ function App () {
                     <Route path="/news" component={News}/>
                     <Route path="/cart" component={Cart}/>
                     <Route path="/login" component={Login}/>
+                    <Route path="/account" component={Account}/>
                     <Route path="/contacts" component={Contacts}/>
                     <Route path="/products/:name" component={ProductDetail} />
                     <Route component={Not404}/>

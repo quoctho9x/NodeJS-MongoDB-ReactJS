@@ -6,7 +6,6 @@ import {requestApiData, requestCounter} from '../../redux/actions/actions';
 
 import ModalView from './template/modal';
 
-let item_addcart = {index: 0, name: 'index_0', price: '$29.00', sticker: 'new', link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'};
 class Products extends React.Component {
     constructor (props) {
         super(props);

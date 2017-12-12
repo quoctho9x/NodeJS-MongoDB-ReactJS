@@ -75,6 +75,9 @@ export default class Header extends React.Component {
                                 <LinkContainer to="/contacts">
                                     <NavItem eventKey={5}>Contacts</NavItem>
                                 </LinkContainer>
+                                <LinkContainer to="/account">
+                                    <NavItem eventKey={6}>Account</NavItem>
+                                </LinkContainer>
                             </Nav>
                             <Nav pullRight>
                                 <IconControlHeader/>

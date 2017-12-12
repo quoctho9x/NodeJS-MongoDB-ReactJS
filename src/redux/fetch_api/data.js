@@ -7,3 +7,8 @@ export const products_list = [{index: 0, name: 'index_0', price: 29.00, quantity
     {index: 6, name: 'index_6', price: 26.00, quantity: 1, color: 'cam', size: 39, sticker: '', link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/hongflyknitairmaxrunningshoe1.jpg?v=1500949641410'},
     {index: 7, name: 'index_7', price: 21.00, quantity: 1, color: 'cam', size: 39, sticker: '', link: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/hongairzoomelite8runningshoe1.jpg?v=1500949636697'}
 ];
+export const user_list = [{index: 0, name: 'user_0', email: 'user_0@gmail.com', password: 'user_0', address: 'address user_0', age: 39, avatar: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'},
+    {index: 1, name: 'user_1', email: 'user_1@gmail.com', password: 'user_1', address: 'address user_1', age: 23, avatar: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/tranglunarglide7runningshoe1.jpg?v=1500949648220'},
+    {index: 2, name: 'user_2', email: 'user_2@gmail.com', password: 'user_2', address: 'address user_2', age: 21, avatar: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/timfreernflyknitrunningshoe1.jpg?v=1500949642413'},
+    {index: 3, name: 'admin', email: 'admin@gmail.com', password: 'admin', address: 'address admin', age: 20, avatar: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/hongairzoomelite8runningshoe1.jpg?v=1500949636697'}
+];
