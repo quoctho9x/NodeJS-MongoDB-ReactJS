@@ -29,7 +29,7 @@ export default (state = obj, action) => {
         case RECEIVE_MAPUSER:
             if (typeof (Storage) !== 'undefined') {
                 let user = localStorage.getItem('user');
-                console.log('day la local', user);
+               /* console.log('day la local', user);*/
                 return {...JSON.parse(user)};
             } else {
                 document.write('Trình duyệt của bạn không hỗ trợ local storage');

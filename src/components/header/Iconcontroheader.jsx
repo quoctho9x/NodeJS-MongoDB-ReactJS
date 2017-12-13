@@ -7,17 +7,20 @@ import {requestAddtocart} from '../../redux/actions/action_addtocart';
 
 class IconControlHeader extends React.Component {
     render () {
-        let {cart} = this.props;
+        let {cart, user} = this.props;
         let length = 0;
         Object.values(cart).map((item, key) => {
             length += item.quantity;
         });
-        var countItem = (cart.length > 0) ? <span className="badge-custom">{length}</span> : '';
+        let countItem = (cart.length > 0) ? <span className="badge-custom">{length}</span> : '';
+        const displayUserName = () => {
+            return (user.status) ? 'wellcome ' + user.obj.name : null;
+        };
         return (
             <ul className="icon-control-header text-right">
                 <li>
                     <Link to="/login">
-                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>
+                        {displayUserName()} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
                     </Link>
                 </li>
                 <li>
@@ -36,7 +39,7 @@ class IconControlHeader extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({cart: state.cart});
+const mapStateToProps = state => ({cart: state.cart, user: state.inforUser});
 const mapDispatchToProps = dispatch => bindActionCreators({requestApiData, requestCounter, requestAddtocart}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(IconControlHeader);
