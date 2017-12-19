@@ -1002,13 +1002,27 @@ button.btn-style-add:hover {
     padding: 15px; }
   #menu-mobile .account_text {
     padding: 0px;
-    padding-top: 15px;
+    /*padding-top: 15px;*/
     color: #fff; }
     #menu-mobile .account_text li {
       display: inline-block;
-      color: #fff; }
+      color: #fff;
+      width: 100%; }
     #menu-mobile .account_text a {
       color: #fff; }
+    #menu-mobile .account_text .user-burger .user-burger-name {
+      margin: 15px auto;
+      display: block; }
+    #menu-mobile .account_text .user-burger .user-burger-button {
+      background-color: transparent;
+      border: none;
+      outline: none; }
+    #menu-mobile .account_text .user-burger > span {
+      width: 49%;
+      display: inline-block;
+      text-align: center; }
+    #menu-mobile .account_text .user-burger .icon-cart {
+      padding-left: 15px; }
   #menu-mobile .menu-mobile {
     padding: 0px; }
     #menu-mobile .menu-mobile li {

@@ -1,5 +1,5 @@
 import { products_list, user_list } from './data';
-
+import {ApiService} from './configApiService';
 export const fetchData = async () => {
     try {
         const response = await fetch('https://randomuser.me/api');
@@ -14,13 +14,36 @@ export const fetchData = async () => {
     }
 };
 
-export const fetchUserData = async () => {
+export const fetchUserData = async (req) => {
     try {
-        /* const response = await fetch('https://randomuser.me/api');
+        let payload = `user_name=${req.email}&password=${req.password}`;
+        const response = await fetch('http://quoctho.herokuapp.com/api/users/authenticate', {
+            method : 'POST',
+            headers: {
+                'Accept'      : 'application/json, application/xml, text/play, text/html, *.*',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            },
+            body: payload
+
+        });
         const data = await response.json();
-         const response2 = await fetch('http://localhost:3000/users');
-        const data2 = await response2.json(); */
-        return {user_list};
+        return {data};
+    } catch (e) {
+        console.log(e);
+    }
+};
+export const fetchUserToken = async (req) => {
+    try {
+        let token = `token=${req}`;
+        const response = await fetch('http://quoctho.herokuapp.com/api/users/id', {
+            method : 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            },
+            body: token
+        });
+        const data = await response.json();
+        return {data};
     } catch (e) {
         console.log(e);
     }

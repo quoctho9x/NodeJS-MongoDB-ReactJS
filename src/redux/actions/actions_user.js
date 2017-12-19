@@ -13,5 +13,5 @@ export const receiveUserlogin = obj => ({ type: RECEIVE_USERLOGIN, obj });
 export const requestUserlogout = () => ({ type: REQUEST_USERLOGOUT });
 export const receiveUserlogout = () => ({ type: RECEIVE_USERLOGOUT });
 
-export const requestMapuser = () => ({ type: REQUEST_MAPUSER });
-export const receiveMapuser = () => ({ type: RECEIVE_MAPUSER });
+export const requestMapuser = (obj) => ({ type: REQUEST_MAPUSER, obj });
+export const receiveMapuser = (obj) => ({ type: RECEIVE_MAPUSER, obj });

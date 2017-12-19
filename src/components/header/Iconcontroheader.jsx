@@ -14,7 +14,7 @@ class IconControlHeader extends React.Component {
         });
         let countItem = (cart.length > 0) ? <span className="badge-custom">{length}</span> : '';
         const displayUserName = () => {
-            return (user.status) ? 'wellcome ' + user.obj.name : null;
+            return (user.status) ? 'wellcome ' + user.user.email : null;
         };
         return (
             <ul className="icon-control-header text-right">

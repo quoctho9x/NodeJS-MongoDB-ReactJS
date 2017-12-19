@@ -1,5 +1,5 @@
 import { call, put, takeEvery, takeLatest, fork } from 'redux-saga/effects';
-import { receiveApiData, REQUEST_COUNTER, receiveCounter } from '../actions/actions';
+import { receiveApiData, receiveCounter } from '../actions/actions';
 // import { REQUEST_ADDTOCART, requestAddtocart, RECEIVE_ADDTOCART, receiveAddtocart } from '../actions/action_addtocart';
 import {fetchData} from '../fetch_api/api';
 import {loadUser} from './loadUser';
@@ -7,7 +7,7 @@ import { loadDashboardSequenced } from './loadDashboardSequenced';
 import { loadDashboardNonSequenced } from './loadDashboardNonSequenced';
 import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight } from './loadDashboardNonSequencedNonBlocking';
 import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
-import { userlogin, userlogout, getuserstorage } from './handleUser';
+import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken } from './handleUser';
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
@@ -31,7 +31,7 @@ function * counter (action) {
 export default function * mySaga () {
     yield fork(getApiData);
     yield fork(getstorage);
-    yield takeLatest(REQUEST_COUNTER, counter);
+    yield takeLatest('REQUEST_COUNTER', counter);
     yield takeLatest('REQUEST_ADDTOCART', addToCart);
     yield takeLatest('REQUEST_UPDATEITEMCART', updateitemcart);
     yield takeLatest('REQUEST_REMOVEITEMCART', removeitemcart);
@@ -45,7 +45,8 @@ export default function * mySaga () {
         fork(isolatedFlight)
     ];
     /* user login */
-    yield fork(getuserstorage);
+    yield fork(requestuserfromtoken);// request use
+    yield fork(getuserfromtoken);// get user after request
     yield takeLatest('REQUEST_USERLOGIN', userlogin);
     yield takeLatest('REQUEST_USERLOGOUT', userlogout);
 }

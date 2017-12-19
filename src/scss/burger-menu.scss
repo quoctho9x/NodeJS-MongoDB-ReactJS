@@ -75,14 +75,34 @@
   }
   .account_text {
     padding: 0px;
-    padding-top: 15px;
+    /*padding-top: 15px;*/
     color: #fff;
     li{
       display: inline-block;
       color: #fff;
+      width: 100%;
     }
     a{
       color: #fff;
+    }
+    .user-burger{
+      .user-burger-name{
+        margin: 15px auto;
+        display: block;
+      }
+      .user-burger-button{
+        background-color: transparent;
+        border:none;
+        outline: none;
+      }
+      & > span{
+        width: 49%;
+        display: inline-block;
+        text-align: center;
+      }
+      .icon-cart{
+        padding-left: 15px;
+      }
     }
   }
   .menu-mobile{

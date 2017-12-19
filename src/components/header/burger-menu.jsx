@@ -2,6 +2,7 @@ import React from 'react';
 import BurgerMenu from 'react-burger-menu';
 import { Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
+import Userburger from './User-burger-menu';
 import avatar_default from '../../images/avatar_default.png';
 
 export default class Burgermenu extends React.Component {
@@ -93,10 +94,13 @@ class Items extends React.Component {
                         </div>
                         <ul className="account_text text-center">
 
-                            <li>
+                            {/* <li>
                                 <Link to="/login">
                                     Đăng nhập
                                 </Link>
+                            </li> */}
+                            <li>
+                                <Userburger/>
                             </li>
                             {/* <li>|</li>
                             <li>
