@@ -17,7 +17,7 @@ export const fetchData = async () => {
 export const fetchUserData = async (req) => {
     try {
         let payload = `user_name=${req.email}&password=${req.password}`;
-        const response = await fetch('http://quoctho.herokuapp.com/api/users/authenticate', {
+        const response = await fetch('https://quoctho.herokuapp.com/api/users/authenticate', {
             method : 'POST',
             headers: {
                 'Accept'      : 'application/json, application/xml, text/play, text/html, *.*',
