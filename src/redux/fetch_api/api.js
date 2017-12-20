@@ -35,7 +35,7 @@ export const fetchUserData = async (req) => {
 export const fetchUserToken = async (req) => {
     try {
         let token = `token=${req}`;
-        const response = await fetch('http://quoctho.herokuapp.com/api/users/id', {
+        const response = await fetch('https://quoctho.herokuapp.com/api/users/id', {
             method : 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
