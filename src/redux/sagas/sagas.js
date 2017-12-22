@@ -1,6 +1,5 @@
 import { call, put, takeEvery, takeLatest, fork } from 'redux-saga/effects';
 import { receiveApiData, receiveCounter } from '../actions/actions';
-// import { REQUEST_ADDTOCART, requestAddtocart, RECEIVE_ADDTOCART, receiveAddtocart } from '../actions/action_addtocart';
 import {fetchData} from '../fetch_api/api';
 import {loadUser} from './loadUser';
 import { loadDashboardSequenced } from './loadDashboardSequenced';
@@ -9,6 +8,7 @@ import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight 
 import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
 import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken } from './handleUser';
 import { clearNotification } from './handleNotification';
+import { getProductsList } from './handleProducts';
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
@@ -52,4 +52,6 @@ export default function * mySaga () {
     yield takeLatest('REQUEST_USERLOGOUT', userlogout);
     /* notification */
     yield takeLatest('REQUEST_NOTICLEAR', clearNotification);// request use
+    /* products */
+    yield takeLatest('REQUEST_GETPRODUCTS', getProductsList);// request use
 }

@@ -12,3 +12,78 @@ export const user_list = [{index: 0, name: 'user_0', email: 'user_0@gmail.com', 
     {index: 2, name: 'user_2', email: 'user_2@gmail.com', password: 'user_2', address: 'address user_2', age: 21, avatar: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/timfreernflyknitrunningshoe1.jpg?v=1500949642413'},
     {index: 3, name: 'admin', email: 'admin@gmail.com', password: 'admin', address: 'address admin', age: 20, avatar: 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/hongairzoomelite8runningshoe1.jpg?v=1500949636697'}
 ];
+
+export const fullList = [
+    {
+        id     : 1,
+        title  : 'Title 1',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 2,
+        title  : 'Title 2',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 3,
+        title  : 'Title 3',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 4,
+        title  : 'Title 4',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 5,
+        title  : 'Title 5',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 6,
+        title  : 'Title 6',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 7,
+        title  : 'Title 7',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 8,
+        title  : 'Title 8',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 9,
+        title  : 'Title 9',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 10,
+        title  : 'Title 10',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 11,
+        title  : 'Title 11',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    },
+    {
+        id     : 12,
+        title  : 'Title 12',
+        summary: 'The aim of this project is to design a car using fuel cell technology.',
+        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
+    }
+];
