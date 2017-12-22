@@ -2,8 +2,8 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {requestUserlogin} from '../../redux/actions/actions_user';
-import { Redirect } from 'react-router-dom';
-
+import { Loading } from '../common/index';
+import AlertContainer from 'react-alert';
 class FormLogin extends React.Component {
     constructor (props) {
         super(props);
@@ -24,9 +24,6 @@ class FormLogin extends React.Component {
         if (user.status === true && user.constructor === Object) {
             this.props.history.push('/');
         }
-        if (user.status === false && user.constructor === Object) {
-            alert('dang nhap sai');
-        }
     }
     handleEmailChange (e) {
         this.setState({email: e.target.value});
@@ -39,33 +36,19 @@ class FormLogin extends React.Component {
         let {user} = this.props;
         let { email, password } = this.state;
         this.props.requestUserlogin({email, password});
-        /* if (email === 'admin' && password === 'admin') {
-            localStorage.setItem('user', JSON.stringify({
-                txtemail   : email,
-                txtpassword: password
-            }));
-            alert('xin chao admin');
-            this.props.history.push('/');
-        } */
     }
     render () {
         let {email, password} = this.state;
         let {user} = this.props;
-        /* let loggerInuser = localStorage.getItem('user');
-        if (loggerInuser !== null) {
-            return <Redirect to="/account" />;
-        } */
-        // console.log('day la user login', user);
-        /* if (user.status === true && user.constructor === Object) {
-            return <Redirect to="/account" />;
-        } */
+        const loading = (user.loading) ? <Loading background={true}/> : null;
         return (
             <form id="login-form" role="form">
+                {loading}
                 <div className="form-group">
-                    <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange.bind(this)} className="form-control"/>
+                    <input type="text" name="email" required placeholder="Email" value={this.state.email} onChange={this.handleEmailChange.bind(this)} className="form-control"/>
                 </div>
                 <div className="form-group">
-                    <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} className="form-control"/>
+                    <input type="password" name="password" required placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} className="form-control"/>
                 </div>
                 <div className="form-group text-center">
                     <input type="checkbox" className="" name="remember" id="remember"/>

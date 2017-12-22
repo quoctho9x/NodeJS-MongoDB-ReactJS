@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
-
+import {Loading} from '../common/index';
 import ModalView from './template/modal';
 
 class Products extends React.Component {
@@ -40,7 +40,7 @@ class Products extends React.Component {
         });
         return (
             <div className="row box-product-lists">
-                {products_list.length === 0 ? <h1>loading...</h1> : ListItems}
+                {products_list.length === 0 ? <Loading/> : ListItems }
             </div>
         );
     }

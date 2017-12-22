@@ -1,5 +1,6 @@
 import { call, put, select, take } from 'redux-saga/effects';
 import { receiveUserlogin, receiveUserlogout, receiveMapuser, requestMapuser } from '../actions/actions_user';
+import { receiveUserNoti, receiveNotiClear } from '../actions/action_notification';
 import {fetchUserData, fetchUserToken} from '../fetch_api/api';
 import {setCookie, getCookie, checkCookie} from '../../services/cookie';
 
@@ -18,6 +19,7 @@ export function * getuserfromtoken () {
             /* console.log('token'); */
             const fetch_user = yield call(fetchUserToken, token);
             yield put(receiveMapuser(fetch_user));
+            yield put(receiveUserNoti({show: true, smg: 'Hi: ' + fetch_user.data.email + ' come back!', type: 'success'}));
         } else {
             /* console.log('deo co token', token); */
             yield put(receiveMapuser(false));
@@ -30,7 +32,16 @@ export function * userlogin (action) {
     try {
         /*  console.log('user login handle user', action.obj); */
         const User_login = yield call(fetchUserData, action.obj);
-        yield put(receiveUserlogin({user: User_login}));
+        const user = User_login.data;
+        if (user.success) {
+            yield put(receiveUserlogin({user: user}));
+            /* console.log('dang nhap thanh cong', user); */
+            yield put(receiveUserNoti({show: true, smg: 'wellcome: ' + user.user.email, type: 'success'}));
+        } else {
+            yield put(receiveUserlogin({user: user}));
+            /* console.log('dang nhap that bai', user); */
+            yield put(receiveUserNoti({show: true, smg: user.message, type: 'error'}));
+        }
     } catch (error) {
         yield put({type: 'FAILED_USERLOGIN', error: error.message});
     }
@@ -38,6 +49,7 @@ export function * userlogin (action) {
 export function * userlogout (action) {
     try {
         yield put(receiveUserlogout());
+        yield put(receiveUserNoti({show: true, smg: 'Goodbye see you again! ', type: 'info'}));
     } catch (error) {
         yield put({type: 'FAILED_USERLOGOUT', error: error.message});
     }

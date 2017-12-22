@@ -28,7 +28,7 @@ class Userburger extends React.Component {
         const displayLoginLogout = () => {
             return (user.status) ? <Logout/> : <Login/>;
         };
-        console.log(displayLoginLogout());
+        /*console.log(displayLoginLogout());*/
         return (
             <div className="user-burger">
                 <i className="user-burger-name">

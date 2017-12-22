@@ -2,8 +2,9 @@ import React from 'react';
 
 export default function About () {
     return (
-        <div>
+        <main className="main-contain">
             <h1>khong trang nay 404</h1>
-        </div>
+        </main>
+
     );
 }

@@ -8,6 +8,7 @@ import { loadDashboardNonSequenced } from './loadDashboardNonSequenced';
 import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight } from './loadDashboardNonSequencedNonBlocking';
 import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
 import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken } from './handleUser';
+import { clearNotification } from './handleNotification';
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
@@ -49,4 +50,6 @@ export default function * mySaga () {
     yield fork(getuserfromtoken);// get user after request
     yield takeLatest('REQUEST_USERLOGIN', userlogin);
     yield takeLatest('REQUEST_USERLOGOUT', userlogout);
+    /* notification */
+    yield takeLatest('REQUEST_NOTICLEAR', clearNotification);// request use
 }

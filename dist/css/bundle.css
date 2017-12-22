@@ -5,6 +5,200 @@
 .pd-none {
   padding: 0px; }
 
+/*===========================
+     animation css
+===========================*/
+.example-enter {
+  position: absolute;
+  opacity: 0.01; }
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity .3s ease-in; }
+
+.example-leave {
+  position: absolute;
+  opacity: 1; }
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity .3s ease-in; }
+
+.example-appear {
+  opacity: 0.01; }
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in; }
+
+.noti-animation-enter {
+  position: absolute; }
+
+.noti-animation-enter.noti-animation-enter-active {
+  opacity: 1;
+  -webkit-animation: wobble-hor-bottom 0.5s both;
+  animation: wobble-hor-bottom 0.5s both;
+  transition: all .5s ease-in; }
+
+.example-leave {
+  position: absolute;
+  opacity: 1; }
+
+.noti-animation-leave.noti-animation-leave-active {
+  opacity: 0.01;
+  transition: all .3s ease-in; }
+
+.noti-animation-appear {
+  opacity: 0.01; }
+
+.noti-animation-appear.noti-animation-appear-active {
+  opacity: 1;
+  transition: all .5s ease-in; }
+
+@keyframes fade-in {
+  from {
+    opacity: 0.0;
+    height: 0px; }
+  to {
+    opacity: 1.0;
+    height: 20px; } }
+
+@keyframes fade-out {
+  from {
+    opacity: 1.0;
+    height: 20px; }
+  to {
+    opacity: 0.0;
+    height: 0px; } }
+
+.wobble-hor-bottom {
+  -webkit-animation: wobble-hor-bottom 0.5s both;
+  animation: wobble-hor-bottom 0.5s both; }
+
+/**
+ * ----------------------------------------
+ * animation wobble-hor-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg); }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg); }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg); }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg); }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg); } }
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg); }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg); }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg); }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg); }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg); } }
+
+/*===========================
+    animation css
+===========================*/
+/*===========================
+     notification css
+===========================*/
+.wrap-notification {
+  position: fixed;
+  top: 14%;
+  right: 2%;
+  z-index: 1000000;
+  padding: 10px; }
+
+/*mobile*/
+@media all and (max-width: 768px) {
+  .wrap-notification {
+    position: fixed;
+    top: 1%;
+    right: 2%;
+    z-index: 1000000; } }
+
+/*===========================
+    notification css
+===========================*/
+/*==========loading-component========*/
+.wrap-loading-component {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(217, 217, 218, 0.3);
+  z-index: 10000; }
+  .wrap-loading-component .loading-component {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%); }
+
+.loading-component {
+  margin: 15px auto;
+  text-align: center; }
+  .loading-component .wrap-loading {
+    padding: 10px;
+    background-color: rgba(221, 221, 221, 0.3);
+    display: inline-block;
+    border-radius: 20%; }
+    .loading-component .wrap-loading .loader {
+      border: 12px solid #fff;
+      border-radius: 50%;
+      border-top: 12px solid #3498db;
+      width: 100px;
+      height: 100px;
+      -webkit-animation: spin 2s linear infinite;
+      /* Safari */
+      animation: spin 2s linear infinite;
+      margin: auto; }
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/*==========end loading-component========*/
 /* Common Mixins */
 .main-contain {
   min-height: 80vh;
@@ -21,7 +215,8 @@ a:hover, a:focus {
   border-color: #ccc;
   -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  margin-top: 60px !important; }
 
 .panel-login > .panel-heading {
   color: #00415d;
@@ -183,7 +378,7 @@ a:hover, a:focus {
 
 /*scroll button*/
 .scroll {
-  opacity: 0.7;
+  opacity: 0.9;
   background-color: aqua;
   width: 45px;
   height: 45px;
@@ -943,8 +1138,8 @@ button.btn-style-add:hover {
   position: fixed;
   width: 36px;
   height: 30px;
-  left: 20px;
-  top: 20px;
+  left: 15px;
+  top: 25px;
   display: none; }
 
 /* Color/shape of burger icon bars */
@@ -1255,22 +1450,6 @@ button.btn-style-add:hover {
   margin: auto; }
   .slider_quickview .slick-slide {
     margin: 5px; }
-
-.example-enter {
-  position: absolute;
-  opacity: 0.01; }
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity .3s ease-in; }
-
-.example-leave {
-  position: absolute;
-  opacity: 1; }
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity .3s ease-in; }
 
 /*===========================
      end custom slick
