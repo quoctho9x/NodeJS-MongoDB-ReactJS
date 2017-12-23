@@ -24,6 +24,7 @@ const styles = {
 var y_loading = 'dkm';
 var y_window = 'dkm';
 var status = 'dkm';
+
 class News extends React.Component {
     constructor(props){
         super(props);
@@ -49,12 +50,14 @@ class News extends React.Component {
            this.loadInitialContent(products.products);
            this.setState({total:products.total});
            window.addEventListener('scroll', this.loadOnScroll);
+           window.addEventListener('touchmove', this.loadOnScroll);
         }
 
     }
 
     componentWillUnmount(){
         window.removeEventListener('scroll', this.loadOnScroll);
+        window.removeEventListener('touchmove', this.loadOnScroll);
     }
 
     render() {
@@ -104,6 +107,7 @@ class News extends React.Component {
         y_window = window.innerHeight;
         console.log('rect',y_loading)
         console.log('y_window',y_window)
+        console.log('y_window_new',document.documentElement.clientHeight)
 
 
         var isAtEnd = (
@@ -111,7 +115,9 @@ class News extends React.Component {
             // rect.left >= 0 &&
             rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
             rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-        ); status = isAtEnd; console.log('isAtEnd',isAtEnd)
+        );
+        status = isAtEnd;
+        /*console.log('isAtEnd',isAtEnd)*/
         y_window = window.innerHeight;
         if( isAtEnd){
             //User at the end of content. load more content
