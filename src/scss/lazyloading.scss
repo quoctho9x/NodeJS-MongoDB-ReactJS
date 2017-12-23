@@ -26,6 +26,11 @@
   to { transform: rotate(360deg); }
 }
 
+.test{
+  position: fixed;
+  top: 50%;
+  background-color: red;
+}
 
 /*===========================
     lazyloading css

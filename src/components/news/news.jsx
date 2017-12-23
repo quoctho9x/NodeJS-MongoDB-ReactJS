@@ -21,10 +21,12 @@ const styles = {
         margin         : '52px'
     }
 };
-
+var y_loading = 'dkm';
+var y_window = 'dkm';
+var status = 'dkm';
 class News extends React.Component {
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             total:0,
             currentCount:3,
@@ -60,6 +62,11 @@ class News extends React.Component {
         const Products_list = () => {
             return(
                 <div className="App-intro">
+                    <div className="test">
+                        <div className="y-loading" contentEditable='true' dangerouslySetInnerHTML={{ __html: y_loading }}/>
+                        <div className="y-window"  dangerouslySetInnerHTML={{ __html: y_window }}/>
+                        <div className="status"  dangerouslySetInnerHTML={{ __html: status }}/>
+                    </div>
                     {
                         this.state.list.map((item,index) => (
                             <div style = {styles.box} key ={index}>
@@ -93,13 +100,20 @@ class News extends React.Component {
         if(this.state.currentCount === this.state.total) return;
         var el = document.getElementById('content-end');
         var rect = el.getBoundingClientRect();
+        y_loading = rect.y;
+        y_window = window.innerHeight;
+        console.log('rect',y_loading)
+        console.log('y_window',y_window)
+
+
         var isAtEnd = (
             // rect.top >= 0 &&
             // rect.left >= 0 &&
             rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
             rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-        );
-        if(isAtEnd){
+        ); status = isAtEnd; console.log('isAtEnd',isAtEnd)
+        y_window = window.innerHeight;
+        if( isAtEnd){
             //User at the end of content. load more content
             if(!this.state.isFetching){
 
