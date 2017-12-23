@@ -5,7 +5,7 @@ import {requestGetProducts} from '../../redux/actions/action_products';
 import {Loading} from '../common/index';
 const styles = {
     box: {
-        width   : '350px',
+        width   : '200px',
         border  : 'solid thin gray',
         left    : '37%',
         padding : '10px',
@@ -30,8 +30,8 @@ class News extends React.Component {
         super(props);
         this.state = {
             total:0,
-            currentCount:3,
-            offset:3,
+            currentCount:2,
+            offset:2,
             list:[],
             isFetching:false
         }
@@ -50,14 +50,12 @@ class News extends React.Component {
            this.loadInitialContent(products.products);
            this.setState({total:products.total});
            window.addEventListener('scroll', this.loadOnScroll);
-           window.addEventListener('touchmove', this.loadOnScroll);
         }
 
     }
 
     componentWillUnmount(){
         window.removeEventListener('scroll', this.loadOnScroll);
-        window.removeEventListener('touchmove', this.loadOnScroll);
     }
 
     render() {
@@ -73,7 +71,7 @@ class News extends React.Component {
                     {
                         this.state.list.map((item,index) => (
                             <div style = {styles.box} key ={index}>
-                                <img src={item.pic} width = "350"/>
+                                <img src={item.pic} width = "150"/>
                                 <h3 style = {{margin:0}}>{item.title}</h3>
                                 <p style = {{color:'gray', textAlign:"center"}}>{item.summary}</p>
                             </div>
@@ -103,23 +101,22 @@ class News extends React.Component {
         if(this.state.currentCount === this.state.total) return;
         var el = document.getElementById('content-end');
         var rect = el.getBoundingClientRect();
-        y_loading = rect.y;
 
-        y_window = window.innerHeight;
-        console.log('rect',y_loading)
-        console.log('y_window',y_window)
-        console.log('y_window_new',document.documentElement.clientHeight)
 
         var isAtEnd = (
             // rect.top >= 0 &&
             // rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+            rect.y <= (window.innerHeight || document.documentElement.clientHeight) /*&& /!*or $(window).height() *!/
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth) /!*or $(window).width() *!/*/
         );
+        y_loading = rect.y;
+        y_window = window.innerHeight;
         status = isAtEnd;
+       /* console.log('rect',y_loading)
+        console.log('y_window',y_window)*/
+
         alert('rect '+ y_loading+ ' y_window ' + y_window +" status "+isAtEnd);
         /*console.log('isAtEnd',isAtEnd)*/
-        y_window = window.innerHeight;
         if( isAtEnd){
             //User at the end of content. load more content
             if(!this.state.isFetching){
