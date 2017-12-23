@@ -109,7 +109,6 @@ class News extends React.Component {
         console.log('rect',y_loading)
         console.log('y_window',y_window)
         console.log('y_window_new',document.documentElement.clientHeight)
-        alert('rect'+ rect.y);
 
         var isAtEnd = (
             // rect.top >= 0 &&
@@ -118,6 +117,7 @@ class News extends React.Component {
             rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
         );
         status = isAtEnd;
+        alert('rect '+ y_loading+ ' y_window ' + y_window +" status "+isAtEnd);
         /*console.log('isAtEnd',isAtEnd)*/
         y_window = window.innerHeight;
         if( isAtEnd){
