@@ -104,11 +104,12 @@ class News extends React.Component {
         var el = document.getElementById('content-end');
         var rect = el.getBoundingClientRect();
         y_loading = rect.y;
+
         y_window = window.innerHeight;
         console.log('rect',y_loading)
         console.log('y_window',y_window)
         console.log('y_window_new',document.documentElement.clientHeight)
-
+        alert('rect'+ rect.y);
 
         var isAtEnd = (
             // rect.top >= 0 &&
