@@ -21,128 +21,107 @@ const styles = {
         margin         : '52px'
     }
 };
-var y_loading = 'dkm';
-var y_window = 'dkm';
-var status = 'dkm';
-
 class News extends React.Component {
-    constructor(props){
+    constructor (props) {
         super(props);
         this.state = {
-            total:0,
-            currentCount:2,
-            offset:2,
-            list:[],
-            isFetching:false
-        }
+            total       : 0,
+            currentCount: 9,
+            offset      : 3,
+            list        : [],
+            isFetching  : false
+        };
     }
-    componentWillMount(){
-        //goi api lay list san pham
-        this.props.requestGetProducts();
+    componentWillMount () {
+        // goi api lay list san pham
+       this.props.requestGetProducts();
     }
-    componentDidMount(){
-        /*console.log('props', this.props);
-            window.addEventListener('scroll', this.loadOnScroll);*/
+    componentDidMount () {
     }
     componentWillReceiveProps (newProps) {
         let {products} = newProps;
-        if(!products.loading || Object.constructor === products){
-           this.loadInitialContent(products.products);
-           this.setState({total:products.total});
-           window.addEventListener('scroll', this.loadOnScroll);
+        if (!products.loading || Object.constructor === products) {
+            this.loadInitialContent(products.products, this.state.currentCount);
+            this.setState({total: products.total});
+            window.addEventListener('scroll', this.loadOnScroll);
         }
-
     }
-
-    componentWillUnmount(){
+    componentWillUnmount () {
         window.removeEventListener('scroll', this.loadOnScroll);
     }
 
-    render() {
+    render () {
         let {products} = this.props;
         const Products_list = () => {
-            return(
+            return (
                 <div className="App-intro">
-                    <div className="test">
-                        <div className="y-loading" contentEditable='true' dangerouslySetInnerHTML={{ __html: y_loading }}/>
-                        <div className="y-window"  dangerouslySetInnerHTML={{ __html: y_window }}/>
-                        <div className="status"  dangerouslySetInnerHTML={{ __html: status }}/>
-                    </div>
                     {
-                        this.state.list.map((item,index) => (
+                        this.state.list.map((item, index) => (
                             <div style = {styles.box} key ={index}>
-                                <img src={item.pic} width = "150"/>
-                                <h3 style = {{margin:0}}>{item.title}</h3>
-                                <p style = {{color:'gray', textAlign:"center"}}>{item.summary}</p>
+                                <img src={item.link} width = "150"/>
+                                <h3 style = {{margin: 0}}>{item.name}</h3>
+                                <p style = {{color: 'gray', textAlign: 'center'}}>{item.color}</p>
                             </div>
                         ))
                     }
                     {
-                        (this.state.currentCount !== this.state.total)?
-                            <div id="content-end" style = {styles.loading} onClick={e => this.forceLoadOnScroll()}>
+                        (this.state.currentCount !== this.state.total)
+                            ? <div id="content-end" style = {styles.loading} onClick={e => this.forceLoadOnScroll()}>
                                 Please wait. Loading...
-                            </div>: null
+                            </div> : null
                     }
                 </div>
-            )
-        }
+            );
+        };
         return (
             <main className="main-contain App">
                 <Products_list/>
-              {/*  {(products.loading) ? <Loading background={true}/> : <Products_list/> }*/}
+                {/*  {(products.loading) ? <Loading background={true}/> : <Products_list/> } */}
             </main>
         );
     }
-    forceLoadOnScroll(){
+    forceLoadOnScroll () {
 
     }
 
-    loadOnScroll = (e) =>{
-        if(this.state.currentCount === this.state.total) return;
-        var el = document.getElementById('content-end');
-        var rect = el.getBoundingClientRect();
+    loadOnScroll =(e) =>{
+        if (this.state.currentCount === this.state.total) return;
+        let el = document.getElementById('content-end');
+        let rect = el.getBoundingClientRect();
+        let isAtEnd = (rect.y <= (window.innerHeight || document.documentElement.clientHeight));
+        if (isAtEnd) {
+            // User at the end of content. load more content
+            if (!this.state.isFetching) {
+                this.setState({isFetching: true});
 
-
-        var isAtEnd = (
-            // rect.top >= 0 &&
-            // rect.left >= 0 &&
-            rect.y <= (window.innerHeight || document.documentElement.clientHeight) /*&& /!*or $(window).height() *!/
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth) /!*or $(window).width() *!/*/
-        );
-        y_loading = rect.y;
-        y_window = window.innerHeight;
-        status = isAtEnd;
-       /* console.log('rect',y_loading)
-        console.log('y_window',y_window)*/
-
-        alert('rect '+ y_loading+ ' y_window ' + y_window +" status "+isAtEnd);
-        /*console.log('isAtEnd',isAtEnd)*/
-        if( isAtEnd){
-            //User at the end of content. load more content
-            if(!this.state.isFetching){
-
-                this.setState({isFetching:true});
-
-                //get content from server
+                // get content from server
                 setTimeout(() => {
-                    var count = this.state.currentCount + this.state.offset
-                    if(this.state.currentCount !== this.state.total){
+                    let count = this.state.currentCount + this.state.offset;
+                    if(count >= this.state.total){
+                        count = this.state.total;
+                    }
+                    /*console.log('current', count)
+                    console.log('this.state.total', this.state.total)
+                    console.log('list', this.state.list)
+                    console.log('this.props.products', this.props.products.products.slice(this.state.currentCount, count))*/
+
+                    if (this.state.currentCount !== this.state.total) {
                         this.setState({
-                            isFetching:false,
-                            currentCount:count,
-                            list:[...this.state.list,...this.props.products.products.slice(this.state.currentCount, count)]
+                            isFetching  : false,
+                            currentCount: count,
+                            list        : [...this.state.list, ...this.props.products.products.slice(this.state.currentCount, count)]
                         });
                     }
-                }, 3000);
+                }, 1000);
             }
         }
     }
 
-    loadInitialContent(array){
-        //Get content from server using your preferred method (like AJAX, relay)
+    loadInitialContent (array,currentinit) {
+        // Get content from server using your preferred method (like AJAX, relay)
         console.log('list ban dau', array);
-        let ary = array.slice(0,this.state.offset);
-        this.setState({list:ary});
+        let ary = array.slice(0, currentinit);
+        this.setState({list: ary});
     }
 }
 

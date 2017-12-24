@@ -79,11 +79,5 @@ export const fullList = [
         title  : 'Title 11',
         summary: 'The aim of this project is to design a car using fuel cell technology.',
         pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
-    },
-    {
-        id     : 12,
-        title  : 'Title 12',
-        summary: 'The aim of this project is to design a car using fuel cell technology.',
-        pic    : 'https://bizweb.dktcdn.net/thumb/large/100/238/538/products/xanhduonglunartempo2runningsho-1ce74df5-7f8c-428e-a38c-66dcefd07a77.jpg?v=1500949649283'
     }
 ];

@@ -7,9 +7,9 @@ export default (state = obj, action) => {
             return { loading: true };
         case RECEIVE_GETPRODUCTS:
             var products = Object.assign({}, action.obj);
-            /*console.log('day la products', products)*/
-           /* console.log('thong bao da clear');*/
-            return products;
+            /* console.log('day la products', products) */
+            /* console.log('thong bao da clear'); */
+            return {status: true, ...products};
         default:
             return state;
     }

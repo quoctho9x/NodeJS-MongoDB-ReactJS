@@ -50,30 +50,45 @@ export default class Header extends React.Component {
                         <MenuHead/>
                         <Navbar.Header>
                             <Navbar.Brand>
-                                <Link to="/">Home</Link>
+                                <Link to="/">Trang chủ</Link>
                             </Navbar.Brand>
                             <Navbar.Toggle />
                         </Navbar.Header>
                         <Navbar.Collapse>
                             <Nav>
                                 <LinkContainer to="/about">
-                                    <NavItem eventKey={1}>About</NavItem>
+                                    <NavItem eventKey={1}>Giới Thiệu</NavItem>
                                 </LinkContainer>
                                 <LinkContainer to="/topics">
-                                    <NavItem eventKey={2}>Topics</NavItem>
+                                    <NavItem eventKey={2}>coming soon</NavItem>
                                 </LinkContainer>
-                                <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                                    <MenuItem eventKey={3.1}>Action</MenuItem>
-                                    <MenuItem eventKey={3.2}>Another action</MenuItem>
-                                    <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                                <NavDropdown eventKey={3} title="Mục Lục" id="basic-nav-dropdown">
+                                    <LinkContainer to="/menshoes">
+                                        <NavItem eventKey={3.1}>Giày Nam</NavItem>
+                                    </LinkContainer>
+                                    <LinkContainer to="/womenshoes">
+                                        <NavItem eventKey={3.2}>Giày Nữ</NavItem>
+                                    </LinkContainer>
                                     <MenuItem divider />
-                                    <MenuItem eventKey={3.3}>Separated link</MenuItem>
+                                    <LinkContainer to="/news">
+                                        <NavItem eventKey={3.3}>Giầy thể thao</NavItem>
+                                    </LinkContainer>
+                                    <MenuItem divider />
+                                    <LinkContainer to="/contacts">
+                                        <NavItem eventKey={3.3}>Dép lê</NavItem>
+                                    </LinkContainer>
+                                    {/*<MenuItem eventKey={3.1} ><Link to="/">Giày Nam</Link></MenuItem>*/}
+                                   {/* <MenuItem eventKey={3.2}>Giày Nữ</MenuItem>
+                                    <MenuItem divider />
+                                    <MenuItem eventKey={3.3}>Giầy thể thao</MenuItem>
+                                    <MenuItem divider />
+                                    <MenuItem eventKey={3.3}>Dép lê</MenuItem>*/}
                                 </NavDropdown>
                                 <LinkContainer to="/news">
-                                    <NavItem eventKey={4}>News</NavItem>
+                                    <NavItem eventKey={4}>Tin tức</NavItem>
                                 </LinkContainer>
                                 <LinkContainer to="/contacts">
-                                    <NavItem eventKey={5}>Contacts</NavItem>
+                                    <NavItem eventKey={5}>Liên hệ</NavItem>
                                 </LinkContainer>
                                 {/* <LinkContainer to="/account">
                                     <NavItem eventKey={6}>Account</NavItem>

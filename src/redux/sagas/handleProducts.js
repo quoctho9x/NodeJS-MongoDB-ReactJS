@@ -5,8 +5,8 @@ import { fetchProducts } from '../fetch_api/api_products';
 export function * getProductsList (action) {
     try {
         const products = yield call(fetchProducts);
-        yield put(receiveGetProducts({total: products.fullList.length, products: products.fullList}));
+        yield put(receiveGetProducts({total: products.products_list.length, products: products.products_list}));
     } catch (error) {
-        yield put({type: 'FAILED_CLEAR_NOTIFICATON', error: error.message});
+        yield put({type: 'FAILED_GET_PRODUCTS', error: error.message});
     }
 }
