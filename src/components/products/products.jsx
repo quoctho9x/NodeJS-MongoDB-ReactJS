@@ -52,10 +52,10 @@ class Products extends React.Component {
                         <div className="product-item">
                             <div className="pi-img-wrapper">
                                 <img src={item.link} className="img-responsive" alt="xanhduonglunartempo"/>
-                                <Link to={`${match.url}products/${item.index}`} className="show-detail" title={item.name}></Link>
+                                <Link to={`${match.url}products/${item.index}`} className="show-detail" title={item.name}/>
                                 <ModalView item={item}/>
                             </div>
-                            <h3><Link to={`${match.url}products/${item.name}`} params={item} className="show-detail" title={item.name}>{item.name}</Link></h3>
+                            <h3><Link to={`${match.url}products/${item.index}`} params={item} className="show-detail" title={item.name}>{item.name}</Link></h3>
                             <div className="pi-price">${item.price}</div>
                             {sticker}
                         </div>

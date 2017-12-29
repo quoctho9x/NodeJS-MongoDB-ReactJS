@@ -450,6 +450,96 @@ a:hover, a:focus {
     float: left; }
 
 /*end table-cart-list*/
+/*panel filter*/
+.group-collection {
+  background: #f9f9f9;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+  .group-collection .title-block {
+    cursor: pointer;
+    position: relative;
+    padding: 15px;
+    margin-bottom: 0; }
+    .group-collection .title-block .title-group {
+      margin: 0;
+      font-size: 18px; }
+    .group-collection .title-block i {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 26px;
+      height: 26px;
+      justify-content: center; }
+  .group-collection .filter-box {
+    padding: 15px;
+    border-top: 1px solid #e7e7e7; }
+    .group-collection .filter-box ul {
+      margin: 0px;
+      padding: 0px; }
+    .group-collection .filter-box li {
+      position: relative;
+      text-align: left; }
+    .group-collection .filter-box span {
+      margin-left: 5px;
+      font-weight: normal;
+      cursor: pointer;
+      font-size: 14px; }
+
+.flexbox-alignItems-center {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center; }
+
+.flexbox-grid-default {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto; }
+
+.show {
+  display: block; }
+
+.hide {
+  display: none; }
+
+/*.group-collection input[type='checkbox']:after, .group-collection input[type='radio']:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 1px solid #cedadd;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.group-collection input[type='checkbox']:before,.group-collection input[type='radio']:before {
+    -webkit-transition: -webkit-transform .4s cubic-bezier(.45,1.8,.5,.75);
+    -moz-transition: -moz-transform .4s cubic-bezier(.45,1.8,.5,.75);
+    transition: transform .4s cubic-bezier(.45,1.8,.5,.75);
+    -webkit-transform: rotate(-45deg) scale(0,0);
+    -moz-transform: rotate(-45deg) scale(0,0);
+    -ms-transform: rotate(-45deg) scale(0,0);
+    -o-transform: rotate(-45deg) scale(0,0);
+    transform: rotate(-45deg) scale(0,0);
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    margin: auto;
+    z-index: 1;
+    width: 10px;
+    height: 5px;
+    border: 2px solid #58b3f0;
+    border-top-style: none;
+    border-right-style: none;
+}*/
+/*end panel filter*/
 /*===========================
         Contact_page
 ===========================*/
@@ -887,7 +977,11 @@ a.myfooter .socialIcon:hover, .myfooter .socialHoverClass {
   font-size: 14px;
   font-weight: 300;
   margin: 10px 0px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis; }
 
 .product-item h3 a {
   color: #3e4d5c; }

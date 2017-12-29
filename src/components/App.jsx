@@ -16,6 +16,7 @@ import Footer from './footer/Footer';
 import ProductDetail from './products/product_detail';
 import MenShoes from './catalog/MenShoes';
 import WomenShoes from './catalog/WomenShoes';
+import AllShoes from './catalog/AllShoes';
 import Burgermenu from './header/burger-menu';
 import { Bullet, Panel, Flexbox, Not404, ScrollButton } from './common';
 import AlertContainer from 'react-alert'
@@ -65,6 +66,7 @@ class App extends React.Component {
                         <Route exact path="/products/:index" component={ProductDetail} />
                         <Route exact path="/menshoes" component={MenShoes} />
                         <Route exact path="/womenshoes" component={WomenShoes} />
+                        <Route exact path="/allshoes" component={AllShoes} />
                         <Route component={Not404}/>
                     </Switch>
                     <ScrollButton scrollStepInPx="150" delayInMs="16.66"/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {requestGetProducts} from '../../redux/actions/action_products';
+import {requestGetProducts, requestGetAllProducts} from '../../redux/actions/action_products';
 import {Loading} from '../common/index';
 const styles = {
     box: {
@@ -34,15 +34,15 @@ class News extends React.Component {
     }
     componentWillMount () {
         // goi api lay list san pham
-       this.props.requestGetProducts();
+       this.props.requestGetAllProducts();
     }
     componentDidMount () {
     }
     componentWillReceiveProps (newProps) {
         let {products} = newProps;
         if (!products.loading || Object.constructor === products) {
-            this.loadInitialContent(products.products, this.state.currentCount);
-            this.setState({total: products.total});
+            this.loadInitialContent(products.all.products, this.state.currentCount);
+            this.setState({total: products.all.total});
             window.addEventListener('scroll', this.loadOnScroll);
         }
     }
@@ -84,7 +84,8 @@ class News extends React.Component {
 
     }
 
-    loadOnScroll =(e) =>{
+    loadOnScroll = (e) =>{
+        let {products} = this.props;
         if (this.state.currentCount === this.state.total) return;
         let el = document.getElementById('content-end');
         let rect = el.getBoundingClientRect();
@@ -109,7 +110,7 @@ class News extends React.Component {
                         this.setState({
                             isFetching  : false,
                             currentCount: count,
-                            list        : [...this.state.list, ...this.props.products.products.slice(this.state.currentCount, count)]
+                            list        : [...this.state.list, ...products.all.products.slice(this.state.currentCount, count)]
                         });
                     }
                 }, 1000);
@@ -126,6 +127,6 @@ class News extends React.Component {
 }
 
 const mapStateToProps = state => ({products: state.products});
-const mapDispatchToProps = dispatch => bindActionCreators({requestGetProducts}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({requestGetProducts, requestGetAllProducts}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(News);

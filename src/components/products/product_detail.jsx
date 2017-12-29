@@ -22,7 +22,7 @@ class ProductDetail extends React.Component {
             return (
                 <main className="main-contain">
                     <div className="row box-product-lists">
-                        <Loading/>
+                        <Loading background={true}/>
                     </div>
                 </main>
             );

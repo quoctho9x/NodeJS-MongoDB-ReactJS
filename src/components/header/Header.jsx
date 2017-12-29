@@ -63,6 +63,9 @@ export default class Header extends React.Component {
                                     <NavItem eventKey={2}>coming soon</NavItem>
                                 </LinkContainer>
                                 <NavDropdown eventKey={3} title="Mục Lục" id="basic-nav-dropdown">
+                                    <LinkContainer to="/allshoes">
+                                        <NavItem eventKey={3.0}>Tất cả</NavItem>
+                                    </LinkContainer>
                                     <LinkContainer to="/menshoes">
                                         <NavItem eventKey={3.1}>Giày Nam</NavItem>
                                     </LinkContainer>

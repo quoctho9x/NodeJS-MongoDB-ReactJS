@@ -99,10 +99,13 @@
   font-weight: 300;
   margin: 10px 0px;
   text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 .product-item h3 a {
   color: #3e4d5c;
-
 }
 .product-item h3 a:hover {
   color: #E02222;
