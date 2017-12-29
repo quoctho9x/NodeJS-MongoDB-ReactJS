@@ -62,7 +62,7 @@ class App extends React.Component {
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/account" component={Account}/>
                         <Route exact path="/contacts" component={Contacts}/>
-                        <Route exact path="/products/:name" component={ProductDetail} />
+                        <Route exact path="/products/:index" component={ProductDetail} />
                         <Route exact path="/menshoes" component={MenShoes} />
                         <Route exact path="/womenshoes" component={WomenShoes} />
                         <Route component={Not404}/>

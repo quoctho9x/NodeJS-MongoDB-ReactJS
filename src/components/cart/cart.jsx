@@ -32,11 +32,15 @@ class Cart extends React.Component {
                 <tr key={key}>
                     <td className="col-sm-8 col-md-6">
                         <div className="media">
-                            <Link to={`products/${item.name}`} className="thumbnail" title={item.name}>
+                            <Link to={`products/${item.index}`} className="thumbnail" title={item.name}>
                                 <img src={item.link} className="media-object img-responsive" alt="xanhduonglunartempo"/>
                             </Link>
                             <div className="media-body">
-                                <h4 className="media-heading"><a href="#">{item.name}</a></h4>
+                                <h4 className="media-heading">
+                                    <Link to={`products/${item.index}`} title={item.name}>
+                                        {item.name}
+                                    </Link>
+                                </h4>
                                 <h5 className="media-heading"> color: {item.color}</h5>
                                 <h5 className="media-heading"> size: {item.size}</h5>
                                 <span>Status: </span><span className="text-success"><strong>In Stock</strong></span>

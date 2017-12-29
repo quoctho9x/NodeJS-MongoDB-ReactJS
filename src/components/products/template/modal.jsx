@@ -42,7 +42,7 @@ export default class ModalView extends React.Component {
                     dialogClassName="custom-modal"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title-lg">Nike Free Train Versatility</Modal.Title>
+                        <Modal.Title id="contained-modal-title-lg">{item.name}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <div className="col-ms-12 col-md-5 clearfix pd-none">

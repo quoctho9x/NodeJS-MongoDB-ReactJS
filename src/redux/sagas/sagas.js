@@ -8,7 +8,7 @@ import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight 
 import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
 import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken } from './handleUser';
 import { clearNotification } from './handleNotification';
-import { getProductsList } from './handleProducts';
+import { getProductsList, getAllProducts } from './handleProducts';
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
@@ -53,5 +53,6 @@ export default function * mySaga () {
     /* notification */
     yield takeLatest('REQUEST_NOTICLEAR', clearNotification);// request use
     /* products */
-    yield takeLatest('REQUEST_GETPRODUCTS', getProductsList);// request use
+    yield takeEvery('REQUEST_GETALLPRODUCTS', getAllProducts);
+    yield takeEvery('REQUEST_GETPRODUCTS', getProductsList);// request use
 }

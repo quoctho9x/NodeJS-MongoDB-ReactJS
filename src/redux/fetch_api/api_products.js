@@ -13,6 +13,23 @@ export const fetchProducts = async () => {
         console.log(e);
     }
 };
+
+export const fetchAllProducts = async () => {
+    try {
+        const response = await fetch('https://quoctho.herokuapp.com/api/products/all', {
+            method : 'GET',
+            headers: {
+                'Accept'      : 'application/json, application/xml, text/play, text/html, *.*',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            }
+        });
+        const payload = await response.json();
+        return {payload};
+    } catch (e) {
+        console.log(e);
+    }
+};
+
 function timeout (ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

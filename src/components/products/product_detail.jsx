@@ -4,51 +4,65 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import DetailItem from './template/detail_item';
 import Parent from '../sliders/slider_quickview';
-import {Tabs} from '../common/index';
+import {Tabs, Loading} from '../common/index';
 import ProductRelate from './product_relate';
 import {FormGroup, Checkbox, Radio} from 'react-bootstrap';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
+import {requestGetAllProducts} from '../../redux/actions/action_products';
 
 class ProductDetail extends React.Component {
+    componentWillMount () {
+        // goi api lay list san pham
+        this.props.requestGetAllProducts();
+    }
     render () {
-        let {match} = this.props;
-        let item_name = match.params.name;
-        let {products_list = []} = this.props.data;
-        const index_item = products_list.findIndex(x => x.name === item_name);
-        let item = products_list[index_item];
-        if (item === undefined || item === null) {
+        let {match, products} = this.props;
+        let item_index = match.params.index;
+        if (products.loading || Object.constructor === products) {
             return (
                 <main className="main-contain">
-                    <h3>Loading...</h3>
+                    <div className="row box-product-lists">
+                        <Loading/>
+                    </div>
                 </main>
             );
         } else {
-            return (
-                <main className="main-contain">
-                    <div className="container">
-                        <Link to="/">
-                            ve page home
-                        </Link>
-                    </div>
-                    <div className="container">
-                        <div className="col-sx-12 col-ms-12 col-md-5 clearfix pd-none">
-                            <Parent ImageLager={true} ImageZoom={1.6}/>
+            const index = products.all.products.findIndex(x => x.index === parseInt(item_index));
+            let item = products.all.products[index];
+            if (item === undefined || item === null) {
+                return (
+                    <main className="main-contain">
+                        <h3>khong tim thay sang pham : {match.params.index}</h3>
+                    </main>
+                );
+            } else {
+                return (
+                    <main className="main-contain">
+                        <div className="container">
+                            <Link to="/">
+                               ve page home
+                            </Link>
                         </div>
-                        <div className="col-sx-12 col-ms-12 col-md-5">
-                            <DetailItem item={item} />
+                        <div className="container">
+                            <div className="col-sx-12 col-ms-12 col-md-5 clearfix pd-none">
+                                <Parent ImageLager={true} ImageZoom={1.6}/>
+                            </div>
+                            <div className="col-sx-12 col-ms-12 col-md-5">
+                                <DetailItem item={item}/>
+                            </div>
+                            <div className="col-sx-12 col-ms-12 col-md-2">
+                                {/*{match.params.index}*/}
+                            </div>
+                            <div className="col-sx-12 col-ms-12 col-md-8">
+                                <Tabs Detail={Detail}/>
+                            </div>
+                            <div className="col-sx-12 col-ms-12 col-md-4">
+                                <ProductRelate match={match}/>
+                            </div>
                         </div>
-                        <div className="col-sx-12 col-ms-12 col-md-2">
-                            {match.params.name}
-                        </div>
-                        <div className="col-sx-12 col-ms-12 col-md-8">
-                            <Tabs Detail={Detail}/>
-                        </div>
-                        <div className="col-sx-12 col-ms-12 col-md-4">
-                            <ProductRelate match={match} />
-                        </div>
-                    </div>
-                </main>
-            );
+                    </main>
+                );
+            }
         }
     }
 }
@@ -74,7 +88,7 @@ class Detail extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({data: state.data});
-const mapDispatchToProps = dispatch => bindActionCreators({requestApiData, requestCounter}, dispatch);
+const mapStateToProps = state => ({products: state.products, data: state.data});
+const mapDispatchToProps = dispatch => bindActionCreators({requestApiData, requestCounter, requestGetAllProducts}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
