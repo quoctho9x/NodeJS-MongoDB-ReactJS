@@ -84,6 +84,18 @@ class Demo extends React.Component {
 }
 
 class Items extends React.Component {
+    handleClick (e) {
+        let self = e.target;
+        let parent = self.closest('li');
+        parent.querySelector('.dropdown-menu').classList.toggle('panel-show');
+        if (self.classList.contains('fa-minus')) {
+            self.classList.remove('fa-minus');
+            self.classList.add('fa-plus');
+        } else {
+            self.classList.add('fa-minus');
+            self.classList.remove('fa-plus');
+        }
+    }
     render () {
         return (
             <div id="menu-mobile">
@@ -126,40 +138,40 @@ class Items extends React.Component {
                         </li>
 
                         <li className="active">
-                            <a href="javascript:void(0);" title="Giày nam">Giày nam <i
-                                className="fa fa-angle-right"/></a>
+                            <a href="javascript:void(0);" title="Giày nam">
+                                <span className="glyphicon glyphicon-comment" aria-hidden="true"/>Mục Lục
+                                <i onClick={this.handleClick.bind(this)} className="fa fa-plus arrow-submenu"/>
+                            </a>
                             <ul className="dropdown-menu submenu-level1-children" role="menu" >
 
                                 <li className="current">
-                                    <Link to="/topics">
-                                        <span className="glyphicon glyphicon-comment" aria-hidden="true"/>topics
+                                    <Link to="/allshoes">
+                                        <span className="glyphicon glyphicon-comment" aria-hidden="true"/>Tất cả
+                                    </Link>
+                                </li>
+
+                                <li className="current">
+                                    <Link to="/menshoes">
+                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>Giày Nam
+                                    </Link>
+                                </li>
+
+                                <li className="current">
+                                    <Link to="/womenshoes">
+                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>Giày Nữ
                                     </Link>
                                 </li>
 
                                 <li className="current">
                                     <Link to="/news">
-                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>Tin tức
+                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>Giầy thể thao
                                     </Link>
                                 </li>
 
                                 <li className="current">
-                                    <a href="/" className="current" title="Basketball">Basketball</a>
-                                </li>
-
-                                <li className="current">
-                                    <a href="/" className="current" title="Football">Football</a>
-                                </li>
-
-                                <li className="current">
-                                    <a href="/" className="current" title="Gym &amp; Training">Gym &amp; Training</a>
-                                </li>
-
-                                <li className="current">
-                                    <a href="/" className="current" title="Skateboarding">Skateboarding</a>
-                                </li>
-
-                                <li className="current">
-                                    <a href="/" className="current" title="Tennis">Tennis</a>
+                                    <Link to="/contacts">
+                                        <span className="glyphicon glyphicon-user" aria-hidden="true"/>Dép lê
+                                    </Link>
                                 </li>
 
                             </ul>

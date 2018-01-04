@@ -15,6 +15,12 @@
     float: left;
   }
 }
+.panel-show{
+  display: block;
+}
+.panel-hide{
+  display: none;
+}
 
 @mixin transition($time :1s) {
   transition: all $time;

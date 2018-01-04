@@ -10,7 +10,7 @@ export default class PanelFiter extends React.Component {
     handleClick (e) {
         let self = e.target;
         let parent = self.closest('.group-collection');
-        parent.querySelector('.filter-box').classList.toggle('hide');
+        parent.querySelector('.filter-box').classList.toggle('panel-hide');
         if (self.classList.contains('fa-minus')) {
             self.classList.remove('fa-minus');
             self.classList.add('fa-plus');

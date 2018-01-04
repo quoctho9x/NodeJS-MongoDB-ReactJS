@@ -119,7 +119,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        background-color: rgba(85, 85, 85, 0.3);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         .glyphicon{
           padding-right: 5px;
@@ -129,13 +128,28 @@
   }
 
   .submenu-level1-children {
-    background: #212529;
+    background: rgba(85, 85, 85, 0);
     width: 100%;
     position: static;
     border-radius: 0;
-    padding: 0 0 0 15px;
+    padding: 0;
     margin: 0;
     box-shadow: none;
+    border:none;
+    li a{
+      padding-left: 25px;
+    }
+  }
+  .dropdown{
+    border: none;
+  }
+  .arrow-submenu{
+    position: absolute;
+    right: 15px;
+  }
+  .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+     background-color: rgba(85, 85, 85, 0);
+     /*background-color: rgba(85, 85, 85, 0.5);*/
   }
 }
 /*end menu mobile*/

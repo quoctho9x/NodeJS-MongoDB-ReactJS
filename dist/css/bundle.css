@@ -13,6 +13,12 @@
   display: inline-block;
   float: left; }
 
+.panel-show {
+  display: block; }
+
+.panel-hide {
+  display: none; }
+
 /*===========================
      animation css
 ===========================*/
@@ -643,12 +649,6 @@ a:hover, a:focus {
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto; }
-
-.show {
-  display: block; }
-
-.hide {
-  display: none; }
 
 /*.group-collection input[type='checkbox']:after, .group-collection input[type='radio']:after {
     content: "";
@@ -1503,18 +1503,28 @@ button.btn-style-add:hover {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        background-color: rgba(85, 85, 85, 0.3);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         #menu-mobile .menu-mobile li a .glyphicon {
           padding-right: 5px; }
   #menu-mobile .submenu-level1-children {
-    background: #212529;
+    background: rgba(85, 85, 85, 0);
     width: 100%;
     position: static;
     border-radius: 0;
-    padding: 0 0 0 15px;
+    padding: 0;
     margin: 0;
-    box-shadow: none; }
+    box-shadow: none;
+    border: none; }
+    #menu-mobile .submenu-level1-children li a {
+      padding-left: 25px; }
+  #menu-mobile .dropdown {
+    border: none; }
+  #menu-mobile .arrow-submenu {
+    position: absolute;
+    right: 15px; }
+  #menu-mobile .dropdown-menu > li > a:focus, #menu-mobile .dropdown-menu > li > a:hover {
+    background-color: rgba(85, 85, 85, 0);
+    /*background-color: rgba(85, 85, 85, 0.5);*/ }
 
 /*end menu mobile*/
 /*==========end menu main========*/
