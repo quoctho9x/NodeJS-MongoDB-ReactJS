@@ -8,8 +8,16 @@ export default class PanelFiter extends React.Component {
         };
     }
     handleClick (e) {
-        var parent = e.target.closest('.group-collection');
+        let self = e.target;
+        let parent = self.closest('.group-collection');
         parent.querySelector('.filter-box').classList.toggle('hide');
+        if (self.classList.contains('fa-minus')) {
+            self.classList.remove('fa-minus');
+            self.classList.add('fa-plus');
+        } else {
+            self.classList.add('fa-minus');
+            self.classList.remove('fa-plus');
+        }
     }
     render () {
         let {background} = this.props;
@@ -22,132 +30,174 @@ export default class PanelFiter extends React.Component {
         } else {
             return (
                 <div className="panel-filter">
-                    <div className="group-collection" aria-expanded="true">
+                    <div className="group-collection">
                         <div className="title-block dropdown-filter">
                             <h3 className="title-group">Thương hiệu</h3>
-                            <i onClick={this.handleClick.bind(this)} className="fa fa-minus flexbox-grid-default flexbox-justifyContent-center flexbox-alignItems-center"
-                                aria-hidden="true"/>
+                            <i onClick={this.handleClick.bind(this)} className="fa fa-minus flexbox-grid-default flexbox-justifyContent-center flexbox-alignItems-center"/>
                         </div>
                         <div className="filter-box" id="filter-vendor">
                             <ul>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>Nike</span>
+                                    <label className="control control--checkbox">Biti's
+                                        <input type="checkbox" defaultChecked={true}/>
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>Biti's</span>
+                                    <label className="control control--checkbox">Adidas
+                                        <input type="checkbox" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>Adidas</span>
+                                    <label className="control control--checkbox">Banuli
+                                        <input type="checkbox" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>Banuli</span>
+                                    <label className="control control--checkbox">Vascara
+                                        <input type="checkbox"/>
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>Vascara</span>
+                                    <label className="control control--checkbox">Nike
+                                        <input type="checkbox" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className="group-collection" aria-expanded="true">
+                    <div className="group-collection">
                         <div className="title-block dropdown-filter">
                             <h3 className="title-group">Kích thước</h3>
-                            <i onClick={this.handleClick.bind(this)} className="fa fa-minus flexbox-grid-default flexbox-justifyContent-center flexbox-alignItems-center"
-                                aria-hidden="true"/>
+                            <i onClick={this.handleClick.bind(this)} className="fa fa-minus flexbox-grid-default flexbox-justifyContent-center flexbox-alignItems-center"/>
                         </div>
                         <div className="filter-box" id="filter-vendor">
-                            <ul>
+                            <ul className="ul-two-col clearfix">
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>35</span>
+                                    <label className="control control--checkbox">35
+                                        <input type="checkbox" defaultChecked={true}/>
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>36</span>
+                                    <label className="control control--checkbox">36
+                                        <input type="checkbox" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>37</span>
+                                    <label className="control control--checkbox">37
+                                        <input type="checkbox" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>38</span>
+                                    <label className="control control--checkbox">38
+                                        <input type="checkbox"/>
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>39</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label data-filter="nike" className="nike">
-                                        <input type="checkbox" value="(Nike)"/>
-                                        <span>40</span>
+                                    <label className="control control--checkbox">39
+                                        <input type="checkbox" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
-                    <div className="group-collection" aria-expanded="true">
+                    <div className="group-collection">
                         <div className="title-block dropdown-filter">
                             <h3 className="title-group">Màu sắc</h3>
-                            <i onClick={this.handleClick.bind(this)} className="fa fa-minus flexbox-grid-default flexbox-justifyContent-center flexbox-alignItems-center"
-                                aria-hidden="true"/>
+                            <i onClick={this.handleClick.bind(this)} className="fa fa-minus flexbox-grid-default flexbox-justifyContent-center flexbox-alignItems-center"/>
                         </div>
                         <div className="filter-box" id="filter-vendor">
-                            <ul>
+                            <ul className="ul-two-col clearfix">
                                 <li>
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio"/>Option 1
+                                    <label className="control control--radio">Trắng
+                                        <input type="radio" name="radio" defaultChecked={true}/>
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio"/>Option 2
+                                    <label className="control control--radio">Vàng
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio"/>Option 3
+                                    <label className="control control--radio">Xanh
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio"/>Option 4
+                                    <label className="control control--radio">Đỏ
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio"/>Option 5
+                                    <label className="control control--radio">Tím
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                                 <li>
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio"/>Option 6
+                                    <label className="control control--radio">Cam
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label className="control control--radio">Lục
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="group-collection">
+                        <div className="title-block dropdown-filter">
+                            <h3 className="title-group">Giá</h3>
+                            <i onClick={this.handleClick.bind(this)} className="fa fa-minus flexbox-grid-default flexbox-justifyContent-center flexbox-alignItems-center"/>
+                        </div>
+                        <div className="filter-box" id="filter-vendor">
+                            <ul className="">
+                                <li>
+                                    <label className="control control--radio">Nhỏ hơn 500.000₫
+                                        <input type="radio" name="radio" defaultChecked={true}/>
+                                        <div className="control__indicator"/>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label className="control control--radio">Từ 500.000₫ - 2.000.000₫
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label className="control control--radio">Từ 2.000.000₫ - 3.000.000₫
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label className="control control--radio">Từ 3.000.000₫ - 4.000.000₫
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label className="control control--radio">Lớn hơn 4.000.000₫
+                                        <input type="radio" name="radio" />
+                                        <div className="control__indicator"/>
                                     </label>
                                 </li>
                             </ul>

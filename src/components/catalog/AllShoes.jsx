@@ -3,26 +3,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import {requestGetProducts, requestGetAllProducts} from '../../redux/actions/action_products';
-import {Loading, PanelFiter} from '../common/index';
+import {Loading, PanelFiter, TitleBlocks} from '../common/index';
 import ModalView from '../products/template/modal';
-/*const styles = {
-    box: {
-        width   : '200px',
-        border  : 'solid thin gray',
-        left    : '37%',
-        padding : '10px',
-        position: 'relative',
-        margin  : '15px'
-    },
-    loading: {
-        backgroundColor: 'aquamarine',
-        padding        : '10px',
-        width          : '350px',
-        left           : '34%',
-        position       : 'relative',
-        margin         : '52px'
-    }
-};*/
+
 class AllShoes extends React.Component {
     constructor (props) {
         super(props);
@@ -112,6 +95,7 @@ class AllShoes extends React.Component {
                         </div>
                         <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <div className="row box-product-lists">
+                                <TitleBlocks name="Tất cả"/>
                                 {ListItems}
                                 {
                                     (this.state.currentCount !== this.state.total)

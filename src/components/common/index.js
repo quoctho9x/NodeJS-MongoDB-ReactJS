@@ -2,6 +2,7 @@ export { default as Bullet } from './Bullet';
 export { default as Notification } from './Notification';
 export { default as Not404 } from './404';
 export { default as PanelFiter } from './PanelFiter';
+export { default as TitleBlocks } from './TitleBlock';
 export { default as HeroHeading } from './display/HeroHeading';
 export { default as Loading } from './Loading';
 export { default as Flexbox } from './Flexbox';

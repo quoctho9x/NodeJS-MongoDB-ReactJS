@@ -270,9 +270,12 @@ a:hover, a:focus {
         position: relative;
         padding: 15px;
         margin-bottom: 0;
+        text-align: left;
         .title-group{
             margin: 0;
             font-size: 18px;
+            text-align: left;
+            display: inline-block;
         }
         i{
             position: absolute;
