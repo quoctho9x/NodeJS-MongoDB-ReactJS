@@ -1,5 +1,6 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
+import { Route, Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {requestGetAllNews} from '../../redux/actions/action_news';
 
@@ -137,14 +138,14 @@ class ItemNews extends React.Component {
             <li className="wrapper-article mb15">
                 <div className="row">
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 blog-item-image">
-                        <a href="#">
+                        <Link to={`news/${item.index}`} className="" title={item.name}>
                             <img src={item.link} alt="title ne"/>
-                        </a>
+                        </Link>
                     </div>
                     <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12 blog-item-title">
-                        <a href="#" title={item.title}>
+                        <Link to={`news/${item.index}`} className="" title={item.name}>
                             <h3 className="article-title">{item.title}</h3>
-                        </a>
+                        </Link>
                         <p className="blog-item-created"><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
                         <div className="blog-item-content">{item.summary}</div>
                     </div>

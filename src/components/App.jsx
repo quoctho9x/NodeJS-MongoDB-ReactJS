@@ -7,6 +7,7 @@ import Header from './header/Header';
 import About from './about/About';
 import Contacts from './contacts/contacts';
 import News from './news/news';
+import NewsDetail from './news/detail_news';
 import Topics from './topics/Topics';
 import Cart from './cart/cart';
 import Login from './users/login';
@@ -60,6 +61,7 @@ class App extends React.Component {
                         <Route exact path="/about" component={About}/>
                         <Route exact path="/topics" component={Topics}/>
                         <Route exact path="/news" component={News}/>
+                        <Route exact path="/news/:index" component={NewsDetail}/>
                         <Route exact path="/cart" component={Cart}/>
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/account" component={Account}/>

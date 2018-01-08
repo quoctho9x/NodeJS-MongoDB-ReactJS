@@ -1,4 +1,4 @@
-import { List_News, products_list } from './data';
+import { products_list } from './data';
 export const fetchNews = async () => {
     try {
         const response = await fetch('https://randomuser.me/api');
@@ -16,15 +16,15 @@ export const fetchNews = async () => {
 
 export const fetchAllNews = async () => {
     try {
-        /* const response = await fetch('https://quoctho.herokuapp.com/api/products/all', {
+        const response = await fetch('https://quoctho.herokuapp.com/api/news/all', {
             method : 'GET',
             headers: {
                 'Accept'      : 'application/json, application/xml, text/play, text/html, *.*',
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
             }
         });
-        const payload = await response.json(); */
-        return {payload: List_News};
+        const data = await response.json();
+        return {payload: data};
     } catch (e) {
         console.log(e);
     }

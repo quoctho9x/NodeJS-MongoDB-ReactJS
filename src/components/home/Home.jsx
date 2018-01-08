@@ -41,31 +41,31 @@ class Home extends React.Component {
                 <div id="group-sale-index" className="container">
                     <TitleBlock title="Black Friday" subtitle="Chương trình sẽ kết thúc sau"/>
                     <Products match={match} productType="women" maxItem={8}/>
-                    <BtnViewMore link="/deobiet" title="Xem tất cả"/>
+                    <BtnViewMore link="/allshoes" title="Xem tất cả"/>
 
                 </div>
                 <div id="group-sale-index-new" className="container">
                     <TitleBlock title="SẢN PHẨM MỚI" subtitle="Hàng luôn được cập nhật thường xuyên"/>
                     <Products match={match} productType="men" maxItem={8}/>
-                    <BtnViewMore link="/deobiet" title="Xem tất cả"/>
+                    <BtnViewMore link="/allshoes" title="Xem tất cả"/>
 
                 </div>
                 <div id="group-sale-index-hot" className="container">
                     <TitleBlock title="SẢN PHẨM HOT" subtitle="Hàng luôn được cập nhật thường xuyên"/>
                     <Products match={match} productType="discount" maxItem={8}/>
-                    <BtnViewMore link="/deobiet" title="Xem tất cả"/>
+                    <BtnViewMore link="/allshoes" title="Xem tất cả"/>
 
                 </div>
                 <div id="group-sale-index-bestsale" className="container">
                     <TitleBlock title="SẢN PHẨM BÁN CHẠY" subtitle="Hàng luôn được cập nhật thường xuyên"/>
                     <Products match={match} productType="new" maxItem={8}/>
-                    <BtnViewMore link="/deobiet" title="Xem tất cả"/>
+                    <BtnViewMore link="/allshoes" title="Xem tất cả"/>
 
                 </div>
                 <div id="group-sale-index-bestsale" className="container">
                     <TitleBlock title="TIN TỨC" subtitle="Hàng luôn được cập nhật thường xuyên"/>
                     <SliderNews/>
-                    <BtnViewMore link="/deobiet" title="Xem Thêm"/>
+                    <BtnViewMore link="/news" title="Xem Thêm"/>
 
                 </div>
                 <div id="group-sale-index-trademark" className="container">
