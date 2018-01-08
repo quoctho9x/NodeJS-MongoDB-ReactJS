@@ -1,26 +1,8 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {requestGetProducts, requestGetAllProducts} from '../../redux/actions/action_products';
-import {Loading} from '../common/index';
-const styles = {
-    box: {
-        width   : '200px',
-        border  : 'solid thin gray',
-        left    : '37%',
-        padding : '10px',
-        position: 'relative',
-        margin  : '15px'
-    },
-    loading: {
-        backgroundColor: 'aquamarine',
-        padding        : '10px',
-        width          : '350px',
-        left           : '34%',
-        position       : 'relative',
-        margin         : '52px'
-    }
-};
+import {requestGetAllNews} from '../../redux/actions/action_news';
+
 class News extends React.Component {
     constructor (props) {
         super(props);
@@ -33,16 +15,16 @@ class News extends React.Component {
         };
     }
     componentWillMount () {
-        // goi api lay list san pham
-       this.props.requestGetAllProducts();
+        // goi api lay list tin tuc
+       this.props.requestGetAllNews();
     }
     componentDidMount () {
     }
     componentWillReceiveProps (newProps) {
-        let {products} = newProps;
-        if (!products.loading || Object.constructor === products) {
-            this.loadInitialContent(products.all.products, this.state.currentCount);
-            this.setState({total: products.all.total});
+        let {news} = newProps;
+        if (!news.loading || Object.constructor === news) {
+            this.loadInitialContent(news.all.news, this.state.currentCount);
+            this.setState({total: news.all.total});
             window.addEventListener('scroll', this.loadOnScroll);
         }
     }
@@ -51,41 +33,69 @@ class News extends React.Component {
     }
 
     render () {
-        let {products} = this.props;
-        const Products_list = () => {
+        let {news} = this.props;
+        console.log('lay duoc list news roi ne ', news);
+        const News_list = () => {
             return (
-                <div className="App-intro">
+                <ul id="list-articles" className="blog-list-articles clearfix">
                     {
                         this.state.list.map((item, index) => (
-                            <div style = {styles.box} key ={index}>
-                                <img src={item.link} width = "150"/>
-                                <h3 style = {{margin: 0}}>{item.name}</h3>
-                                <p style = {{color: 'gray', textAlign: 'center'}}>{item.color}</p>
-                            </div>
+                            <ItemNews key ={index} item={item}/>
                         ))
                     }
                     {
                         (this.state.currentCount !== this.state.total)
-                            ? <div id="content-end" style = {styles.loading} onClick={e => this.forceLoadOnScroll()}>
-                                Please wait. Loading...
-                            </div> : null
+                            ?  <div id="content-end" onClick={e => this.forceLoadOnScroll()}>
+                                <i className="fa fa-spinner fa-spin fa-4x animated" />
+                            </div>  : null
                     }
-                </div>
+                </ul>
+            );
+        };
+        const Newest= () => {
+            return (
+                <ul id="list-articles" className="blog-list-articles clearfix">
+                    {
+                        this.state.list.map((item, index) => {
+                            if (index >= 5) return false;
+                            else {
+                                return(
+                                    <New_News key={index} item={item}/>
+                                )
+                            }
+                        })
+                    }
+                </ul>
             );
         };
         return (
             <main className="main-contain App">
-                <Products_list/>
-                {/*  {(products.loading) ? <Loading background={true}/> : <Products_list/> } */}
+                <div className="container">
+                    <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <div className="group-collection mr-left-right">
+                            <div className="title-block">
+                                <h1 className="title-group">Tin tức</h1>
+                            </div>
+                        </div>
+                        <News_list/>
+                    </div>
+                    <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div className="group-collection mr-left-right">
+                            <div className="title-block">
+                                <h1 className="title-group">Bài viết mới nhất</h1>
+                            </div>
+                        </div>
+                        <Newest/>
+                    </div>
+                </div>
             </main>
         );
     }
     forceLoadOnScroll () {
-
     }
 
     loadOnScroll = (e) =>{
-        let {products} = this.props;
+        let {news} = this.props;
         if (this.state.currentCount === this.state.total) return;
         let el = document.getElementById('content-end');
         let rect = el.getBoundingClientRect();
@@ -101,32 +111,72 @@ class News extends React.Component {
                     if(count >= this.state.total){
                         count = this.state.total;
                     }
-                    /*console.log('current', count)
-                    console.log('this.state.total', this.state.total)
-                    console.log('list', this.state.list)
-                    console.log('this.props.products', this.props.products.products.slice(this.state.currentCount, count))*/
-
                     if (this.state.currentCount !== this.state.total) {
                         this.setState({
                             isFetching  : false,
                             currentCount: count,
-                            list        : [...this.state.list, ...products.all.products.slice(this.state.currentCount, count)]
+                            list        : [...this.state.list, ...news.all.news.slice(this.state.currentCount, count)]
                         });
                     }
                 }, 1000);
             }
         }
-    }
+    };
 
     loadInitialContent (array,currentinit) {
         // Get content from server using your preferred method (like AJAX, relay)
-        console.log('list ban dau', array);
         let ary = array.slice(0, currentinit);
         this.setState({list: ary});
     }
 }
 
-const mapStateToProps = state => ({products: state.products});
-const mapDispatchToProps = dispatch => bindActionCreators({requestGetProducts, requestGetAllProducts}, dispatch);
+class ItemNews extends React.Component {
+    render(){
+        var {item} = this.props;
+        return(
+            <li className="wrapper-article mb15">
+                <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 blog-item-image">
+                        <a href="#">
+                            <img src={item.link} alt="title ne"/>
+                        </a>
+                    </div>
+                    <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12 blog-item-title">
+                        <a href="#" title={item.title}>
+                            <h3 className="article-title">{item.title}</h3>
+                        </a>
+                        <p className="blog-item-created"><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
+                        <div className="blog-item-content">{item.summary}</div>
+                    </div>
+                </div>
+            </li>
+        )
+    }
+}
+class New_News extends React.Component {
+    render(){
+        var {item} = this.props;
+        return(
+            <li className="wrapper-article mb15">
+                <div className="row">
+                        <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 blog-item-image">
+                        <a href="#">
+                            <img src={item.link} alt="title ne"/>
+                        </a>
+                    </div>
+                    <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12 blog-item-title">
+                        <a href="#" title={item.title}>
+                            <h3 className="article-title">{item.title}</h3>
+                        </a>
+                        <p className="blog-item-created"><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
+                    </div>
+                </div>
+            </li>
+        )
+    }
+}
+
+const mapStateToProps = state => ({news:state.news});
+const mapDispatchToProps = dispatch => bindActionCreators({requestGetAllNews}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(News);

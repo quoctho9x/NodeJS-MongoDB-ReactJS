@@ -77,15 +77,15 @@ export default class Header extends React.Component {
                                         <NavItem eventKey={3.3}>Giầy thể thao</NavItem>
                                     </LinkContainer>
                                     <MenuItem divider />
-                                    <LinkContainer to="/contacts">
+                                    <LinkContainer to="/others">
                                         <NavItem eventKey={3.3}>Dép lê</NavItem>
                                     </LinkContainer>
-                                    {/*<MenuItem eventKey={3.1} ><Link to="/">Giày Nam</Link></MenuItem>*/}
-                                   {/* <MenuItem eventKey={3.2}>Giày Nữ</MenuItem>
+                                    {/* <MenuItem eventKey={3.1} ><Link to="/">Giày Nam</Link></MenuItem> */}
+                                    {/* <MenuItem eventKey={3.2}>Giày Nữ</MenuItem>
                                     <MenuItem divider />
                                     <MenuItem eventKey={3.3}>Giầy thể thao</MenuItem>
                                     <MenuItem divider />
-                                    <MenuItem eventKey={3.3}>Dép lê</MenuItem>*/}
+                                    <MenuItem eventKey={3.3}>Dép lê</MenuItem> */}
                                 </NavDropdown>
                                 <LinkContainer to="/news">
                                     <NavItem eventKey={4}>Tin tức</NavItem>

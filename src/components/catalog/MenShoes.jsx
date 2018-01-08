@@ -8,7 +8,6 @@ export default class MenShoes extends React.Component {
         return (
             <main className="main-contain">
                 <h1>giay cho men</h1>
-                <PanelFiter/>
             </main>
         );
     }

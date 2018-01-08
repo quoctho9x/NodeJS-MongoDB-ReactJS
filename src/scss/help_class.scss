@@ -21,6 +21,9 @@
 .panel-hide{
   display: none;
 }
+.mb15{
+  margin-bottom: 15px;
+}
 
 @mixin transition($time :1s) {
   transition: all $time;

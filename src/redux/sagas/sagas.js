@@ -9,10 +9,11 @@ import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCa
 import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken } from './handleUser';
 import { clearNotification } from './handleNotification';
 import { getProductsList, getAllProducts } from './handleProducts';
+import { getAllNews } from './handleNews';
+
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function * getApiData (action) {
     try {
-        // console.log('api data');
         const data = yield call(fetchData);
         yield put(receiveApiData(data));
     } catch (e) {
@@ -21,7 +22,6 @@ function * getApiData (action) {
 }
 function * counter (action) {
     try {
-        // const data = yield call(fetchData);
         yield put(receiveCounter(action.value));
     } catch (e) {
         console.log(e);
@@ -55,4 +55,7 @@ export default function * mySaga () {
     /* products */
     yield takeEvery('REQUEST_GETALLPRODUCTS', getAllProducts);
     yield takeEvery('REQUEST_GETPRODUCTS', getProductsList);// request use
+    /* News */
+    yield takeEvery('REQUEST_GETALLNEWS', getAllNews);
+    /*  yield takeEvery('REQUEST_GETPRODUCTS', getProductsList);// request use */
 }

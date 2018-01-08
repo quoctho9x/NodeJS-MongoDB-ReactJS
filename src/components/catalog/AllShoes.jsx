@@ -100,7 +100,7 @@ class AllShoes extends React.Component {
                                 {
                                     (this.state.currentCount !== this.state.total)
                                         ? <div id="content-end" onClick={e => this.forceLoadOnScroll()}>
-                                            lay du lieu
+                                            <i className="fa fa-spinner fa-spin fa-4x animated" />
                                         </div> : null
                                 }
                             </div>

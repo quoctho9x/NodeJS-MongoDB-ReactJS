@@ -20,7 +20,6 @@ export default class TitleBlocks extends React.Component {
                             </select>
                         </span>
                     </div>
-
                 </div>
             </div>
         );
