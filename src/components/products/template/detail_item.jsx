@@ -7,17 +7,18 @@ import {requestAddtocart} from '../../../redux/actions/action_addtocart';
 class DetailItem extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {selectedColor: 'cam', selectedSize: 38};
+        this.state = {selectedColor: '', selectedSize: 38};
     }
     componentWillMount () {
         let {item} = this.props;
+
         this.setState({ selectedColor: item.color[0], selectedSize: item.size[0] });
     }
     componentDidMount () {
     }
     componentWillReceiveProps (nextProps) {
-        this.setState({selectedColor: nextProps.item.color});
-        this.setState({selectedSize: parseInt(nextProps.item.size)});
+        this.setState({selectedColor: nextProps.item.color[0]});
+        this.setState({selectedSize: parseInt(nextProps.item.size[0])});
     }
     handleAddToCart (item) {
         var item_add = Object.assign({}, item);

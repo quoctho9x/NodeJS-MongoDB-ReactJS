@@ -1,6 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import { Route, Link } from 'react-router-dom';
 import {requestGetAllNews} from '../../redux/actions/action_news';
 
 class NewsDetail extends React.Component {
@@ -44,12 +45,10 @@ class NewsDetail extends React.Component {
                     );
                 } else {
                     return (
-                        <div className="row">
+                        <div className="row detail-article">
                             <div className="">
-                                <a href="#" title={item.title}>
-                                    <h3 className="article-title">{item.title}</h3>
-                                </a>
-                                <p className=""><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
+                                <h3 className="detail-article-title">{item.title}</h3>
+                                <p className="detail-article-date"><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
                                 <p className="">{item.content}</p>
                             </div>
                         </div>
@@ -86,11 +85,6 @@ class NewsDetail extends React.Component {
             <main className="main-contain App">
                 <div className="container">
                     <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                        <div className="group-collection mr-left-right">
-                            <div className="title-block">
-                                <h1 className="title-group">Tin tức</h1>
-                            </div>
-                        </div>
                         <DetailNews/>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -99,7 +93,7 @@ class NewsDetail extends React.Component {
                                 <h1 className="title-group">Bài viết mới nhất</h1>
                             </div>
                         </div>
-                        <Newest/>
+                        <Newest />
                     </div>
                 </div>
             </main>
@@ -107,29 +101,6 @@ class NewsDetail extends React.Component {
     }
 }
 
-class ItemNews extends React.Component {
-    render () {
-        let {item} = this.props;
-        return (
-            <li className="wrapper-article mb15">
-                <div className="row">
-                    <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 blog-item-image">
-                        <a href="#">
-                            <img src={item.link} alt="title ne"/>
-                        </a>
-                    </div>
-                    <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12 blog-item-title">
-                        <a href="#" title={item.title}>
-                            <h3 className="article-title">{item.title}</h3>
-                        </a>
-                        <p className="blog-item-created"><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
-                        <div className="blog-item-content">{item.summary}</div>
-                    </div>
-                </div>
-            </li>
-        );
-    }
-}
 class New_News extends React.Component {
     render () {
         let {item} = this.props;
@@ -137,14 +108,14 @@ class New_News extends React.Component {
             <li className="wrapper-article mb15">
                 <div className="row">
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 blog-item-image">
-                        <a href="#">
+                        <Link to={`/news/${item.index}`} className="" title={item.name}>
                             <img src={item.link} alt="title ne"/>
-                        </a>
+                        </Link>
                     </div>
                     <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12 blog-item-title">
-                        <a href="#" title={item.title}>
+                        <Link to={`/news/${item.index}`} className="" title={item.name}>
                             <h3 className="article-title">{item.title}</h3>
-                        </a>
+                        </Link>
                         <p className="blog-item-created"><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
                     </div>
                 </div>
