@@ -49,7 +49,18 @@ class NewsDetail extends React.Component {
                             <div className="">
                                 <h3 className="detail-article-title">{item.title}</h3>
                                 <p className="detail-article-date"><i className="fa fa-calendar" /> {item.date} - {item.owner}</p>
-                                <p className="">{item.content}</p>
+                                {/* <div className="detail-article-content clearfix">
+                                    <p>Từ khi ra mắt với phần upper chỉ trên nền đen và trắng, adidas AlphaBounce giờ đây đã sẵn sàng kết hợp với những họa tiết sặc sỡ và chuyển đổi màu sắc XENO độc đáo.</p>
+                                    <p class="image"><img src="//bizweb.dktcdn.net/thumb/grande/100/238/538/files/adidas-alphabounce-reflective-pack-2-grande.jpg?v=1507468518617"/></p>
+                                    <p class="image"><img src="//bizweb.dktcdn.net/thumb/grande/100/238/538/files/adidas-alphabounce-reflective-pack-3-grande.jpg?v=1507468532499"/></p>
+                                    <p>AlphaBounce trở nên sáng sủa hơn bao giờ hết trong một gói Reflective hoàn toàn mới. Đưa ra những phiên bản bắt mắt cho cả nam và nữ có tính năng phản chiếu ở phần upper, viền cổ và trên lưỡi gàAlphaBounce sẽ sang lên như chưa bao giờ.</p>
+                                    <p class="image"><img src="//bizweb.dktcdn.net/thumb/grande/100/238/538/files/adidas-alphabounce-reflective-pack-4-grande.jpg?v=1507468541428"/></p>
+                                    <p class="image"><img src="//bizweb.dktcdn.net/thumb/grande/100/238/538/files/adidas-alphabounce-reflective-pack-5-grande.jpg?v=1507468549798"/></p>
+                                    <p>Ra mắt ba màu black, silver và tan cho nam và hai màu black và tan cho nữ</p>
+                                    <p class="image"><img src="//bizweb.dktcdn.net/thumb/grande/100/238/538/files/adidas-alphabounce-reflective-pack-6-grande.jpg?v=1507468558202"/></p>
+                                    <p class="image"><img src="//bizweb.dktcdn.net/thumb/grande/100/238/538/files/adidas-alphabounce-reflective-pack-7-grande.jpg?v=1507468566150"/></p>
+                                </div> */}
+                                <div className="detail-article-content clearfix" dangerouslySetInnerHTML={{__html: item.content}} />
                             </div>
                         </div>
                     );

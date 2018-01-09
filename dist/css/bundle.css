@@ -633,6 +633,11 @@
     color: #58b3f0; }
   .detail-article .detail-article-date {
     color: #999; }
+  .detail-article .detail-article-content .image {
+    text-align: center; }
+    .detail-article .detail-article-content .image img {
+      max-width: 100%;
+      height: auto; }
 
 /*===========================
       end news_page_page
