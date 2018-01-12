@@ -38,11 +38,6 @@ export default class Footer extends React.Component {
                                 <a href="#" className="zoom">bag</a>
                                 <a href="#" className="zoom">teshart</a>
                                 <a href="#" className="zoom">top</a>
-                                <a href="#" className="zoom">shos</a>
-                                <a href="#" className="zoom">glass</a>
-                                <a href="#" className="zoom">kit</a>
-                                <a href="#" className="zoom">baby dress</a>
-                                <a href="#" className="zoom">kurti</a>
                             </div>
                         </div>
                         <div className="col-sm-3">

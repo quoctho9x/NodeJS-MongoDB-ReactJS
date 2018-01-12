@@ -30,7 +30,7 @@ export default class ModalView extends React.Component {
         return (
             <ButtonToolbar>
                 <Button bsStyle="primary" onClick={(e) => { this.showModal(e); }}>
-                    Quick view
+                    Xem nhanh
                 </Button>
 
                 <Modal

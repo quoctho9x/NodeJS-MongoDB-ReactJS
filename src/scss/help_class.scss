@@ -21,9 +21,79 @@
 .panel-hide{
   display: none;
 }
+/*-----------margin----------*/
+/*margin-right*/
 .mb15{
   margin-bottom: 15px;
 }
+.mg_lr15{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.mg_r10{
+   margin-right: 10px;
+}
+.mg_r15{
+   margin-right: 15px;
+}
+.mg_r30{
+  margin-right: 30px;
+}
+.mg_r50{
+  margin-right: 50px;
+}
+/*margin-bottom*/
+.mb15{
+  margin-bottom: 15px;
+}
+.mg_b15{
+  margin-bottom: 15px;
+}
+.mg_b10{
+  margin-bottom: 10px;
+}
+.mg_b15{
+  margin-bottom: 15px;
+}
+.mg_b30{
+  margin-bottom: 30px;
+}
+.mg_b50{
+  margin-bottom: 50px;
+}
+
+/*-----------margin----------*/
+
+/*----------button----------*/
+.btn-change-text[content]{
+  &:after {
+    content:attr(content);
+  }
+}
+.btn-responsive{}
+
+@media all and (max-width: 768px) {
+  .btn-change-text[content]{
+    &:after {
+      content:'';
+    }
+  }
+  .btn-responsive{
+    width: 100%;
+    margin: 10px auto;
+  }
+}
+/*----------button----------*/
+/*----------element----------*/
+.el-reponsive{
+
+}
+@media all and (max-width: 768px) {
+  .el-reponsive{
+    display: none;
+  }
+}
+/*----------element----------*/
 
 @mixin transition($time :1s) {
   transition: all $time;

@@ -60,11 +60,11 @@ class DetailItem extends React.Component {
                         <span className="fa fa-star"/>
                         <span className="fa fa-star"/>
                     </div>
-                    <span className="review-no">41 reviews</span>
+                    <span className="review-no">41 lược đánh giá</span>
                 </div>
                 <p className="product-description">{item.description}</p>
-                <h4 className="price">current price: <span>${item.price}</span></h4>
-                <p className="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                <h4 className="price">Giá hiện tại: <span>${item.price}</span></h4>
+                <p className="vote"><strong>91%</strong> người mua đã bình chọn <strong>(87 votes)</strong></p>
                 <div className="selector-wrapper flexbox-grid-default">
                     <label>Màu sắc:</label>
                     <ul className="clearfix style-variant-template">

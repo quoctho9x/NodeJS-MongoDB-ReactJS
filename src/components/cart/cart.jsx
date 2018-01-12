@@ -30,30 +30,29 @@ class Cart extends React.Component {
             total += item.quantity * item.price;
             return (
                 <tr key={key}>
-                    <td className="col-sm-8 col-md-6">
-                        <div className="media">
+                    <td className="">
+                        <div className="detail-cart">
                             <Link to={`products/${item.index}`} className="thumbnail" title={item.name}>
                                 <img src={item.link} className="media-object img-responsive" alt="xanhduonglunartempo"/>
                             </Link>
-                            <div className="media-body">
+                            <div className="detail-cart-content">
                                 <h4 className="media-heading">
                                     <Link to={`products/${item.index}`} title={item.name}>
                                         {item.name}
                                     </Link>
                                 </h4>
-                                <h5 className="media-heading"> color: {item.color}</h5>
+                                <h5 className="media-heading"> Màu sắc: {item.color}</h5>
                                 <h5 className="media-heading"> size: {item.size}</h5>
-                                <span>Status: </span><span className="text-success"><strong>In Stock</strong></span>
                             </div>
                         </div></td>
-                    <td className="col-sm-1 col-md-1 center">
-                        <input type="number" className="form-control" min="1" onChange={this.getvalueinput.bind(this, item)} value={item.quantity}/>
+                    <td className="center">
+                        <input type="number" className="form-control input-number" min="1" onChange={this.getvalueinput.bind(this, item)} value={item.quantity}/>
                     </td>
-                    <td className="col-sm-1 col-md-1 text-center"><strong>${item.price}</strong></td>
-                    <td className="col-sm-1 col-md-1 text-center"><strong>${item.quantity * item.price}</strong></td>
-                    <td className="col-sm-1 col-md-1">
-                        <button type="button" className="btn btn-danger" onClick={this.removeItem.bind(this, item)}>
-                            <span className="glyphicon glyphicon-remove"/> Remove
+                    <td className="text-center el-reponsive"><strong>${item.price}</strong></td>
+                    <td className="text-center"><strong>${item.quantity * item.price}</strong></td>
+                    <td className="text-center">
+                        <button type="button" className="btn btn-danger btn-change-text" content=" Xóa" onClick={this.removeItem.bind(this, item)}>
+                            <span className="glyphicon glyphicon-trash"/>
                         </button></td>
                 </tr>
             );
@@ -61,96 +60,33 @@ class Cart extends React.Component {
         return (
             <main className="main-contain">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-sm-12 col-md-10 col-md-offset-1">
-                            <table className="table table-hover table-cart-list">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th className="text-center">Price</th>
-                                        <th className="text-center">Total</th>
-                                        <th> </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {ListItems}
-                                    {/* <tr>
-                                        <td className="col-sm-8 col-md-6">
-                                            <div className="media">
-                                                <a className="thumbnail pull-left" href="#"> <img className="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"/></a>
-                                                <div className="media-body">
-                                                    <h4 className="media-heading"><a href="#">Product name</a></h4>
-                                                    <h5 className="media-heading"> by <a href="#">Brand name</a></h5>
-                                                    <span>Status: </span><span className="text-success"><strong>In Stock</strong></span>
-                                                </div>
-                                            </div></td>
-                                        <td className="col-sm-1 col-md-1 center">
-                                            <input type="email" className="form-control" id="exampleInputEmail1" defaultValue="3"/>
-                                        </td>
-                                        <td className="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
-                                        <td className="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
-                                        <td className="col-sm-1 col-md-1">
-                                            <button type="button" className="btn btn-danger">
-                                                <span className="glyphicon glyphicon-remove"/> Remove
-                                            </button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className="col-md-6">
-                                            <div className="media">
-                                                <a className="thumbnail pull-left" href="#"> <img className="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"/> </a>
-                                                <div className="media-body">
-                                                    <h4 className="media-heading"><a href="#">Product name</a></h4>
-                                                    <h5 className="media-heading"> by <a href="#">Brand name</a></h5>
-                                                    <span>Status: </span><span className="text-warning"><strong>Leaves warehouse in 2 - 3 weeks</strong></span>
-                                                </div>
-                                            </div></td>
-                                        <td className="col-md-1 center">
-                                            <input type="email" className="form-control" id="exampleInputEmail1" defaultValue="2"/>
-                                        </td>
-                                        <td className="col-md-1 text-center"><strong>$4.99</strong></td>
-                                        <td className="col-md-1 text-center"><strong>$9.98</strong></td>
-                                        <td className="col-md-1">
-                                            <button type="button" className="btn btn-danger">
-                                                <span className="glyphicon glyphicon-remove"/> Remove
-                                            </button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td><h5>Subtotal</h5></td>
-                                        <td className="text-right"><h5><strong>{Subtotal}</strong></h5></td>
-                                    </tr>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td><h5>Estimated shipping</h5></td>
-                                        <td className="text-right"><h5><strong>$6.94</strong></h5></td>
-                                    </tr> */}
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td><h3>Total</h3></td>
-                                        <td className="text-right"><h3><strong>${total}</strong></h3></td>
-                                    </tr>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>
-                                            <button type="button" className="btn btn-default">
-                                                <span className="glyphicon glyphicon-shopping-cart"/> Continue Shopping
-                                            </button></td>
-                                        <td>
-                                            <button type="button" className="btn btn-success">
-                                            Checkout <span className="glyphicon glyphicon-play"/>
-                                            </button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <h1 className="header-title"> Chi Tiết Giỏ Hàng </h1>
+                    <div className="">
+                        <table className="table table-hover table-cart-list">
+                            <thead>
+                                <tr>
+                                    <th>Sản Phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th className="text-center el-reponsive">Giá</th>
+                                    <th className="text-center">Tổng</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {ListItems}
+                                <tr><td/><td/><td/><td/><td/></tr>
+                            </tbody>
+                        </table>
+                        <div className="pull-right">
+                            <h3>Tổng tiền : <strong>${total}</strong></h3>
+                            <Link to="/">
+                                <button type="button" className="btn btn-default mg_r30 btn-responsive">
+                                    <span className="glyphicon glyphicon-shopping-cart"/> Tiếp tục mua hàng
+                                </button>
+                            </Link>
+                            <button type="button" className="btn btn-success btn-responsive">
+                                Đặt Hàng <span className="glyphicon glyphicon-play"/>
+                            </button>
                         </div>
                     </div>
                 </div>

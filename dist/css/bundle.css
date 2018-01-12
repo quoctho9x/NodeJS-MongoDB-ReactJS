@@ -642,6 +642,73 @@
 /*===========================
       end news_page_page
 ===========================*/
+/*===========================
+        user_page
+===========================*/
+.image-preview {
+  max-width: 200px;
+  max-height: 100%; }
+
+.img-circle {
+  margin: auto;
+  max-width: 80px; }
+
+.group-btn {
+  text-align: left; }
+  .group-btn > div {
+    display: inline-block; }
+  .group-btn button:last-child {
+    float: right; }
+
+/*-------upload image---------*/
+.upload-image {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border: 2px solid #333;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-bottom: 10px; }
+  .upload-image .zone-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1; }
+  .upload-image .image-preview {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0; }
+
+.message-image-upload {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  font-size: 20px;
+  font-weight: bold; }
+  .message-image-upload.allow {
+    color: #1CB94E; }
+  .message-image-upload.rejected {
+    color: red; }
+
+/*===========================
+      end user_page_page
+===========================*/
+/*===========================
+        table-cart-list
+===========================*/
+.table-cart-list .thumbnail {
+  float: left; }
+
+.table-cart-list .input-number {
+  max-width: 70px; }
+
+/*===========================
+      end table-cart-list
+===========================*/
 .center {
   text-align: center;
   margin: auto; }
@@ -663,9 +730,65 @@
 .panel-hide {
   display: none; }
 
+/*-----------margin----------*/
+/*margin-right*/
 .mb15 {
   margin-bottom: 15px; }
 
+.mg_lr15 {
+  margin-left: 15px;
+  margin-right: 15px; }
+
+.mg_r10 {
+  margin-right: 10px; }
+
+.mg_r15 {
+  margin-right: 15px; }
+
+.mg_r30 {
+  margin-right: 30px; }
+
+.mg_r50 {
+  margin-right: 50px; }
+
+/*margin-bottom*/
+.mb15 {
+  margin-bottom: 15px; }
+
+.mg_b15 {
+  margin-bottom: 15px; }
+
+.mg_b10 {
+  margin-bottom: 10px; }
+
+.mg_b15 {
+  margin-bottom: 15px; }
+
+.mg_b30 {
+  margin-bottom: 30px; }
+
+.mg_b50 {
+  margin-bottom: 50px; }
+
+/*-----------margin----------*/
+/*----------button----------*/
+.btn-change-text[content]:after {
+  content: attr(content); }
+
+@media all and (max-width: 768px) {
+  .btn-change-text[content]:after {
+    content: ''; }
+  .btn-responsive {
+    width: 100%;
+    margin: 10px auto; } }
+
+/*----------button----------*/
+/*----------element----------*/
+@media all and (max-width: 768px) {
+  .el-reponsive {
+    display: none; } }
+
+/*----------element----------*/
 /*===========================
      animation css
 ===========================*/
@@ -1235,15 +1358,6 @@ a:hover, a:focus {
   margin-left: -6px; }
 
 /*end scroll button*/
-/*table-cart-list*/
-.table-cart-list {
-  /* &>tbody>tr>td{
-        padding: 0px;
-    }*/ }
-  .table-cart-list .thumbnail {
-    float: left; }
-
-/*end table-cart-list*/
 /*panel filter*/
 .group-collection {
   background: #f9f9f9;
@@ -1294,42 +1408,8 @@ a:hover, a:focus {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  /*  margin: 0 auto;*/ }
+  display: flex; }
 
-/*.group-collection input[type='checkbox']:after, .group-collection input[type='radio']:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 2px;
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border: 1px solid #cedadd;
-    cursor: pointer;
-    border-radius: 2px;
-}
-.group-collection input[type='checkbox']:before,.group-collection input[type='radio']:before {
-    -webkit-transition: -webkit-transform .4s cubic-bezier(.45,1.8,.5,.75);
-    -moz-transition: -moz-transform .4s cubic-bezier(.45,1.8,.5,.75);
-    transition: transform .4s cubic-bezier(.45,1.8,.5,.75);
-    -webkit-transform: rotate(-45deg) scale(0,0);
-    -moz-transform: rotate(-45deg) scale(0,0);
-    -ms-transform: rotate(-45deg) scale(0,0);
-    -o-transform: rotate(-45deg) scale(0,0);
-    transform: rotate(-45deg) scale(0,0);
-    content: "";
-    position: absolute;
-    left: 3px;
-    top: 6px;
-    margin: auto;
-    z-index: 1;
-    width: 10px;
-    height: 5px;
-    border: 2px solid #58b3f0;
-    border-top-style: none;
-    border-right-style: none;
-}*/
 /*end panel filter*/
 /*===========================
         Contact_page
@@ -2207,7 +2287,7 @@ button.btn-style-add:hover {
       width: 300px !important;
       height: 300px !important; }
     .footer-container.image-larger ~ .slider_quickview {
-      width: 300px !important; } }
+      width: 250px !important; } }
 
 /*===========================
        end  responsive

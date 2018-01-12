@@ -244,19 +244,7 @@ a:hover, a:focus {
     margin-top: -8px;
     margin-left: -6px;
 }
-
 /*end scroll button*/
-
-/*table-cart-list*/
-.table-cart-list{
-   /* &>tbody>tr>td{
-        padding: 0px;
-    }*/
-    .thumbnail{
-        float: left;
-    }
-}
-/*end table-cart-list*/
 
 /*panel filter*/
 .group-collection{
@@ -316,40 +304,5 @@ a:hover, a:focus {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-  /*  margin: 0 auto;*/
 }
-
-/*.group-collection input[type='checkbox']:after, .group-collection input[type='radio']:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 2px;
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border: 1px solid #cedadd;
-    cursor: pointer;
-    border-radius: 2px;
-}
-.group-collection input[type='checkbox']:before,.group-collection input[type='radio']:before {
-    -webkit-transition: -webkit-transform .4s cubic-bezier(.45,1.8,.5,.75);
-    -moz-transition: -moz-transform .4s cubic-bezier(.45,1.8,.5,.75);
-    transition: transform .4s cubic-bezier(.45,1.8,.5,.75);
-    -webkit-transform: rotate(-45deg) scale(0,0);
-    -moz-transform: rotate(-45deg) scale(0,0);
-    -ms-transform: rotate(-45deg) scale(0,0);
-    -o-transform: rotate(-45deg) scale(0,0);
-    transform: rotate(-45deg) scale(0,0);
-    content: "";
-    position: absolute;
-    left: 3px;
-    top: 6px;
-    margin: auto;
-    z-index: 1;
-    width: 10px;
-    height: 5px;
-    border: 2px solid #58b3f0;
-    border-top-style: none;
-    border-right-style: none;
-}*/
 /*end panel filter*/

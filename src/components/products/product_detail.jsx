@@ -40,7 +40,9 @@ class ProductDetail extends React.Component {
                     <main className="main-contain">
                         <div className="container">
                             <Link to="/">
-                               ve page home
+                                <button type="button" className="btn btn-default mg_b10 btn-responsive">
+                                    <span className="glyphicon glyphicon-arrow-left"/> Về trang chủ
+                                </button>
                             </Link>
                         </div>
                         <div className="container">

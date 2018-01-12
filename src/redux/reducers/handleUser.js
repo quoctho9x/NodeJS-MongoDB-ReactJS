@@ -8,10 +8,10 @@ export default (state = obj, action) => {
             return { loading: true };
         case RECEIVE_USERLOGIN:
             var user = Object.assign({}, action.obj.user);
-            /*console.log('user login ne', user);*/
+            /* console.log('user login ne', user); */
             if (user.success) {
                 /* console.log('dang nhap thanh cong'); */
-                setCookie('user', user.token, user.expiresIn);
+                setCookie('user', user.token, user.expiresIn);// server set is 3600(1hour)
                 return {status: true, user: user.user};
             }
             /* console.log('dang nhap that bai');
