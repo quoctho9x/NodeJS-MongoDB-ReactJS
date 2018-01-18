@@ -101,36 +101,14 @@ class Items extends React.Component {
             <div id="menu-mobile">
                 <div className="clearfix">
                     <div className="account_mobile" >
-                        <div className="text-center icon-avatar">
-                            <img src={ avatar_default } alt="avatar_default"/>
-                        </div>
-                        <ul className="account_text text-center">
-
-                            {/* <li>
-                                <Link to="/login">
-                                    Đăng nhập
-                                </Link>
-                            </li> */}
-                            <li>
-                                <Userburger/>
-                            </li>
-                            {/* <li>|</li>
-                            <li>
-                                <Link to="/login">
-                                    <span className="glyphicon glyphicon-user" aria-hidden="true"/>Đăng
-                                    nhập
-                                </Link>
-                            </li> */}
-                        </ul>
+                        <Userburger/>
                     </div>
                     <ul className="menu-mobile">
-
                         <li className="current">
                             <Link to="/">
                                 <span className="glyphicon glyphicon-home" aria-hidden="true"/>Trang chủ
                             </Link>
                         </li>
-
                         <li className="">
                             <Link to="/about">
                                 <span className="glyphicon glyphicon-list" aria-hidden="true"/>Giới thiệu

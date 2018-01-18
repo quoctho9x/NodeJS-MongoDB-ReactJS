@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {requestApiData, requestCounter} from '../../redux/actions/actions';
 import {requestAddtocart} from '../../redux/actions/action_addtocart';
 import {requestUserlogout} from '../../redux/actions/actions_user';
+import avatar_default from '../../images/avatar_default.png';
 class Userburger extends React.Component {
     handleLogout () {
         this.props.requestUserlogout();
@@ -16,6 +17,21 @@ class Userburger extends React.Component {
             length += item.quantity;
         });
         let countItem = (cart.length > 0) ? <span className="badge-custom">{length}</span> : '';
+        const DisplayAvatar = () => {
+            if (user.status) {
+                return (
+                    <div className="text-center icon-avatar">
+                        <img className="img-circle img-responsive" src={(user.loading !== true) ? user.user.avatar : avatar_default } alt="avatar_default"/>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="text-center icon-avatar">
+                        <img className="img-circle img-responsive" src={ avatar_default } alt="avatar_default"/>
+                    </div>
+                );
+            }
+        };
         const displayUserName = () => {
             return (user.status) ? user.user.email : null;
         };
@@ -28,24 +44,31 @@ class Userburger extends React.Component {
         const displayLoginLogout = () => {
             return (user.status) ? <Logout/> : <Login/>;
         };
-        /*console.log(displayLoginLogout());*/
         return (
-            <div className="user-burger">
-                <i className="user-burger-name">
-                    <Link to="/login">
-                        {displayUserName()}
-                    </Link>
-                </i>
-                <span>
-                    {displayLoginLogout()}
-                </span>
-                <i>|</i>
-                <span className="icon-cart">
-                    <Link to="/cart">
+            <ul className="account_text text-center">
+                <li>
+                    <DisplayAvatar/>
+                </li>
+                <li>
+                    <div className="user-burger">
+                        <i className="user-burger-name">
+                            <Link to="/login">
+                                {displayUserName()}
+                            </Link>
+                        </i>
+                        <span>
+                            {displayLoginLogout()}
+                        </span>
+                        <i>|</i>
+                        <span className="icon-cart">
+                            <Link to="/cart">
                         Vỏ Hàng{countItem}
-                    </Link>
-                </span>
-            </div>
+                            </Link>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+
         );
     }
 }
