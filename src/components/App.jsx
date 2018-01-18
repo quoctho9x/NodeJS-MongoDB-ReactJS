@@ -10,6 +10,7 @@ import News from './news/news';
 import NewsDetail from './news/detail_news';
 import Topics from './topics/Topics';
 import Cart from './cart/cart';
+import Order from './cart/cart-order/Order';
 import Login from './users/login';
 import Account from './users/account';
 import Home from './home/Home';
@@ -63,6 +64,7 @@ class App extends React.Component {
                         <Route exact path="/news" component={News}/>
                         <Route exact path="/news/:index" component={NewsDetail}/>
                         <Route exact path="/cart" component={Cart}/>
+                        <Route exact path="/cart/order" component={Order}/>
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/account" component={Account}/>
                         <Route exact path="/contacts" component={Contacts}/>

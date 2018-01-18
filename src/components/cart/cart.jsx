@@ -84,9 +84,11 @@ class Cart extends React.Component {
                                     <span className="glyphicon glyphicon-shopping-cart"/> Tiếp tục mua hàng
                                 </button>
                             </Link>
-                            <button type="button" className="btn btn-success btn-responsive">
-                                Đặt Hàng <span className="glyphicon glyphicon-play"/>
-                            </button>
+                            <Link to="/cart/order">
+                                <button type="button" className="btn btn-success btn-responsive">
+                                    Đặt Hàng <span className="glyphicon glyphicon-play"/>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

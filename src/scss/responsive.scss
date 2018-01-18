@@ -8,12 +8,21 @@
     }
 
 }
+
+
 /*ipad*/
 @media all and (max-width: 1199px) {
     .main-contain{
        /* margin-top: 0px;*/
     }
 }
+/*ipad small*/
+@media (min-width: 992px) {
+    .order-info {
+        float: right;
+    }
+}
+
 /*mobile*/
 @media all and (max-width: 768px) {
     .main-contain{
