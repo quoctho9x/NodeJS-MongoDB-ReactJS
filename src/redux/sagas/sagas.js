@@ -6,7 +6,7 @@ import { loadDashboardSequenced } from './loadDashboardSequenced';
 import { loadDashboardNonSequenced } from './loadDashboardNonSequenced';
 import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight } from './loadDashboardNonSequencedNonBlocking';
 import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
-import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken } from './handleUser';
+import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken, userUpdate } from './handleUser';
 import { clearNotification } from './handleNotification';
 import { getProductsList, getAllProducts } from './handleProducts';
 import { getAllNews } from './handleNews';
@@ -50,6 +50,7 @@ export default function * mySaga () {
     yield fork(getuserfromtoken);// get user after request
     yield takeLatest('REQUEST_USERLOGIN', userlogin);
     yield takeLatest('REQUEST_USERLOGOUT', userlogout);
+    yield takeLatest('REQUEST_USERUPDATE', userUpdate);
     /* notification */
     yield takeLatest('REQUEST_NOTICLEAR', clearNotification);// request use
     /* products */

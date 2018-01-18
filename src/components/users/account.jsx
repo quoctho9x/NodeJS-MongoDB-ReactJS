@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {requestUserlogin, requestUserlogout} from '../../redux/actions/actions_user';
 import { Redirect } from 'react-router-dom';
 import avatar_default from '../../images/avatar_default.png';
+import { Loading } from '../common/index';
 import ModalEdit from './edit_modal';
 class Account extends React.Component {
     constructor (props) {
@@ -19,12 +20,13 @@ class Account extends React.Component {
         let {user} = this.props;
         if (user.loading) {
             return (
-                <div className="container">
-                    <h1>loading...</h1>
-                </div>
+                <main className="main-contain">
+                    <div className="container">
+                        <Loading background={true}/>
+                    </div>
+                </main>
             );
         }
-        /* console.log('user ne', user); */
         if (user.status === false && user.constructor === Object) {
             return <Redirect to="/login" />;
         }
@@ -43,17 +45,17 @@ class Account extends React.Component {
                                         <li className="list-group-item text-muted">Thông tin tài khoản</li>
                                         <li className="list-group-item text-right">
                                             <div className="text-center icon-avatar">
-                                                <img className="img-circle img-responsive" src={ avatar_default } alt="avatar_default"/>
+                                                <img className="img-circle img-responsive" src={(user.user.avatar !== '') ? user.user.avatar : avatar_default } alt="avatar_default"/>
                                             </div>
                                         </li>
-                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Tên</strong></span> Admin</li>
+                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Tên</strong></span> {user.user.user_name}</li>
                                         <li className="list-group-item text-right"><span className="pull-left"><strong>Email</strong></span> {user.user.email}</li>
-                                        <li className="list-group-item text-right"><span className="pull-left"><strong>SDT</strong></span> +391236669992</li>
-                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Ngày Sinh</strong></span> 23/07/2016</li>
-                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Địa chỉ</strong></span> quận 1, Tp.HCM</li>
+                                        <li className="list-group-item text-right"><span className="pull-left"><strong>SDT</strong></span> {user.user.phone} </li>
+                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Ngày Sinh</strong></span> {user.user.birthday}</li>
+                                        <li className="list-group-item text-right"><span className="pull-left"><strong>Địa chỉ</strong></span> {user.user.address} </li>
                                         <li className="list-group-item text-right">
                                             <div className="group-btn">
-                                                <ModalEdit/>
+                                                <ModalEdit user = {user.user}/>
                                                 <button type="button" onClick={this.handleLogout.bind(this)} className=" btn btn-warning btn-sm"><span className="glyphicon glyphicon-log-out"> Logout</span></button>
                                             </div>
                                         </li>

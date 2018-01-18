@@ -13,10 +13,10 @@ export const fetchData = async () => {
         console.log(e);
     }
 };
-
+// https://quoctho.herokuapp.com/api/users/authenticate
 export const fetchUserData = async (req) => {
     try {
-        let payload = `user_name=${req.email}&password=${req.password}`;
+        let payload = `email=${req.email}&password=${req.password}`;
         const response = await fetch('https://quoctho.herokuapp.com/api/users/authenticate', {
             method : 'POST',
             headers: {
@@ -44,6 +44,22 @@ export const fetchUserToken = async (req) => {
         });
         const data = await response.json();
         return {data};
+    } catch (e) {
+        console.log(e);
+    }
+};
+export const fetchUpdateUser = async (object) => {
+    try {
+        let user = JSON.stringify(object.user);
+        let data = new FormData();
+        data.append('file', object.image);
+        data.append('user', user);
+        const response = await fetch('https://quoctho.herokuapp.com/api/upload', {
+            method: 'Post',
+            body  : data
+        });
+        const res_data = await response.json();
+        return {payload: res_data};
     } catch (e) {
         console.log(e);
     }

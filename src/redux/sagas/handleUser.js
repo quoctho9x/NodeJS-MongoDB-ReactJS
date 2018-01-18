@@ -1,7 +1,7 @@
 import { call, put, select, take } from 'redux-saga/effects';
-import { receiveUserlogin, receiveUserlogout, receiveMapuser, requestMapuser } from '../actions/actions_user';
+import { receiveUserlogin, receiveUserlogout, receiveMapuser, requestMapuser, requestUserUpdate, receiveUserUpdate } from '../actions/actions_user';
 import { receiveUserNoti, receiveNotiClear } from '../actions/action_notification';
-import {fetchUserData, fetchUserToken} from '../fetch_api/api';
+import {fetchUserData, fetchUserToken, fetchUpdateUser} from '../fetch_api/api';
 import {setCookie, getCookie, checkCookie} from '../../services/cookie';
 
 export function * requestuserfromtoken () {
@@ -30,7 +30,6 @@ export function * getuserfromtoken () {
 }
 export function * userlogin (action) {
     try {
-        /*  console.log('user login handle user', action.obj); */
         const User_login = yield call(fetchUserData, action.obj);
         const user = User_login.data;
         if (user.success) {
@@ -44,6 +43,16 @@ export function * userlogin (action) {
         }
     } catch (error) {
         yield put({type: 'FAILED_USERLOGIN', error: error.message});
+    }
+}
+export function * userUpdate (action) {
+    try {
+        const User_update = yield call(fetchUpdateUser, action.obj);
+        const user = User_update.payload;
+        yield put(receiveUserUpdate({user: user}));
+        yield put(receiveUserNoti({show: true, smg: 'Cập nhật thành công!', type: 'success'}));
+    } catch (error) {
+        yield put({type: 'FAILED_USERUPDATE', error: error.message});
     }
 }
 export function * userlogout (action) {

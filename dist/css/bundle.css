@@ -651,7 +651,8 @@
 
 .img-circle {
   margin: auto;
-  max-width: 80px; }
+  width: 80px;
+  height: 80px; }
 
 .group-btn {
   text-align: left; }
