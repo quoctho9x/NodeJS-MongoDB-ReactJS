@@ -5,8 +5,8 @@ import {loadUser} from './loadUser';
 import { loadDashboardSequenced } from './loadDashboardSequenced';
 import { loadDashboardNonSequenced } from './loadDashboardNonSequenced';
 import { loadDashboardNonSequencedNonBlocking, isolatedForecast, isolatedFlight } from './loadDashboardNonSequencedNonBlocking';
-import { addToCart, updateitemcart, removeitemcart, getstorage } from './addToCart';
-import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken, userUpdate } from './handleUser';
+import { addToCart, updateitemcart, removeitemcart, getstorage, ordercart } from './addToCart';
+import { userlogin, userlogout, getuserfromtoken, requestuserfromtoken, userUpdate, orderofuser } from './handleUser';
 import { clearNotification } from './handleNotification';
 import { getProductsList, getAllProducts } from './handleProducts';
 import { getAllNews } from './handleNews';
@@ -33,9 +33,12 @@ export default function * mySaga () {
     yield fork(getApiData);
     yield fork(getstorage);
     yield takeLatest('REQUEST_COUNTER', counter);
-    yield takeLatest('REQUEST_ADDTOCART', addToCart);
     yield takeLatest('REQUEST_UPDATEITEMCART', updateitemcart);
     yield takeLatest('REQUEST_REMOVEITEMCART', removeitemcart);
+    /* cart */
+    yield takeLatest('REQUEST_ADDTOCART', addToCart);
+    yield takeLatest('REQUEST_ORDERCART', ordercart);
+
     /* The saga is waiting for a action called LOAD_DASHBOARD to be activated */
     yield [
         fork(loadUser),
@@ -51,6 +54,7 @@ export default function * mySaga () {
     yield takeLatest('REQUEST_USERLOGIN', userlogin);
     yield takeLatest('REQUEST_USERLOGOUT', userlogout);
     yield takeLatest('REQUEST_USERUPDATE', userUpdate);
+    yield takeLatest('REQUEST_ORDEROFUSER', orderofuser);
     /* notification */
     yield takeLatest('REQUEST_NOTICLEAR', clearNotification);// request use
     /* products */

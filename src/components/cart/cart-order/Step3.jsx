@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {requestAddtocart, requestUpdateitemcart, requestRemoveitemcart} from '../../../redux/actions/action_addtocart';
+import {requestOrderCart} from '../../../redux/actions/action_addtocart';
 
 class Step3 extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {
-            total: 0
-        };
+        this.state = {samplePay: {}};
+    }
+    componentWillMount () {
+        let {getStore} = this.props;
+        this.setState({samplePay: getStore()});
+        // console.log('componentWillMount', getStore());
     }
     getvalueinput (item, e) {
         let value = e.target.value;
@@ -19,10 +22,17 @@ class Step3 extends React.Component {
         }
         this.props.requestUpdateitemcart({item, value});
     }
+    handleOrderCart () {
+        let {getStore} = this.props;
+        this.props.requestOrderCart(getStore());
+        this.props.history.push('/');
+    }
     render () {
-        let {cart, match} = this.props;
-        let length = 0, total = 0;
-        const ListItems = Object.values(cart).map((item, key) => {
+        // let {match} = this.props;
+        let {samplePay} = this.state;
+        //console.log('samplePay', samplePay);
+        let length = 0, total = 0, cost_transport = 5;
+        const ListItems = Object.values(samplePay.cart).map((item, key) => {
             length += item.quantity;
             total += item.quantity * item.price;
             return (
@@ -59,7 +69,7 @@ class Step3 extends React.Component {
                         <div className="thankyou-message-text">
                             <h3>Cảm ơn bạn đã đặt hàng</h3>
                             <p>
-                                Một email xác nhận đã được gửi tới quoctho9x@gmail.com. Xin vui lòng kiểm tra email của bạn
+                                Một email xác nhận đã được gửi tới {samplePay.user.email} Xin vui lòng kiểm tra email của bạn
                             </p>
                         </div>
                     </div>
@@ -67,24 +77,24 @@ class Step3 extends React.Component {
                         <table className="table table-hover table-cart-list">
                             <thead>
                                 <tr>
-                                    <th>Sản Phẩm</th>
+                                    <th><h3 className="mg_none">Đơn hàng</h3></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {ListItems}
                                 <tr>
                                     <td>
-                                        <h5>Tạm tính : <strong>${total}</strong></h5>
+                                        <h5 className="mg_none">Tạm tính : <strong>${total}</strong></h5>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h5>phí vận chuyển : <strong>${total}</strong></h5>
+                                        <h5 className="mg_none">phí vận chuyển : <strong>${cost_transport}</strong></h5>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h3>Tổng tiền : <strong>${total}</strong></h3>
+                                        <h3 className="mg_none">Tổng tiền : <strong>${total + cost_transport}</strong></h3>
                                     </td>
                                 </tr>
                             </tbody>
@@ -101,9 +111,10 @@ class Step3 extends React.Component {
                                             <h4>Thông tin nhận hàng</h4>
                                         </div>
                                         <div className="summary-section no-border no-padding-top">
-                                            <p className="address-name">address-name</p>
-                                            <p className="address-address">address-address</p>
-                                            <p className="address-phone">address-phone</p>
+                                            <p className="user-name"><strong>Tên:</strong> {samplePay.user.name}</p>
+                                            <p className="user-email"><strong>Email:</strong> {samplePay.user.email}</p>
+                                            <p className="user-phone"><strong>SĐT:</strong> {samplePay.user.phone}</p>
+                                            <p className="user-birthday"><strong>Ngày sinh:</strong> {samplePay.user.birthday}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -114,9 +125,10 @@ class Step3 extends React.Component {
                                             <h4>Thông tin thanh toán</h4>
                                         </div>
                                         <div className="summary-section no-border no-padding-top">
-                                            <p className="address-name">address-name</p>
-                                            <p className="address-address">address-name</p>
-                                            <p className="address-phone">address-phone</p>
+                                            <p className="user-address"><strong>Đia chỉ:</strong> {samplePay.user.address}</p>
+                                            <p className="user-dateIsGood"><strong>Ngày Nhận:</strong> {samplePay.user.dateIsGood}</p>
+                                            <p className="user-time"><strong>Giờ Nhận:</strong> {samplePay.user.time}</p>
+                                            <p className="user-note"><strong>Ghi chú:</strong> {samplePay.user.note}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +140,7 @@ class Step3 extends React.Component {
                                             <h4>Hình thức thanh toán</h4>
                                         </div>
                                         <div className="summary-section no-border no-padding-top">
-                                            <span>Thanh toán khi giao hàng (COD)</span>
+                                            <span><strong>{samplePay.thanhtoan.pay}</strong></span>
                                         </div>
                                     </div>
                                 </div>
@@ -138,15 +150,15 @@ class Step3 extends React.Component {
                                             <h4>Hình thức vận chuyển</h4>
                                         </div>
                                         <div className="summary-section no-border no-padding-top">
-                                            <span>Giao hàng tận nơi - 40.000₫</span>
+                                            <span><strong>{samplePay.thanhtoan.transport}</strong></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="order-success unprint">
-                                <Link to="/" className="btn btn-primary btn-lg">
+                                <div className="btn btn-primary btn-lg" onClick={this.handleOrderCart.bind(this)}>
                                     Tiến hành đặt hàng
-                                </Link>
+                                </div>
                                 <a onClick={window.print} className="nounderline print-link" href="javascript:void(0)">
                                     <div className="print-link__block clearfix">
                                         <i className="fa fa-print icon-print" aria-hidden="true"/> In
@@ -162,6 +174,6 @@ class Step3 extends React.Component {
 }
 
 const mapStateToProps = state => ({cart: state.cart});
-const mapDispatchToProps = dispatch => bindActionCreators({requestAddtocart, requestUpdateitemcart, requestRemoveitemcart}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({requestOrderCart}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Step3);

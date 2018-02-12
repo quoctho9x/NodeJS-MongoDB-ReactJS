@@ -1,4 +1,4 @@
-import { REQUEST_USERLOGIN, RECEIVE_USERLOGIN, RECEIVE_USERLOGOUT, REQUEST_USERLOGOUT, REQUEST_MAPUSER, RECEIVE_MAPUSER, REQUEST_USERUPDATE, RECEIVE_USERUPDATE } from '../actions/actions_user';
+import { REQUEST_USERLOGIN, RECEIVE_USERLOGIN, RECEIVE_USERLOGOUT, REQUEST_USERLOGOUT, REQUEST_MAPUSER, RECEIVE_MAPUSER, REQUEST_USERUPDATE, RECEIVE_USERUPDATE, RECEIVE_ORDEROFUSER } from '../actions/actions_user';
 import {setCookie, getCookie, checkCookie} from '../../services/cookie';
 export const obj = {status: false};
 
@@ -39,6 +39,11 @@ export default (state = obj, action) => {
             var user_update = Object.assign({}, action.obj.user);
             // console.log('user reducers', user_update);
             return {status: true, user: user_update};
+        case RECEIVE_ORDEROFUSER:
+            var orderofuser = Object.assign({}, action.obj);
+            state.orderofuser = orderofuser;
+            // console.log('orderofuser user reducers', state);
+            return state;
         default:
             return state;
     }

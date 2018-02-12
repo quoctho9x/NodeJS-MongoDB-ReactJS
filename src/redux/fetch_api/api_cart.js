@@ -1,11 +1,11 @@
 import { products_list, user_list } from './data';
 import {ApiService} from './configApiService';
-export const fetchData = async () => {
+/* export const fetchData = async () => {
     try {
         const response = await fetch('https://randomuser.me/api');
         const data = await response.json();
-        /* const response2 = await fetch('http://localhost:3000/users');
-        const data2 = await response2.json(); */
+        /!* const response2 = await fetch('http://localhost:3000/users');
+        const data2 = await response2.json(); *!/
         // console.log('day la ket qua khi ghe api', {data, products_list});
         // console.log('listproduct', listproduct);
         return {data, products_list};
@@ -47,38 +47,21 @@ export const fetchUserToken = async (req) => {
     } catch (e) {
         console.log(e);
     }
-};
-export const fetchUpdateUser = async (object) => {
-    try {
-        let user = JSON.stringify(object.user);
-        let data = new FormData();
-        data.append('file', object.image);
-        data.append('user', user);
-        const response = await fetch('https://quoctho.herokuapp.com/api/upload', {
-            method: 'Post',
-            body  : data
-        });
-        const res_data = await response.json();
-        return {payload: res_data};
-    } catch (e) {
-        console.log(e);
-    }
-};
-
-export const fetchOrderOfUser = async (object) => {
+}; */
+export const fetchOrderCart = async (object) => {
     try {
         let object_new = JSON.stringify(object);
-        let info_user = `info_user=${object_new}`;
-        // console.log('fetchOrderOfUser', info_user);
-        const response = await fetch('https://quoctho.herokuapp.com/api/carts/cartsforuser', {
+        let cart = `orderCart=${object_new}`;
+        // console.log(cart);
+        const response = await fetch('https://quoctho.herokuapp.com/api/carts', {
             method : 'Post',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
             },
-            body: info_user
+            body: cart
         });
         const res_data = await response.json();
-        // console.log('ket qua tra ve', res_data);
+        // console.log(res_data);
         return {payload: res_data};
     } catch (e) {
         console.log(e);

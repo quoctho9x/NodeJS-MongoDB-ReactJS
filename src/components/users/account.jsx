@@ -1,7 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {requestUserlogin, requestUserlogout} from '../../redux/actions/actions_user';
+import {requestUserlogin, requestUserlogout, requestOrderOfUse} from '../../redux/actions/actions_user';
 import { Redirect } from 'react-router-dom';
 import avatar_default from '../../images/avatar_default.png';
 import { Loading } from '../common/index';
@@ -9,8 +9,29 @@ import ModalEdit from './edit_modal';
 class Account extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {isLogin: true, response: true};
+        this.state = {isLogin: false, response: true, orderofuser: {}};
     }
+    componentDidUpdate () {
+        if (this.props.user.status && !this.state.isLogin) {
+            this.props.requestOrderOfUse();
+            this.setState({isLogin: true});
+        }
+
+        // console.log('user', this.props.user.orderofuser);
+    }
+    componentWillReceiveProps (nextProps) {
+        // console.log('user this lon',this);
+        let seft = this;
+        var interval = setInterval(function () {
+            if (nextProps.user.orderofuser !== undefined) {
+                // console.log('user', nextProps.user.orderofuser);
+                // console.log('user this nho',seft);
+                clearInterval(interval);
+                seft.setState({orderofuser: nextProps.user.orderofuser});
+            }
+        }, 200);
+    }
+
     handleLogout () {
         // xoa localStorage
         this.props.requestUserlogout();
@@ -18,6 +39,11 @@ class Account extends React.Component {
     }
     render () {
         let {user} = this.props;
+        let {orderofuser} = this.state;
+        console.log('user is state', this.state.orderofuser);
+        /*  setInterval(function () {
+            console.log('user', user.orderofuser);
+        }, 2000); */
         if (user.loading) {
             return (
                 <main className="main-contain">
@@ -108,6 +134,6 @@ class Account extends React.Component {
 }
 
 const mapStateToProps = state => ({user: state.inforUser});
-const mapDispatchToProps = dispatch => bindActionCreators({requestUserlogin, requestUserlogout}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({requestUserlogin, requestUserlogout, requestOrderOfUse}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

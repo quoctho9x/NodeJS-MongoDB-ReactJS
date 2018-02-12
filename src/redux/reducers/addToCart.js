@@ -1,4 +1,4 @@
-import { RECEIVE_ADDTOCART, RECEIVE_UPDATEITEMCART, RECEIVE_REMOVEITEMCART, RECEIVE_MAPSTORAGETOSTORE } from '../actions/action_addtocart';
+import { RECEIVE_ADDTOCART, RECEIVE_UPDATEITEMCART, RECEIVE_REMOVEITEMCART, RECEIVE_MAPSTORAGETOSTORE, REQUEST_ORDERCART, RECEIVE_ORDERCART } from '../actions/action_addtocart';
 export const obj = [];
 
 export default (state = obj, action) => {
@@ -56,6 +56,13 @@ export default (state = obj, action) => {
                 document.write('Trình duyệt của bạn không hỗ trợ local storage');
             }
             return [...state];
+        case REQUEST_ORDERCART:
+            return { loading: true };
+        case RECEIVE_ORDERCART:
+            var cart = Object.assign({}, action.obj);
+            save('');
+            // console.log('cart reducers remove', cart);
+            return {loading: false};
         default:
             return [...state];
     }
@@ -67,10 +74,4 @@ function save (cart) {
     } else {
         document.write('Trình duyệt của bạn không hỗ trợ local storage');
     }
-    /* if (typeof (Storage) !== 'undefined') {
-        let domain = localStorage.getItem('domain');
-        console.log(JSON.parse(domain)); // kết quả freetuts.net
-    } else {
-        document.write('Trình duyệt của bạn không hỗ trợ local storage');
-    } */
 }

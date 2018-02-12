@@ -1,9 +1,10 @@
 import { call, put, select, take } from 'redux-saga/effects';
-import { receiveUserlogin, receiveUserlogout, receiveMapuser, requestMapuser, requestUserUpdate, receiveUserUpdate } from '../actions/actions_user';
+import { receiveUserlogin, receiveUserlogout, receiveMapuser, requestMapuser, requestUserUpdate, receiveUserUpdate, receiveOrderOfUse } from '../actions/actions_user';
 import { receiveUserNoti, receiveNotiClear } from '../actions/action_notification';
-import {fetchUserData, fetchUserToken, fetchUpdateUser} from '../fetch_api/api';
+import {fetchUserData, fetchUserToken, fetchUpdateUser, fetchOrderOfUser} from '../fetch_api/api';
 import {setCookie, getCookie, checkCookie} from '../../services/cookie';
 
+export const getUserFromState = (state) => state.inforUser;
 export function * requestuserfromtoken () {
     try {
         yield put(requestMapuser());
@@ -61,5 +62,17 @@ export function * userlogout (action) {
         yield put(receiveUserNoti({show: true, smg: 'Goodbye see you again! ', type: 'info'}));
     } catch (error) {
         yield put({type: 'FAILED_USERLOGOUT', error: error.message});
+    }
+}
+
+export function * orderofuser (action) {
+    try {
+        // Take the user info from the store
+        const user = yield select(getUserFromState);
+        const orderofuser = yield call(fetchOrderOfUser, user.user);
+        // console.log('day la user lay duoc', orderofuser);
+        yield put(receiveOrderOfUse(orderofuser.payload));
+    } catch (error) {
+        yield put({type: 'FETCH_FAILED_ORDEROFUSER', error: error.message});
     }
 }

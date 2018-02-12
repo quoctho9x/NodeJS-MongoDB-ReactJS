@@ -44,4 +44,5 @@ if (NodeService.isProduction()) {
     }).listen(process.env.PORT || PORT, 'localhost', error => {
         console.log(error || `Started WebpackDevServer on port ${PORT}`);
     });
+    // IP localhost '192.168.1.18'
 }
